@@ -18,7 +18,7 @@ namespace RemiFetchFrame.Views
     /// <summary>
     /// Interaction logic for DataCollectionMenu.xaml
     /// </summary>
-    public partial class DataCollectionMenu : UserControl
+    public partial class DataCollectionMenu : Window
     {
         public DataCollectionMenu()
         {
@@ -27,7 +27,15 @@ namespace RemiFetchFrame.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Content = new CaseManagerView();
+            DataCollectionsDashboardView nextWin = new DataCollectionsDashboardView(); // this must be Window
+            nextWin.Show();  // Opens the new window
+
+            this.Close();    // Close current window (optional)
+        }
+
+        private void BtnItunes_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         //private void BtnItunes_Click(object sender, RoutedEventArgs e)

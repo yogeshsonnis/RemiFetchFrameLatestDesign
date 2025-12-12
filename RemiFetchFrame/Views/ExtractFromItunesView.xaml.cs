@@ -21,17 +21,17 @@ namespace RemiFetchFrame.Views
     /// <summary>
     /// Interaction logic for ExtractFromItunesView.xaml
     /// </summary>
-    public partial class ExtractFromItunesView : Page
+    public partial class ExtractFromItunesView : Window
     {
         private readonly AppShellFrame _parentShell;
         private readonly string _caseName = "Case001";
         private readonly string _matterNumber = "2025-INV-001";
         private readonly ObservableCollection<BackupItem> _backups;
 
-        public ExtractFromItunesView(AppShellFrame parentShell)
+        public ExtractFromItunesView(/*AppShellFrame parentShell*/)
         {
             InitializeComponent();
-            _parentShell = parentShell;
+          //  _parentShell = parentShell;
             _backups = new ObservableCollection<BackupItem>();
             BackupGrid.ItemsSource = _backups;
         }

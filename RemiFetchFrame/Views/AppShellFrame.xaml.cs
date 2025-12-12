@@ -26,7 +26,10 @@ namespace RemiFetchFrame.Views
         }
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Content = new CaseInventoryView();   // show next page/view
+            CaseInventoryView nextWin = new CaseInventoryView(); // this must be Window
+            nextWin.Show();  // Opens the new window
+
+            this.Close();    // Close current window (optional)
         }
         //    private void BtnNext_Click(object sender, RoutedEventArgs e)
         //    {

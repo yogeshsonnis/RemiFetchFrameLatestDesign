@@ -27,6 +27,14 @@ namespace RemiFetchFrame.Views
             //ContentFrame.Navigate(new TargetedCollectionsWizard1());
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ExtractFromItunesView nextWin = new ExtractFromItunesView(); // this must be Window
+            nextWin.Show();  // Opens the new window
+
+            this.Close();    // Close current window (optional)
+        }
+
         //// Targeted Collections
         //private void TargetedCollections_Click(object sender, RoutedEventArgs e)
         //{

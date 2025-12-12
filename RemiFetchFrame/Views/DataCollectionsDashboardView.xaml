@@ -84,6 +84,7 @@
                 <!-- Menu Buttons -->
                 <Button Content="Targeted Collections"
                       Style="{StaticResource NavButtonStyle}"
+                        Click="Button_Click"
                       /> <!--Click="TargetedCollections_Click"-->
                 <Button Content="Extract From"
                       Style="{StaticResource NavButtonStyle}"

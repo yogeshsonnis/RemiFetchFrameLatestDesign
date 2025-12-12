@@ -20,7 +20,7 @@ namespace RemiFetchFrame.Views
     /// <summary>
     /// Interaction logic for CaseManagerView.xaml
     /// </summary>
-    public partial class CaseManagerView : Page
+    public partial class CaseManagerView : Window
     {
         //private readonly AppShellFrame _parent;
         //private readonly DatabaseService _db;
@@ -37,7 +37,11 @@ namespace RemiFetchFrame.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Content = new DataCollectionMenu();
+            //this.Content = new DataCollectionMenu();
+            DataCollectionMenu nextWin = new DataCollectionMenu(); // this must be Window
+            nextWin.Show();  // Opens the new window
+
+            this.Close();    // Close current window (optional)
         }
 
         //private void LoadCases()
