@@ -4,6 +4,191 @@
              xmlns:local="clr-namespace:RemiFetchFrame"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <!-- Primary Colors -->
+        <Color x:Key="PrimaryBlue">#1565C0</Color>
+        <Color x:Key="PrimaryLightBlue">#1E88E5</Color>
+        <Color x:Key="AccentHover">#0D47A1</Color>
+        <Color x:Key="BackgroundGray">#FAFAFA</Color>
+
+        <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryBlue}"/>
+        <SolidColorBrush x:Key="AccentHoverBrush" Color="{StaticResource AccentHover}"/>
+        <SolidColorBrush x:Key="TextDarkBrush" Color="#333333"/>
+        <SolidColorBrush x:Key="TextMutedBrush" Color="#666666"/>
+        <SolidColorBrush x:Key="BorderBrushGray" Color="#E0E0E0"/>
+        <SolidColorBrush x:Key="CardBackgroundBrush" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="AppBackgroundBrush" Color="#F7F8FA"/>
+        <!-- Brushes -->
+        <LinearGradientBrush x:Key="PrimaryGradient" StartPoint="0,0" EndPoint="1,0">
+            <GradientStop Color="{StaticResource PrimaryBlue}" Offset="0.0" />
+            <GradientStop Color="{StaticResource PrimaryLightBlue}" Offset="1.0" />
+        </LinearGradientBrush>
+
+        <!-- Fonts -->
+        <FontFamily x:Key="DefaultFont">Segoe UI</FontFamily>
+
+
+        <Style x:Key="MenuButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#1565c0"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Margin" Value="0,3"/>
+            <Setter Property="Padding" Value="10,6"/>
+            <Setter Property="BorderBrush" Value="#ddd"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Tag" Value="Inactive"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="6"
+                        Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Left"
+                                      VerticalAlignment="Center"
+                                      Margin="8,0,0,0"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+
+                            <!-- Hover -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#e3f2fd"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="#1565c0"/>
+                                <Setter Property="Foreground" Value="#0d47a1"/>
+                            </Trigger>
+
+                            <!-- Clicked -->
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#bbdefb"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="#0d47a1"/>
+                            </Trigger>
+
+                            <!-- Active -->
+                            <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="Active">
+                                <Setter TargetName="Border" Property="Background" Value="#1565c0"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="#0d47a1"/>
+                            </DataTrigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+ <Style x:Key="TempBtn" TargetType="Button">
+     <Setter Property="FontFamily" Value="{StaticResource DefaultFont}"/>
+     <Setter Property="FontSize" Value="13"/>
+     <Setter Property="Foreground" Value="White"/>
+     <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
+     <Setter Property="BorderBrush" Value="Transparent"/>
+     <Setter Property="Padding" Value="8,4"/>
+     <Setter Property="Cursor" Value="Hand"/>
+     <Setter Property="SnapsToDevicePixels" Value="True"/>
+     <Setter Property="Template">
+         <Setter.Value>
+             <ControlTemplate TargetType="Button">
+                 <Border Background="{TemplateBinding Background}"
+                         CornerRadius="4"
+                         BorderBrush="{TemplateBinding BorderBrush}"
+                         BorderThickness="0">
+                     <ContentPresenter HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Margin="6,2,6,2"/>
+                 </Border>
+                 <ControlTemplate.Triggers>
+                     <Trigger Property="IsMouseOver" Value="True">
+                         <Setter Property="Background" Value="{StaticResource AccentHoverBrush}"/>
+                     </Trigger>
+                 </ControlTemplate.Triggers>
+             </ControlTemplate>
+         </Setter.Value>
+     </Setter>
+ </Style>
+        <!-- 🪶 Global Shadow Effect -->
+        <!--<DropShadowEffect x:Key="Shadow"
+                  BlurRadius="10"
+                  ShadowDepth="2"
+                  Opacity="0.25"/>-->
+
+        <!-- 🌈 Global Fade-In Animation for All Pages -->
+        <!--<Style x:Key="PageSty" TargetType="Page">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation
+                        Storyboard.TargetProperty="Opacity"
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.5"
+                        FillBehavior="HoldEnd"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>-->
+
+        <!-- 🌈 Global Fade-In for UserControls -->
+        <!--<Style TargetType="UserControl">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation
+                        Storyboard.TargetProperty="Opacity"
+                        From="0"
+                        To="1"
+                        Duration="0:0:0.5"
+                        FillBehavior="HoldEnd"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>-->
+
+        
+        
+
+        <!-- Button Style -->
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="{StaticResource DefaultFont}"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Padding" Value="8,4"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                        CornerRadius="4"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      Margin="6,2,6,2"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource AccentHoverBrush}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- TextBlock Defaults -->
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="{StaticResource DefaultFont}"/>
+        </Style>
     </Application.Resources>
 </Application>

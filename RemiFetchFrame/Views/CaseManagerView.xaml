@@ -1,0 +1,90 @@
+﻿<Page x:Class="RemiFetchFrame.Views.CaseManagerView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RemiFetchFrame.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CaseManagerView">
+
+    <Viewbox Stretch="Uniform" StretchDirection="Both" Margin="20">
+        <!-- Root grid for alignment -->
+        <Grid Width="980" Height="660" Background="#F5F7FA">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- Main Card -->
+            <Border Grid.Row="1"
+                 Background="White"
+                 CornerRadius="12"
+                 Padding="40"
+                 BorderBrush="#E0E3E8"
+                 BorderThickness="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Title -->
+                    <TextBlock Text="Case Manager"
+                            FontSize="26"
+                            FontWeight="Bold"
+                            Foreground="#333"
+                            Margin="0,0,0,20"
+                            HorizontalAlignment="Center" />
+
+                    <!-- Subtitle -->
+                    <TextBlock Text="Select an existing case or create a new one."
+                            FontSize="14"
+                            Foreground="#666"
+                            HorizontalAlignment="Center"
+                            Grid.Row="1"
+                            Margin="0,0,0,30"/>
+
+                    <!-- Buttons -->
+                    <StackPanel Grid.Row="2"
+                             Orientation="Horizontal"
+                             HorizontalAlignment="Center"
+                             >
+                        <Button Content="New Case"
+                             Width="160"
+                             Height="45"
+                             Background="#0066CC"
+                             Foreground="White"
+                             FontWeight="SemiBold"
+                             BorderThickness="0"
+                             Cursor="Hand"
+                                Click="Button_Click"
+                             /> <!--Click="NewCase_Click"-->
+
+                        <Button Content="Open Existing Case"
+                             Width="200"
+                             Height="45"
+                             Background="#E5E8ED"
+                             Foreground="#333"
+                             FontWeight="SemiBold"
+                             BorderBrush="#D0D4D8"
+                             Cursor="Hand"
+                             /> <!--Click="OpenCase_Click"-->
+                    </StackPanel>
+
+                    <!-- Footer -->
+                    <TextBlock Grid.Row="3"
+                            Text="Case files are automatically saved in your configured repository."
+                            FontSize="12"
+                            Foreground="#888"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Bottom"
+                            Margin="0,40,0,0" />
+                </Grid>
+            </Border>
+        </Grid>
+    </Viewbox>
+</Page>

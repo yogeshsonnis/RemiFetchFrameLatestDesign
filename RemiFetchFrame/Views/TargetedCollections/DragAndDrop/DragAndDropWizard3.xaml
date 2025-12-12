@@ -1,0 +1,129 @@
+<Page x:Class="RemiFetchFrame.Views.TargetedCollections.DragAndDrop.DragAndDropWizard3"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Targeted Collections - Drag &amp; Drop (Step 3)"
+      Background="{DynamicResource AppBackgroundBrush}">
+
+    <Grid Margin="20" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <!-- Header Progress -->
+        <Border Background="{DynamicResource CardBackgroundBrush}" CornerRadius="6" Padding="12"
+                BorderBrush="{DynamicResource BorderBrushGray}" BorderThickness="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <TextBlock Text="1. Select Target Method" Foreground="{DynamicResource TextMutedBrush}" />
+                <TextBlock Text="→" Foreground="{DynamicResource TextMutedBrush}" Margin="10,0"/>
+                <TextBlock Text="2. Drag &amp; Drop - Setup" Foreground="{DynamicResource TextMutedBrush}" />
+                <TextBlock Text="→" Foreground="{DynamicResource TextMutedBrush}" Margin="10,0"/>
+                <TextBlock Text="3. Collect &amp; Export" Foreground="{DynamicResource PrimaryBrush}" FontWeight="Bold"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Main Section -->
+        <Grid Grid.Row="1" Margin="0,20,0,20" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!-- Files Table -->
+            <Border Background="{DynamicResource CardBackgroundBrush}" CornerRadius="6"
+                    BorderBrush="{DynamicResource BorderBrushGray}" BorderThickness="1"
+                    Padding="15" Margin="0,0,0,15">
+                <StackPanel>
+                    <TextBlock Text="Files Added to Collection" FontWeight="Bold" FontSize="14"
+                               Foreground="{DynamicResource TextDarkBrush}" Margin="0,0,0,10"/>
+                    <DataGrid AutoGenerateColumns="False" Height="180"
+                              BorderBrush="{DynamicResource BorderBrushGray}" BorderThickness="1">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Header="" Width="30"/>
+                            <DataGridTextColumn Header="Filename" Width="*" />
+                            <DataGridTextColumn Header="File Type" Width="100" />
+                            <DataGridTextColumn Header="Size" Width="80" />
+                            <DataGridTextColumn Header="Path" Width="200" />
+                            <DataGridTextColumn Header="File Status" Width="100" />
+                            <DataGridTemplateColumn Header="Action" Width="80">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="✖" Foreground="Red" Width="25" Height="25"
+                                                HorizontalAlignment="Center" Background="Transparent" BorderThickness="0"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </Border>
+
+            <!-- Collection Progress -->
+            <Border Background="{DynamicResource CardBackgroundBrush}" CornerRadius="6"
+                    BorderBrush="{DynamicResource BorderBrushGray}" BorderThickness="1" Padding="15">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                        <TextBlock Text="Collection &amp; Export Status" FontWeight="Bold" FontSize="14"
+                                   Foreground="{DynamicResource TextDarkBrush}" Margin="0,0,0,5"/>
+                        <Button Content="Start" Width="80" Background="{DynamicResource PrimaryBrush}" Foreground="White"/>
+                    </StackPanel>
+                    <TextBlock Text="Collecting dropped files and preparing export package..."
+                               Foreground="{DynamicResource TextMutedBrush}" Margin="0,5"/>
+                    <ProgressBar Height="14" Minimum="0" Maximum="100" Value="65" Margin="0,5"/>
+                    <DockPanel>
+                        <TextBlock Text="65% Completed" DockPanel.Dock="Left" Foreground="{DynamicResource TextMutedBrush}"/>
+                        <TextBlock Text="Estimated Time: 00:01:32" DockPanel.Dock="Right" Foreground="{DynamicResource TextMutedBrush}"/>
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Metrics Row -->
+            <Grid Grid.Row="2"  Margin="0,15,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Background="{DynamicResource CardBackgroundBrush}" CornerRadius="6"
+                        BorderBrush="{DynamicResource BorderBrushGray}" BorderThickness="1" Padding="10" Margin="5">
+                    <StackPanel>
+                        <TextBlock Text="Export Summary" FontWeight="Bold" Foreground="{DynamicResource TextDarkBrush}"/>
+                        <TextBlock Text="Total Files Collected: 58" Foreground="{DynamicResource TextMutedBrush}"/>
+                        <TextBlock Text="Total Data Size: 2.4 GB" Foreground="{DynamicResource TextMutedBrush}"/>
+                        <TextBlock Text="Export Format: Forensic ZIP" Foreground="{DynamicResource TextMutedBrush}"/>
+                        <TextBlock Text="Location: E:\\Case124\\Exports\\" Foreground="{DynamicResource TextMutedBrush}"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Background="{DynamicResource CardBackgroundBrush}" CornerRadius="6"
+                        BorderBrush="{DynamicResource BorderBrushGray}" BorderThickness="1" Padding="10" Margin="5">
+                    <StackPanel>
+                        <TextBlock Text="Metrics" FontWeight="Bold" Foreground="{DynamicResource TextDarkBrush}"/>
+                        <TextBlock Text="Average File Size: 45 KB" Foreground="{DynamicResource TextMutedBrush}"/>
+                        <TextBlock Text="Processing Rate: 37 files/sec" Foreground="{DynamicResource TextMutedBrush}"/>
+                        <TextBlock Text="Errors Detected: 0" Foreground="{DynamicResource TextMutedBrush}"/>
+                        <TextBlock Text="Duration: 2m 17s" Foreground="{DynamicResource TextMutedBrush}"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Background="{DynamicResource CardBackgroundBrush}" CornerRadius="6"
+                        BorderBrush="{DynamicResource BorderBrushGray}" BorderThickness="1" Padding="10" Margin="5">
+                    <!--<StackPanel>
+                        <TextBlock Text="Chain of Custody" FontWeight="Bold" Foreground="{DynamicResource TextDarkBrush}"/>
+                        <TextBox PlaceholderText="Custodian" Margin="0,4,0,0"/>
+                        <TextBox PlaceholderText="Agency" Margin="0,4,0,0"/>
+                        <TextBox PlaceholderText="Examiner" Margin="0,4,0,0"/>
+                    </StackPanel>-->
+                </Border>
+            </Grid>
+        </Grid>
+
+        <!-- Navigation -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Back" Width="100" Margin="5" Click="Back_Click"/>
+            <Button Content="Finish" Width="100" Margin="5"
+                    Background="{DynamicResource PrimaryBrush}" Foreground="White"
+                    Click="Finish_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

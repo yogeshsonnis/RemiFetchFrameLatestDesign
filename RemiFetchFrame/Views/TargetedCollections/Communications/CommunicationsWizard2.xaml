@@ -1,0 +1,99 @@
+<Page x:Class="RemiFetchFrame.Views.TargetedCollections.Communications.CommunicationsWizard2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Targeted Collections - Communications (Step 2)"
+      Background="{DynamicResource AppBackgroundBrush}">
+
+    <Grid Margin="20" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <!-- Progress Header -->
+        <Border Background="{DynamicResource CardBackgroundBrush}" CornerRadius="6" Padding="12"
+                BorderBrush="{DynamicResource BorderBrushGray}" BorderThickness="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <TextBlock Text="1. Select Target Method" Foreground="{DynamicResource TextMutedBrush}" />
+                <TextBlock Text="→" Foreground="{DynamicResource TextMutedBrush}" Margin="10,0"/>
+                <TextBlock Text="2. Choose Communication Sources" Foreground="{DynamicResource PrimaryBrush}" FontWeight="Bold"/>
+                <TextBlock Text="→" Foreground="{DynamicResource TextMutedBrush}" Margin="10,0"/>
+                <TextBlock Text="3. Collect &amp; Export" Foreground="{DynamicResource TextMutedBrush}" />
+            </StackPanel>
+        </Border>
+
+        <!-- Main Section -->
+        <Grid Grid.Row="1" Margin="0,20,0,20" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <!-- Left Panel -->
+            <Border Background="{DynamicResource CardBackgroundBrush}" CornerRadius="6"
+                    BorderBrush="{DynamicResource BorderBrushGray}" BorderThickness="1"
+                    Padding="15" Margin="0,0,20,0">
+                <StackPanel>
+                    <TextBlock Text="Select Communication Applications"
+                               FontWeight="Bold" FontSize="14"
+                               Foreground="{DynamicResource TextDarkBrush}" Margin="0,0,0,10"/>
+
+                    <StackPanel>
+                        <CheckBox Content="Microsoft Outlook (.pst, .ost, .msg)" Margin="5,2"/>
+                        <CheckBox Content="Mozilla Thunderbird (.mbox, .msf)" Margin="5,2"/>
+                        <CheckBox Content="Apple Mail (.emlx)" Margin="5,2"/>
+                        <CheckBox Content="Slack / Teams / Zoom Chat Logs" Margin="5,2"/>
+                        <CheckBox Content="SMS / MMS Backups (Android, iTunes)" Margin="5,2"/>
+                        <CheckBox Content="Signal, WhatsApp, Telegram Archives" Margin="5,2"/>
+                    </StackPanel>
+
+                    <Separator Margin="10"/>
+
+                    <TextBlock Text="Select Storage Sources"
+                               FontWeight="Bold" FontSize="14"
+                               Foreground="{DynamicResource TextDarkBrush}" Margin="0,0,0,10"/>
+                    <StackPanel>
+                        <CheckBox Content="All Mounted Drives" Margin="5,2"/>
+                        <CheckBox Content="External USB Devices" Margin="5,2"/>
+                        <CheckBox Content="Network Shares" Margin="5,2"/>
+                        <CheckBox Content="Cloud Mail Folders" Margin="5,2"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Right Panel -->
+            <Border Background="{DynamicResource CardBackgroundBrush}" CornerRadius="6"
+                    BorderBrush="{DynamicResource BorderBrushGray}" BorderThickness="1"
+                    Padding="15">
+                <StackPanel>
+                    <TextBlock Text="Filter Configuration" FontWeight="Bold" FontSize="14"
+                               Foreground="{DynamicResource TextDarkBrush}" Margin="0,0,0,10"/>
+                    <StackPanel Orientation="Vertical" Margin="0,5,0,10">
+                        <CheckBox Content="Filter by Date Range" Margin="5,2"/>
+                        <StackPanel Orientation="Horizontal" Margin="10,5,0,0">
+                            <TextBlock Text="Start:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                            <DatePicker Width="140" Margin="0,0,10,0"/>
+                            <TextBlock Text="End:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                            <DatePicker Width="140"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Separator Margin="10"/>
+
+                    <TextBlock Text="Summary" FontWeight="Bold" FontSize="13"
+                               Foreground="{DynamicResource TextDarkBrush}" Margin="0,0,0,10"/>
+                    <TextBlock Text="Sources Selected: 4" Foreground="{DynamicResource TextMutedBrush}"/>
+                    <TextBlock Text="Filters Applied: 2" Foreground="{DynamicResource TextMutedBrush}"/>
+                    <TextBlock Text="Estimated Scan Time: ~2m 45s" Foreground="{DynamicResource TextMutedBrush}" Margin="0,0,0,10"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <!-- Navigation -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Back" Width="100" Margin="5" Click="Back_Click"/>
+            <Button Content="Next" Width="100" Margin="5"
+                    Background="{DynamicResource PrimaryBrush}" Foreground="White"
+                    Click="Next_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

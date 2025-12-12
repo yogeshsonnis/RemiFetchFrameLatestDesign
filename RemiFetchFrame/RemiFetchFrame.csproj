@@ -8,4 +8,21 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Images\Fetchsplash.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\ExtractFrom\.DS_Store" />
+    <None Include="Views\ExtractFrom\E01Files\.DS_Store" />
+    <None Include="Views\ExtractFrom\FileGroups\.DS_Store" />
+    <None Include="Views\TargetedCollections\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Fetchsplash.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
 </Project>

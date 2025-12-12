@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Targeted Collections - File Group Wizard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      function toggleCategory(id, iconId) {
+        const el = document.getElementById(id);
+        const icon = document.getElementById(iconId);
+        el.classList.toggle('hidden');
+        icon.textContent = el.classList.contains('hidden') ? '+' : '−';
+      }
+    </script>
+  </head>
+  <body class="flex items-center justify-center min-h-screen bg-gray-200 py-8">
+    <div class="bg-[#fafafa] rounded-xl shadow-lg flex flex-col overflow-hidden" style="width:980px; min-height:780px;">
+      <!-- Wizard Header -->
+      <div class="flex items-center justify-between px-8 py-3 bg-[#f5f5f5] border-b border-gray-300 text-sm">
+        <div class="flex items-center w-full">
+          <div class="flex items-center justify-center w-8 h-8 rounded-full bg-gray-200 text-gray-700 text-sm font-medium">1</div>
+          <span class="ml-3 text-[14px] font-medium text-gray-600">Select Target Method</span>
+          <div class="flex-1 h-[1px] bg-gray-300 mx-3"></div>
+          <div class="flex items-center justify-center w-8 h-8 rounded-full bg-[#1565c0] text-white text-sm font-medium">2</div>
+          <span class="ml-3 text-[14px] font-medium text-[#1565c0]">Select File Groups</span>
+          <div class="flex-1 h-[1px] bg-gray-300 mx-3"></div>
+          <div class="flex items-center justify-center w-8 h-8 rounded-full bg-gray-200 text-gray-700 text-sm font-medium">3</div>
+          <span class="ml-3 text-[14px] font-medium text-gray-600">Collect & Export</span>
+        </div>
+      </div>
+
+      <!-- Main Body -->
+      <div class="flex-1 flex flex-col bg-[#f7f9fc] p-4 gap-6 overflow-hidden justify-between">
+        <!-- File Categories Section -->
+        <div class="border border-gray-200 bg-white rounded-lg shadow-sm flex flex-col overflow-y-auto p-4" style="height: 380px;">
+          <div class="text-sm font-semibold text-gray-700 mb-3">Select File Categories</div>
+          <div class="space-y-2 text-sm">
+            <div><button onclick="toggleCategory('cat-documents','icon-documents')" class="flex justify-between w-full bg-gray-100 hover:bg-blue-50 px-3 py-2 rounded border border-gray-200"><span>Documents & Office Files</span><span id="icon-documents">+</span></button><div id="cat-documents" class="hidden pl-5 py-2 space-y-1 text-xs"><label class="flex items-center space-x-2"><input type="checkbox"> <span>.doc, .docx, .xls, .xlsx, .ppt, .pptx, .pdf, .csv, .txt, .rtf, .odt, .ods, .odp</span></label></div></div>
+            <div><button onclick="toggleCategory('cat-itunes','icon-itunes')" class="flex justify-between w-full bg-gray-100 hover:bg-blue-50 px-3 py-2 rounded border border-gray-200"><span>Mobile & iTunes Backups</span><span id="icon-itunes">+</span></button><div id="cat-itunes" class="hidden pl-5 py-2 space-y-1 text-xs"><label class="flex items-center space-x-2"><input type="checkbox"> <span>.ipa, .plist, .db, .sqlite, .bak, .tar, .gz, .zip, .json, .xml</span></label></div></div>
+            <div><button onclick="toggleCategory('cat-users','icon-users')" class="flex justify-between w-full bg-gray-100 hover:bg-blue-50 px-3 py-2 rounded border border-gray-200"><span>User Profiles & Accounts</span><span id="icon-users">+</span></button><div id="cat-users" class="hidden pl-5 py-2 space-y-1 text-xs"><label class="flex items-center space-x-2"><input type="checkbox"> <span>AppData, Desktop, Documents, Downloads, NTUSER.DAT, SAM, SECURITY, SOFTWARE, SYSTEM</span></label></div></div>
+            <div><button onclick="toggleCategory('cat-ir','icon-ir')" class="flex justify-between w-full bg-gray-100 hover:bg-blue-50 px-3 py-2 rounded border border-gray-200"><span>Incident Response</span><span id="icon-ir">+</span></button><div id="cat-ir" class="hidden pl-5 py-2 space-y-1 text-xs"><label class="flex items-center space-x-2"><input type="checkbox"> <span>Windows User Registry Targets: NTUSER.DAT, USRCLASS.DAT, SAM, SECURITY, SOFTWARE, SYSTEM</span></label></div></div>
+            <div><button onclick="toggleCategory('cat-comm','icon-comm')" class="flex justify-between w-full bg-gray-100 hover:bg-blue-50 px-3 py-2 rounded border border-gray-200"><span>Communications</span><span id="icon-comm">+</span></button><div id="cat-comm" class="hidden pl-5 py-2 space-y-1 text-xs"><label class="flex items-center space-x-2"><input type="checkbox"> <span>.pst, .ost, .nst, .msg, .eml, .mbox, .msf, .dbx, .oeaccount</span></label></div></div>
+            <div><button onclick="toggleCategory('cat-media','icon-media')" class="flex justify-between w-full bg-gray-100 hover:bg-blue-50 px-3 py-2 rounded border border-gray-200"><span>Media Files</span><span id="icon-media">+</span></button><div id="cat-media" class="hidden pl-5 py-2 space-y-1 text-xs"><label class="flex items-center space-x-2"><input type="checkbox"> <span>.jpg, .jpeg, .png, .gif, .bmp, .tiff, .mp3, .wav, .mp4, .avi, .mov, .mkv, .flac</span></label></div></div>
+            <div><button onclick="toggleCategory('cat-web','icon-web')" class="flex justify-between w-full bg-gray-100 hover:bg-blue-50 px-3 py-2 rounded border border-gray-200"><span>Web Data & Cookies</span><span id="icon-web">+</span></button><div id="cat-web" class="hidden pl-5 py-2 space-y-1 text-xs"><label class="flex items-center space-x-2"><input type="checkbox"> <span>.sqlite, .json, .xml, .dat, .log, Cookies, Cache, History, Login Data, Bookmarks</span></label></div></div>
+            <div><button onclick="toggleCategory('cat-db','icon-db')" class="flex justify-between w-full bg-gray-100 hover:bg-blue-50 px-3 py-2 rounded border border-gray-200"><span>Databases</span><span id="icon-db">+</span></button><div id="cat-db" class="hidden pl-5 py-2 space-y-1 text-xs"><label class="flex items-center space-x-2"><input type="checkbox"> <span>.sql, .sqlite, .db, .mdb, .accdb, .frm, .ibd, .ndf, .mdf, .ldf</span></label></div></div>
+          </div>
+        </div>
+
+        <!-- Source, Date Range, and Metrics Summary Cards -->
+        <div class="flex gap-6 items-stretch mb-2">
+          <!-- Source Selection -->
+          <div class="flex-1 border border-gray-200 bg-white rounded-lg shadow-sm p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-2">
+              <div class="text-base font-semibold text-gray-800">Select Sources to Search</div>
+            </div>
+            <div class="flex flex-col text-sm space-y-1 text-gray-700">
+              <label><input type="checkbox"> All Mounted Drives</label>
+              <label><input type="checkbox"> Archives (ZIP, RAR, 7Z, TAR, ISO)</label>
+              <label><input type="checkbox"> Virtual Machines</label>
+              <label><input type="checkbox"> All Mounted USB Drives</label>
+              <label><input type="checkbox"> Cloud Drives</label>
+              <label><input type="checkbox"> Network Shares</label>
+            </div>
+          </div>
+
+          <!-- Date Range Filter -->
+          <div class="flex-1 border border-gray-200 bg-white rounded-lg shadow-sm p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-2">
+              <div class="text-base font-semibold text-gray-800">Date Range Filter</div>
+            </div>
+            <div class="flex flex-col space-y-1 text-sm text-gray-700">
+              <label class="flex items-center space-x-1"><span>Start:</span><input type="date" class="border border-gray-300 rounded px-1 py-0.5 w-full"></label>
+              <label class="flex items-center space-x-1"><span>End:</span><input type="date" class="border border-gray-300 rounded px-1 py-0.5 w-full"></label>
+            </div>
+            <div class="flex items-center justify-end space-x-2 mt-3">
+              <span class="text-gray-600 text-xs">Filter</span>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" value="" class="sr-only peer">
+                <div class="w-8 h-4 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-4 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-blue-600"></div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Metrics Summary Card -->
+          <div class="flex-1 border border-gray-200 bg-white rounded-lg shadow-sm p-4 flex flex-col justify-start items-start pt-5">
+            <div class="text-base font-semibold text-gray-800 mb-2">Metrics Summary</div>
+            <div class="text-sm text-gray-700 leading-relaxed space-y-1">
+              <div><span class="font-medium">Files Collected:</span> 3</div>
+              <div><span class="font-medium">Total Data Size:</span> 375.4 MB</div>
+              <div><span class="font-medium">Processing Rate:</span> 42 files/sec</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+﻿<Window x:Class="RemiFetchFrame.Views.DataCollectionsDashboardView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RemiFetchFrame.Views"
+        mc:Ignorable="d"
+        Title="DataCollectionsDashboardView" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="NavButtonStyle" TargetType="Button">
+            
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="260"/>
+            <!-- Sidebar -->
+            <ColumnDefinition Width="*"/>
+            <!-- Main content -->
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Header -->
+            <RowDefinition Height="*"/>
+            <!-- Body -->
+        </Grid.RowDefinitions>
+
+        <!-- ===== HEADER BAR ===== -->
+        <Border Grid.ColumnSpan="2"
+              Grid.Row="0"
+              Background="White"
+              Height="60"
+              BorderBrush="#E0E3E8"
+              BorderThickness="0,0,0,1"
+              Padding="20,0"
+              VerticalAlignment="Top"
+              >
+            <DockPanel LastChildFill="True">
+                <TextBlock Text="FETCH / Data Collections Dashboard"
+                         FontSize="18"
+                         FontWeight="SemiBold"
+                         Foreground="#333"
+                         VerticalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal"
+                          DockPanel.Dock="Right"
+                          VerticalAlignment="Center"
+                          >
+                    <Button Content="Settings"
+                          Style="{StaticResource NavButtonStyle}"
+                          /> <!--Click="Settings_Click"-->
+                    <Button Content="Help"
+                          Style="{StaticResource NavButtonStyle}"
+                          /> <!--Click="Help_Click"-->
+                    <Button Content="Logout"
+                          Background="#E5E8ED"
+                          Foreground="#333"
+                          FontWeight="SemiBold"
+                          BorderBrush="#D0D4D8"
+                          Cursor="Hand"
+                          Padding="14,6"
+                          Margin="10,0,0,0"
+                          /> <!--Click="Logout_Click"-->
+                </StackPanel>
+            </DockPanel>
+        </Border>
+
+        <!-- ===== SIDEBAR ===== -->
+        <Border Grid.Row="1"
+              Grid.Column="0"
+              Background="#FFFFFF"
+              BorderBrush="#E0E3E8"
+              BorderThickness="0,0,1,0"
+              Padding="10,20"
+              >
+            <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+
+                <!-- Sidebar Title -->
+                <TextBlock Text="Data Collections"
+                         FontSize="16"
+                         FontWeight="Bold"
+                         Foreground="#333"
+                         Margin="10,0,0,20"/>
+
+                <!-- Menu Buttons -->
+                <Button Content="Targeted Collections"
+                      Style="{StaticResource NavButtonStyle}"
+                      /> <!--Click="TargetedCollections_Click"-->
+                <Button Content="Extract From"
+                      Style="{StaticResource NavButtonStyle}"
+                      /> <!--Click="ExtractFrom_Click"-->
+                <Button Content="Preserve Devices"
+                      Style="{StaticResource NavButtonStyle}"
+                      /> <!--Click="PreserveDevices_Click"-->
+                <Button Content="Reports"
+                      Style="{StaticResource NavButtonStyle}"
+                      /> <!--Click="Reports_Click"-->
+                <Button Content="Case Overview"
+                      Style="{StaticResource NavButtonStyle}"
+                      /> <!--Click="CaseOverview_Click"-->
+            </StackPanel>
+        </Border>
+
+        <!-- ===== MAIN CONTENT AREA ===== -->
+        <Border Grid.Row="1"
+              Grid.Column="1"
+              Margin="20"
+              CornerRadius="10"
+              Background="#FAFAFA"
+              BorderBrush="#E0E3E8"
+              BorderThickness="1"
+              >
+            <Frame x:Name="ContentFrame"
+                 NavigationUIVisibility="Hidden"
+                 HorizontalAlignment="Stretch"
+                 VerticalAlignment="Stretch"
+                 Margin="20"
+                 Background="White"/>
+        </Border>
+    </Grid>
+</Window>
