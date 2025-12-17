@@ -5,11 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RemiFetchFrame.Views"
       mc:Ignorable="d" 
-      
+      WindowState="Maximized"
       Title="CaseManagerView">
 
-    <Viewbox Stretch="Uniform" StretchDirection="Both" Margin="20">
-        <!-- Root grid for alignment -->
+    <!--<Viewbox Stretch="Uniform" StretchDirection="Both" Margin="20">
+        -->
+    <!-- Root grid for alignment -->
+    <!--
         <Grid Width="980" Height="660" Background="#F5F7FA">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -17,7 +19,9 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <!-- Main Card -->
+            -->
+    <!-- Main Card -->
+    <!--
             <Border Grid.Row="1"
                  Background="White"
                  CornerRadius="12"
@@ -32,7 +36,9 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <!-- Title -->
+                    -->
+    <!-- Title -->
+    <!--
                     <TextBlock Text="Case Manager"
                             FontSize="26"
                             FontWeight="Bold"
@@ -40,15 +46,19 @@
                             Margin="0,0,0,20"
                             HorizontalAlignment="Center" />
 
-                    <!-- Subtitle -->
+                    -->
+    <!-- Subtitle -->
+    <!--
                     <TextBlock Text="Select an existing case or create a new one."
-                            FontSize="14"
-                            Foreground="#666"
+                            FontSize="14" 
+                            Foreground="#666" 
                             HorizontalAlignment="Center"
                             Grid.Row="1"
                             Margin="0,0,0,30"/>
 
-                    <!-- Buttons -->
+                    -->
+    <!-- Buttons -->
+    <!--
                     <StackPanel Grid.Row="2"
                              Orientation="Horizontal"
                              HorizontalAlignment="Center"
@@ -62,7 +72,9 @@
                              BorderThickness="0"
                              Cursor="Hand"
                                 Click="Button_Click"
-                             /> <!--Click="NewCase_Click"-->
+                             />  -->
+    <!--Click="NewCase_Click"-->
+    <!--
 
                         <Button Content="Open Existing Case"
                              Width="200"
@@ -72,10 +84,14 @@
                              FontWeight="SemiBold"
                              BorderBrush="#D0D4D8"
                              Cursor="Hand"
-                             /> <!--Click="OpenCase_Click"-->
+                             /> -->
+    <!--Click="OpenCase_Click"-->
+    <!--
                     </StackPanel>
 
-                    <!-- Footer -->
+                    -->
+    <!-- Footer -->
+    <!--
                     <TextBlock Grid.Row="3"
                             Text="Case files are automatically saved in your configured repository."
                             FontSize="12"
@@ -86,5 +102,278 @@
                 </Grid>
             </Border>
         </Grid>
-    </Viewbox>
+    </Viewbox>-->
+    <Window.Resources>
+
+        <Style x:Key="RoundedRadioButtonStyle" TargetType="RadioButton">
+            <Setter Property="Foreground" Value="#555555"/>
+            <Setter Property="Background" Value="#E0E0E0"/>
+            <!--<Setter Property="BorderBrush" Value="#FF005A9E"/>-->
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="16,16"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border x:Name="Border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="6,6,0,0">
+
+                            <ContentPresenter
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        RecognizesAccessKey="True"/>
+                        </Border>
+
+                        <!-- Button States -->
+                        <ControlTemplate.Triggers>
+
+                            <!-- Hover -->
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Border"
+                                Property="Background"
+                                Value="#1567c0"/>
+                                <Setter  
+                                Property="Foreground"
+                                Value="White"/>
+                            </Trigger>
+
+
+
+                            <!-- Disabled -->
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Border"
+                                Property="Opacity"
+                                Value="0.5"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <SolidColorBrush x:Key="TextBoxBorderBrush" Color="#CCCCCC" />
+        <SolidColorBrush x:Key="TextBoxBorderFocusedBrush" Color="#1E6BD6" />
+        <SolidColorBrush x:Key="TextBoxBackground" Color="White" />
+
+        <SolidColorBrush x:Key="TextBoxPlaceholderBrush" Color="#88000000"/>
+
+        <Style x:Key="RoundedPlaceholderTextBox" TargetType="TextBox">
+            <Setter Property="Height" Value="45"/>
+            <Setter Property="Padding" Value="8,5"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextBoxBorderBrush}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="Foreground" Value="#555"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid>
+                            <!-- Base surface -->
+                            <Border x:Name="Border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="4"/>
+
+                            <!-- Real text host -->
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                  Margin="{TemplateBinding Padding}"
+                                  VerticalAlignment="Center"/>
+
+                            <!-- Placeholder layered above content -->
+                            <TextBlock x:Name="PlaceholderText"
+                                       Padding="8,5"
+                               Margin="{TemplateBinding Padding}"
+                               Text="{TemplateBinding Tag}"
+                               Foreground="Gray"
+                               FontWeight="SemiBold"
+                               IsHitTestVisible="False"
+                               VerticalAlignment="Center"
+                               TextTrimming="None"
+                               TextWrapping="NoWrap"
+                               Visibility="Collapsed"/>
+                        </Grid>
+
+                        <!-- Triggers -->
+                        <ControlTemplate.Triggers>
+                            <!-- Focus border color -->
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter TargetName="Border" Property="BorderBrush"
+                                Value="Black"/>
+
+                            </Trigger>
+
+                            <!-- Disabled -->
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="Border" Property="Opacity" Value="0.6"/>
+                            </Trigger>
+
+                            <!-- Show placeholder when empty -->
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Text" Value=""/>
+                                    <Condition Property="IsKeyboardFocused" Value="False"/>
+                                </MultiTrigger.Conditions>
+                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
+                            </MultiTrigger>
+
+                            <!-- Also show when empty AND focused (optional: comment out to hide during focus) -->
+                            <Trigger Property="Text" Value="">
+                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+
+                            <!-- Hide placeholder once user types -->
+                            <Trigger Property="Text" Value="{x:Null}">
+                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+    </Window.Resources>
+    <Grid Background="#e5e7eb">
+        <Border Style="{StaticResource CardStyle}" Background="#fffeff" Margin="40">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="30,0,30,0">
+                    <RadioButton x:Name="NewCaseRadioButton"  Checked="NewCaseRadioButton_Checked" Style="{StaticResource RoundedRadioButtonStyle}" Content="New Case" Margin="0,0,10,0" Width="130" Height="40"/>
+                    <RadioButton x:Name="OpenCaseRadioButton" Checked="Open_CaseRadioButton_Checked" Style="{StaticResource RoundedRadioButtonStyle}" Content="Open a Case" Width="130" Height="40"/>
+                </StackPanel>
+                <Border BorderThickness="0,0,0,2"  BorderBrush="#FF3399FF" Margin="30,0,30,0"/>
+                <Border Style="{StaticResource CardStyle}" BorderBrush="LightGray" BorderThickness="1"  Grid.Row="1" Margin="30">
+                    <Grid>
+                        <Grid x:Name="NewCaseView" >
+                            <Border Style="{StaticResource CardStyle}" Background="#fffeff" Padding="24" CornerRadius="8" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Grid  Width="500" Height="360">
+                                    <StackPanel>
+                                        <TextBox Style="{StaticResource RoundedPlaceholderTextBox}" Tag="Case Name" Margin="0,20,0,12"/>
+                                        <TextBox Style="{StaticResource RoundedPlaceholderTextBox}" Tag="Matter Number" Margin="0,0,0,12"/>
+                                        <TextBox Style="{StaticResource RoundedPlaceholderTextBox}" Tag="Examiner" Margin="0,0,0,12"/>
+                                        <TextBlock Text="Choose Save Location:" Foreground="#555" FontWeight="SemiBold" FontSize="18"/>
+                                        <Border  BorderBrush="{StaticResource TextBoxBorderBrush}" BorderThickness="2" CornerRadius="6" Margin="0,0,0,12">
+                                            <Button Style="{StaticResource RoundedButton}" Height="34" Width="120" Margin="10,16,16,16" Padding="0" HorizontalAlignment="Left" Click="ChooseFile"  Content="Choose File"/>
+                                        </Border>
+                                        <Button Content="Create Case" Style="{StaticResource RoundedButton}" Width="Auto" />
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                        <Grid x:Name="OpenCaseView" Visibility="Collapsed">
+
+                            <DataGrid ItemsSource="{Binding Cases}"
+                              Margin="20"
+                              VerticalAlignment="Top" 
+                              Height="Auto"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True"
+                              CanUserAddRows="False"
+                              RowHeight="34"
+                              ColumnHeaderHeight="34"
+                              SelectionMode="Single"
+                              SelectionUnit="FullRow"
+                              HeadersVisibility="Column"       
+                              RowHeaderWidth="0"
+                              VerticalGridLinesBrush="#E0E0E0"
+                              HorizontalGridLinesBrush="#E0E0E0"
+                              BorderBrush="#D0D0D0"     
+                              BorderThickness="1" 
+                             >
+
+                                <!-- Resources that disable highlight -->
+                                <DataGrid.Resources>
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black"/>
+
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="Focusable" Value="False"/>
+                                        <Setter Property="Margin" Value="3,0,0,0"/>
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                        <Setter Property="BorderThickness" Value="0"/>
+
+                                        <!-- This controls vertical centering -->
+                                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="DataGridCell">
+                                                    <Border Background="{TemplateBinding Background}"
+                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                                        Padding="0">
+                                                        <ContentPresenter
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Left"
+                                                        SnapsToDevicePixels="True"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="Background" Value="Transparent"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+
+
+                                    <Style TargetType="DataGridRow">
+                                        <Setter Property="Focusable" Value="False"/>
+                                        <Setter Property="Background" Value="White"/>
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="Background" Value="White"/>
+                                            </Trigger>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="White"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+
+                                    <!-- Bold Header -->
+                                    <Style TargetType="DataGridColumnHeader">
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                    </Style>
+
+                                </DataGrid.Resources>
+
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Case Name" Binding="{Binding CaseName}" Width="*"/>
+                                    <DataGridTextColumn Header="Matter Number" Binding="{Binding MatterNumber}" Width="*"/>
+                                    <DataGridTextColumn Header="Save Location" Binding="{Binding SaveLocation}" Width="*"/>
+                                    <DataGridTextColumn Header="Created Date" Binding="{Binding CreatedDate, StringFormat=\{0:yyyy-MM-dd\}}" Width="*"/>
+                                    <DataGridTextColumn Header="Total Devices" Binding="{Binding TotalDevices}" Width="*"/>
+                                </DataGrid.Columns>
+
+                            </DataGrid>
+
+
+                        </Grid>
+
+                    </Grid>
+                </Border>
+            </Grid>
+
+        </Border>
+
+    </Grid>
 </Window>
+

@@ -5,134 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RemiFetchFrame.Views"
         mc:Ignorable="d"
+        WindowState="Maximized"
        >
-    <Window.Resources>
-        <Style x:Key="CardStyle" TargetType="Border">
-            <Setter Property="Background" Value="#f9f9fd"/>
-            <Setter Property="CornerRadius" Value="12"/>
-            <Setter Property="Padding" Value="20"/>
-            <Setter Property="Margin" Value="9"/>
-            <Setter Property="Effect">
-                <Setter.Value>
-                    <DropShadowEffect Color="#D0D7E3" BlurRadius="12" ShadowDepth="2" Opacity="0.4"/>
-                </Setter.Value>
-            </Setter>
-        </Style>
 
-        <Style x:Key="CardText" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="#0D63D6"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-        </Style>
-        <Style x:Key="SimpleShadowButton" TargetType="Button">
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="Foreground" Value="#0D63D6"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Padding" Value="15"/>
-            <Setter Property="Height" Value="100"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Cursor" Value="Hand"/>
-
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border
-                    Background="{TemplateBinding Background}"
-                    CornerRadius="12"
-                    Padding="{TemplateBinding Padding}">
-
-                            <Border.Effect>
-                                <DropShadowEffect 
-                            Color="#D0D7E3"
-                            BlurRadius="12"
-                            ShadowDepth="2"
-                            Opacity="0.5"/>
-                            </Border.Effect>
-
-                            <ContentPresenter
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-
-        <!--<Style x:Key="RoundedTextBox" TargetType="TextBox">
-        <Setter Property="Background" Value="White"/>
-        <Setter Property="Foreground" Value="Black"/>
-        <Setter Property="FontSize" Value="14"/>
-        <Setter Property="Padding" Value="10"/>
-        <Setter Property="Height" Value="37"/>
-        <Setter Property="BorderBrush" Value="#E0E4EB"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Margin" Value="5"/>
-
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="TextBox">
-                    <Border
-                x:Name="border"
-                CornerRadius="7"
-                Background="{TemplateBinding Background}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}"
-                Padding="{TemplateBinding Padding}">
-
-                       
-                        <ScrollViewer x:Name="PART_ContentHost"/>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>-->
-
-        <Style x:Key="RoundedButton" TargetType="Button">
-            <Setter Property="Background" Value="#1567c0"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Padding" Value="10,5"/>
-            <Setter Property="Height" Value="50"/>
-            <Setter Property="Width" Value="150"/>
-            <Setter Property="Padding" Value="10,5"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="SnapsToDevicePixels" Value="True"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border x:Name="border"
-                        Background="{TemplateBinding Background}"
-                        CornerRadius="8"
-                        SnapsToDevicePixels="True"
-                        >
-                            <ContentPresenter HorizontalAlignment="Center"
-                                      VerticalAlignment="Center"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#98bae8"/>
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#1567c0"/>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="False">
-                                <Setter TargetName="border" Property="Background" Value="#FFBDBDBD"/>
-                                <Setter Property="Foreground" Value="#FF7A7A7A"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-
-        </Style>
-
-
-    </Window.Resources>
 
     <Grid Background="#f1f0f0">
         <Grid.RowDefinitions>
@@ -168,58 +43,200 @@
                     <StackPanel Grid.Row="1" Margin="0,20,0,0">
                         <TextBlock Text="Collections" FontSize="17" FontWeight="SemiBold" Margin="5" Foreground="#417fc2"/>
 
-                        <Border CornerRadius="7" BorderBrush="Gray" BorderThickness="0.5" Background="White" Height="37" Margin="0,0,0,10">
-                            <TextBox Text="Targeted Collections" 
-             Background="Transparent" 
-             BorderThickness="0" 
-             Foreground="Black" FontSize="15"  VerticalContentAlignment="Center"    
-             Padding="5"/>
+                        <!-- MAIN BUTTON -->
+                        <Border x:Name="TargetItem" Margin="0,0,0,10">
+                            <Button  Style="{StaticResource RegistryButtonStyle}"  Content="Targeted Collections"/>
                         </Border>
+
+                        <!-- SUBMENU POPUP -->
+                        <Popup PlacementTarget="{Binding ElementName=TargetItem}"
+                           Placement="Right"
+                           AllowsTransparency="True"
+                           StaysOpen="True">
+
+                            <Popup.Style>
+                                <Style TargetType="Popup">
+                                    <Style.Triggers>
+
+                                        <!-- Open when hovering main button -->
+                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=TargetItem}"
+                                 Value="True">
+                                            <Setter Property="IsOpen" Value="True"/>
+                                        </DataTrigger>
+
+                                        <!-- Keep open when hovering popup -->
+                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=SubMenuBorder}"
+                                 Value="True">
+                                            <Setter Property="IsOpen" Value="True"/>
+                                        </DataTrigger>
+
+                                    </Style.Triggers>
+                                </Style>
+                            </Popup.Style>
+
+                            <Border x:Name="SubMenuBorder"
+                                Width="250"
+                                Background="White"
+                                BorderBrush="Gray"
+                                BorderThickness="0.5"
+                                CornerRadius="7"
+                                Padding="5">
+
+
+                                <StackPanel>
+                                    <Button  Content="By Hash" Style="{StaticResource FilterButtonStyle}"/>
+                                    <Button Content="By Path"  Style="{StaticResource FilterButtonStyle}"/>
+                                    <Button Content="By File Group"  Style="{StaticResource FilterButtonStyle}"/>
+                                    <Button Content="Custom Extensions"  Style="{StaticResource FilterButtonStyle}"/>
+                                    <Button Content="Drag  Drop"  Style="{StaticResource FilterButtonStyle}"/>
+                                </StackPanel>
+                            </Border>
+                        </Popup>
+
                         <TextBlock Text="Extractions" FontSize="17" FontWeight="SemiBold" Margin="5" Foreground="#417fc2"  />
-                        <Border CornerRadius="7" BorderBrush="Gray" BorderThickness="0.5" Background="White" Height="37" Margin="0,0,0,10">
-                            <TextBox Text="Extract Data Form..." 
-Background="Transparent" 
-BorderThickness="0" 
-Foreground="Black" FontSize="15"  VerticalContentAlignment="Center"    
-Padding="5"/>
+                        <Border x:Name="TargetExtractionsItem"  Margin="0,0,0,10">
+                            <Button Style="{StaticResource RegistryButtonStyle}" Content="Extract Data From..."/>
                         </Border>
+
+                        <Popup PlacementTarget="{Binding ElementName=TargetExtractionsItem}"
+                           Placement="Right"
+                           AllowsTransparency="True"
+                           StaysOpen="True">
+
+                            <Popup.Style>
+                                <Style TargetType="Popup">
+                                    <Style.Triggers>
+
+                                        <!-- Open when hovering main button -->
+                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=TargetExtractionsItem}"
+                                             Value="True">
+                                            <Setter Property="IsOpen" Value="True"/>
+                                        </DataTrigger>
+
+                                        <!-- Keep open when hovering popup -->
+                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=ExtractionsBorderItem}"
+                                             Value="True">
+                                            <Setter Property="IsOpen" Value="True"/>
+                                        </DataTrigger>
+
+                                    </Style.Triggers>
+                                </Style>
+                            </Popup.Style>
+
+                            <Border 
+                                x:Name="ExtractionsBorderItem" 
+                                Width="250"
+                                Background="White"
+                                BorderBrush="Gray"
+                                BorderThickness="0.5"
+                                CornerRadius="7"
+                                Padding="5">
+                                <StackPanel >
+                                    <Button  Content="From E01" Style="{StaticResource FilterButtonStyle}"/>
+                                    <Button Content="From iTunes Backup"  Style="{StaticResource FilterButtonStyle}"/>
+                                    <Button Content="From VM"  Style="{StaticResource FilterButtonStyle}"/>
+                                    <Button Content="From PST"  Style="{StaticResource FilterButtonStyle}"/>
+                                </StackPanel>
+                            </Border>
+                        </Popup>
+
                         <TextBlock Text="Preservations" FontSize="17" FontWeight="SemiBold" Margin="5" Foreground="#417fc2"  />
-                        <Border CornerRadius="7" BorderBrush="Gray" BorderThickness="0.5" Background="White" Height="37" Margin="0,0,0,10">
-                            <TextBox Text="Full Disk Windows" 
-Background="Transparent" 
-BorderThickness="0" 
-Foreground="Black" FontSize="15"  VerticalContentAlignment="Center"    
-Padding="5"/>
+                        <Border  x:Name="TargetPreservationsItem"  Margin="0,0,0,10">
+                            <Button  Style="{StaticResource RegistryButtonStyle}" Content="Forensic Preservation"/>
                         </Border>
+                        <Popup PlacementTarget="{Binding ElementName=TargetPreservationsItem}"
+                            Placement="Right"
+                            AllowsTransparency="True"
+                            StaysOpen="True">
+                            <Popup.Style>
+                                <Style TargetType="Popup">
+                                    <Style.Triggers>
+
+                                        <!-- Open when hovering main button -->
+                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=TargetPreservationsItem}"
+                      Value="True">
+                                            <Setter Property="IsOpen" Value="True"/>
+                                        </DataTrigger>
+
+                                        <!-- Keep open when hovering popup -->
+                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=PreservationsBorderItem}"
+                      Value="True">
+                                            <Setter Property="IsOpen" Value="True"/>
+                                        </DataTrigger>
+
+                                    </Style.Triggers>
+                                </Style>
+                            </Popup.Style>
+
+                            <Border 
+                                 x:Name="PreservationsBorderItem" 
+                                 Width="250"
+                                 Background="White"
+                                 BorderBrush="Gray"
+                                 BorderThickness="0.5"
+                                 CornerRadius="7"
+                                 Padding="5">
+                                <StackPanel >
+                                    <Button  Content="iPhone" Style="{StaticResource FilterButtonStyle}"/>
+                                    <Button Content="Android"  Style="{StaticResource FilterButtonStyle}"/>
+                                    <Button Content="Full Disk"  Style="{StaticResource FilterButtonStyle}"/>
+                                    <Button Content="Volume"  Style="{StaticResource FilterButtonStyle}"/>
+                                </StackPanel>
+                            </Border>
+                        </Popup>
                         <TextBlock Text="Tools" FontSize="17" FontWeight="SemiBold"  Margin="5" Foreground="#417fc2"/>
-                        <Border CornerRadius="7" BorderBrush="Gray" BorderThickness="0.5" Background="White" Height="37" Margin="0,0,0,10">
-                            <TextBox Text="Registry Parser" 
-Background="Transparent" 
-BorderThickness="0" 
-Foreground="Black" FontSize="15"  VerticalContentAlignment="Center"    
-Padding="5"/>
+                        <Border  Margin="0,0,0,10">
+                            <Button  Style="{StaticResource RegistryButtonStyle}" Content="Registry Parser"/>
                         </Border>
-                        <Border CornerRadius="7" BorderBrush="Gray" BorderThickness="0.5" Background="White" Height="37" Margin="0,0,0,10">
-                            <TextBox Text="Boot Image " 
-Background="Transparent" 
-BorderThickness="0" 
-Foreground="Black" FontSize="15"  VerticalContentAlignment="Center"    
-Padding="5"/>
+                        <Border  Margin="0,0,0,10">
+                            <Button  Style="{StaticResource RegistryButtonStyle}" Content="Boot Image"/>
                         </Border>
-                        <Border CornerRadius="7" BorderBrush="Gray" BorderThickness="0.5" Background="White" Height="37" Margin="0,0,0,10">
-                            <TextBox Text="Event Log Organizer" 
-Background="Transparent" 
-BorderThickness="0" 
-Foreground="Black" FontSize="15"  VerticalContentAlignment="Center"    
-Padding="5"/>
+                        <Border  Margin="0,0,0,10">
+                            <Button  Style="{StaticResource RegistryButtonStyle}" Content="Event Log Organizer"/>
                         </Border>
-                        <Border CornerRadius="7" BorderBrush="Gray" BorderThickness="0.5" Background="White" Height="37" Margin="0,0,0,10">
-                            <TextBox Text="Reporting" 
-Background="Transparent" 
-BorderThickness="0" 
-Foreground="Black" FontSize="15"  VerticalContentAlignment="Center"    
-Padding="5"/>
+                        <Border x:Name="TargetReportingItem" Margin="0,0,0,10">
+                            <Button  Style="{StaticResource RegistryButtonStyle}" Content="Reporting"/>
                         </Border>
+                        <Popup PlacementTarget="{Binding ElementName=TargetReportingItem}"
+                           Placement="Right"
+                           AllowsTransparency="True"
+                           StaysOpen="True">
+                            <Popup.Style>
+                                <Style TargetType="Popup">
+                                    <Style.Triggers>
+
+                                        <!-- Open when hovering main button -->
+                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=TargetReportingItem}" Value="True">
+                                            <Setter Property="IsOpen" Value="True"/>
+                                        </DataTrigger>
+
+                                        <!-- Keep open when hovering popup -->
+                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=ReportingBorderItem}" Value="True">
+                                            <Setter Property="IsOpen" Value="True"/>
+                                        </DataTrigger>
+
+                                    </Style.Triggers>
+                                </Style>
+                            </Popup.Style>
+
+                            <Border 
+                                x:Name="ReportingBorderItem" 
+                                Width="250"
+                                Background="White"
+                                BorderBrush="Gray"
+                                BorderThickness="0.5"
+                                CornerRadius="7"
+                                Padding="5">
+                                <StackPanel >
+                                    <Button  Content="ECA" Style="{StaticResource FilterButtonStyle}"/>
+                                    <Button Content="Device Profile"  Style="{StaticResource FilterButtonStyle}"/>
+                                    <Button Content="Hard Drive Inventory"  Style="{StaticResource FilterButtonStyle}"/>
+                                    <Button Content="User Accounts"  Style="{StaticResource FilterButtonStyle}"/>
+                                    <Button Content="File and Folder Listing"  Style="{StaticResource FilterButtonStyle}"/>
+                                    <Button Content="Security Profile"  Style="{StaticResource FilterButtonStyle}"/>
+                                </StackPanel>
+                            </Border>
+                        </Popup>
                     </StackPanel>
                     <Border Grid.Row="2" Height="70" Style="{StaticResource CardStyle}">
                         <StackPanel>
@@ -235,9 +252,9 @@ Padding="5"/>
                             </Border>
 
                             <TextBlock Text="Progress:35% | Idle"
-                   Foreground="#417fc2"
-                   FontSize="13"
-                   HorizontalAlignment="Center"/>
+                           Foreground="#417fc2"
+                           FontSize="13"
+                           HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Border>
                 </Grid>
@@ -277,6 +294,7 @@ Padding="5"/>
 
                 </Grid>
             </Border>
+
         </Grid>
 
 

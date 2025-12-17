@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using RemiFetchFrame.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -25,14 +27,16 @@ namespace RemiFetchFrame.Views
         //private readonly AppShellFrame _parent;
         //private readonly DatabaseService _db;
 
-        //public ObservableCollection<CaseModel> Cases { get; set; } = new();
+        public ObservableCollection<CaseModel> Cases { get; set; } = new();
 
         public CaseManagerView(/*AppShellFrame parent*/)
         {
             InitializeComponent();
             //_parent = parent;
             //_db = new DatabaseService();
-            //LoadCases();
+            this.DataContext = this;
+            LoadCases();
+            NewCaseRadioButton.IsChecked = true;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -42,6 +46,77 @@ namespace RemiFetchFrame.Views
             nextWin.Show();  // Opens the new window
 
             this.Close();    // Close current window (optional)
+        }
+
+        private void LoadCases()
+        {
+
+            // Seed data (optional)
+            Cases.Add(new CaseModel
+            {
+                CaseName = "Case Alpha",
+                MatterNumber = 1234,
+                SaveLocation = @"C:\Cases\Alpha",
+                CreatedDate = new DateTime(2025, 10, 05),
+                TotalDevices = 4
+            });
+            Cases.Add(new CaseModel
+            {
+                CaseName = "Case Beta",
+                MatterNumber = 5678,
+                SaveLocation = @"C:\Cases\Beta",
+                CreatedDate = new DateTime(2025, 09, 20),
+                TotalDevices = 7
+            });
+            Cases.Add(new CaseModel
+            {
+                CaseName = "Case Gamma",
+                MatterNumber = 9012,
+                SaveLocation = @"C:\Cases\Gamma",
+                CreatedDate = new DateTime(2025, 08, 15),
+                TotalDevices = 3
+            });
+
+
+        }
+
+        private void NewCaseRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            NewCaseView.Visibility = Visibility.Visible;
+            OpenCaseView.Visibility = Visibility.Collapsed;
+        }
+
+        private void Open_CaseRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            NewCaseView.Visibility = Visibility.Collapsed;
+            OpenCaseView.Visibility = Visibility.Visible;
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ((DataGrid)sender).SelectedIndex = -1;
+        }
+
+        private void ChooseFile(object sender, RoutedEventArgs e)
+        {
+
+
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Title = "Select a file";
+            dialog.Filter = "All Files (*.*)|*.*"; // optional filter
+
+            bool? result = dialog.ShowDialog();
+
+            if (result == true)
+            {
+                string filePath = dialog.FileName;
+
+                // show selected file path
+                MessageBox.Show("Selected File:\n" + filePath);
+
+                // TODO: use filePath however you want
+            }
+
         }
 
         //private void LoadCases()
@@ -86,3 +161,4 @@ namespace RemiFetchFrame.Views
         //}
     }
 }
+
