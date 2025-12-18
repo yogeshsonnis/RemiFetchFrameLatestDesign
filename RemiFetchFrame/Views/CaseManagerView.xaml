@@ -197,7 +197,7 @@ WindowStyle="ToolWindow"
                                Margin="{TemplateBinding Padding}"
                                Text="{TemplateBinding Tag}"
                                Foreground="Gray"
-                               FontWeight="SemiBold"
+                             
                                IsHitTestVisible="False"
                                VerticalAlignment="Center"
                                TextTrimming="None"
@@ -281,7 +281,7 @@ WindowStyle="ToolWindow"
                     <Border Style="{StaticResource CardStyle}" BorderBrush="LightGray" BorderThickness="1"  Grid.Row="1" Margin="30">
                         <Grid>
                             <Grid x:Name="NewCaseView" >
-                                <Border Style="{StaticResource CardStyle}" Background="#fffeff" Padding="24" CornerRadius="8" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Border BorderBrush="{StaticResource TextBoxBorderBrush}" Background="#fffeff" Padding="24" CornerRadius="8" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                                     <ScrollViewer VerticalScrollBarVisibility="Auto" >
                                         <Grid Width="500" Height="360" Margin="0,0,5,0">
                                             <StackPanel>
