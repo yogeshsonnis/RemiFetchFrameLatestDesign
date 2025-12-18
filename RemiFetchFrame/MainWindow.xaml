@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RemiFetchFrame"
         mc:Ignorable="d"
-        WindowState="Maximized"
-        >
+         Width="1400"
+  Height="900"
+  WindowStartupLocation="CenterScreen"
+WindowStyle="ToolWindow"  >
 
     <Grid>
         <Image Source="/Images/FetchSplash.png"

@@ -133,6 +133,25 @@ namespace RemiFetchFrame.Views
             this.Close();
         }
 
+        private void NewCase_Clicked(object sender, RoutedEventArgs e)
+        {
+            NewCaseView.Visibility = Visibility.Visible;
+            OpenCaseView.Visibility = Visibility.Collapsed;
+            NewCaseRadioButton.IsChecked = true;
+        }
+
+        private void QuiteButton_Clicked(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void OpenCase_Clicked(object sender, RoutedEventArgs e)
+        {
+            NewCaseView.Visibility = Visibility.Collapsed;
+            OpenCaseView.Visibility = Visibility.Visible;
+            OpenCaseRadioButton.IsChecked = true;
+        }
+
         //private void LoadCases()
         //{
         //    Cases.Clear();

@@ -5,7 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RemiFetchFrame.Views"
       mc:Ignorable="d" 
-      WindowState="Maximized"
+        Width="1400"
+  Height="900"
+  WindowStartupLocation="CenterScreen"
+WindowStyle="ToolWindow"
       Title="CaseManagerView">
 
     <!--<Viewbox Stretch="Uniform" StretchDirection="Both" Margin="20">
@@ -243,135 +246,162 @@
 
 
     </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <DockPanel Background="#1567c0" Height="50">
+            <StackPanel Orientation="Horizontal" Margin="24,0,0,0" VerticalAlignment="Center">
+                 <Menu Background="Transparent" Foreground="White" FontSize="16">
+                    <MenuItem Header="File">
+                        <MenuItem Header="New" Click="NewCase_Clicked" Foreground="DarkGray" FontSize="16"/>
+                        <MenuItem Header="Open Case" Click="OpenCase_Clicked" Foreground="DarkGray" FontSize="16"/>
+                        <MenuItem Header="Quit" Click="QuiteButton_Clicked" Foreground="DarkGray" FontSize="16"/>
 
-    <Grid Background="#e5e7eb">
-        <Border Style="{StaticResource CardStyle}" Background="#fffeff" Margin="40">
-            <Grid >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="30,0,30,0">
-                    <RadioButton x:Name="NewCaseRadioButton"  Checked="NewCaseRadioButton_Checked" Style="{StaticResource RoundedRadioButtonStyle}" Content="New Case" Margin="0,0,10,0" Width="130" Height="40"/>
-                    <RadioButton x:Name="OpenCaseRadioButton" Checked="Open_CaseRadioButton_Checked" Style="{StaticResource RoundedRadioButtonStyle}" Content="Open a Case" Width="130" Height="40" Margin="0,0,10,0"/>
-                    <RadioButton  Style="{StaticResource RoundedRadioButtonStyle}" Checked="QuiteButtonChecked" Content="Quit" Width="110" Height="40"/>
-                </StackPanel>
-                <Border BorderThickness="0,0,0,2"  BorderBrush="#FF3399FF" Margin="30,0,30,0"/>
-                <Border Style="{StaticResource CardStyle}" BorderBrush="LightGray" BorderThickness="1"  Grid.Row="1" Margin="30">
-                    <Grid>
-                        <Grid x:Name="NewCaseView" >
-                            <Border Style="{StaticResource CardStyle}" Background="#fffeff" Padding="24" CornerRadius="8" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <ScrollViewer VerticalScrollBarVisibility="Auto" >
-                                    <Grid Width="500" Height="360" Margin="0,0,5,0">
-                                        <StackPanel>
-                                            <TextBox Style="{StaticResource RoundedPlaceholderTextBox}" Tag="Case Name" Margin="0,20,0,12"/>
-                                            <TextBox Style="{StaticResource RoundedPlaceholderTextBox}" Tag="Matter Number" Margin="0,0,0,12"/>
-                                            <TextBox Style="{StaticResource RoundedPlaceholderTextBox}" Tag="Examiner" Margin="0,0,0,12"/>
-                                            <TextBlock Text="Choose Save Location:" Foreground="#555" FontWeight="SemiBold" FontSize="18"/>
-                                            <Border  BorderBrush="{StaticResource TextBoxBorderBrush}" BorderThickness="2" CornerRadius="6" Margin="0,0,0,12">
-                                                <Button Style="{StaticResource RoundedButton}" Height="34" Width="120" Margin="10,16,16,16" Padding="0" HorizontalAlignment="Left" Click="ChooseFile"  Content="Choose File"/>
-                                            </Border>
-                                            <Button Content="Create Case" Style="{StaticResource RoundedButton}" Width="Auto" />
-                                        </StackPanel>
-                                    </Grid>
 
-                                </ScrollViewer>
-                            </Border>
+                    </MenuItem>
+                </Menu>
+            </StackPanel>
+            <TextBlock Text="V1.0.0" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="White" Margin="0,0,20,0"/>
+        </DockPanel>
+        <Grid Background="#e5e7eb" Grid.Row="1">
+            <Border Style="{StaticResource CardStyle}" Background="#fffeff" Margin="40">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="30,0,30,0">
+                        <RadioButton x:Name="NewCaseRadioButton"  Checked="NewCaseRadioButton_Checked" Style="{StaticResource RoundedRadioButtonStyle}" Content="New Case" Margin="0,0,10,0" Width="130" Height="40"/>
+                        <RadioButton x:Name="OpenCaseRadioButton" Checked="Open_CaseRadioButton_Checked" Style="{StaticResource RoundedRadioButtonStyle}" Content="Open a Case" Width="130" Height="40" Margin="0,0,10,0"/>
+                    </StackPanel>
+                    <Border BorderThickness="0,0,0,2"  BorderBrush="#FF3399FF" Margin="30,0,30,0"/>
+                    <Border Style="{StaticResource CardStyle}" BorderBrush="LightGray" BorderThickness="1"  Grid.Row="1" Margin="30">
+                        <Grid>
+                            <Grid x:Name="NewCaseView" >
+                                <Border Style="{StaticResource CardStyle}" Background="#fffeff" Padding="24" CornerRadius="8" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <ScrollViewer VerticalScrollBarVisibility="Auto" >
+                                        <Grid Width="500" Height="360" Margin="0,0,5,0">
+                                            <StackPanel>
+                                                <TextBox Style="{StaticResource RoundedPlaceholderTextBox}" Tag="Case Name" Margin="0,20,0,12"/>
+                                                <TextBox Style="{StaticResource RoundedPlaceholderTextBox}" Tag="Matter Number" Margin="0,0,0,12"/>
+                                                <TextBox Style="{StaticResource RoundedPlaceholderTextBox}" Tag="Examiner" Margin="0,0,0,12"/>
+                                                <TextBlock Text="Choose Save Location:" Foreground="#555" FontWeight="SemiBold" FontSize="18"/>
+                                                <Border  BorderBrush="{StaticResource TextBoxBorderBrush}" BorderThickness="2" CornerRadius="6" Margin="0,0,0,12">
+                                                    <Button Style="{StaticResource RoundedButton}" Height="34" Width="120" Margin="10,16,16,16" Padding="0" HorizontalAlignment="Left" Click="ChooseFile"  Content="Choose File"/>
+                                                </Border>
+                                                <Button Content="Create Case" Style="{StaticResource RoundedButton}" Width="Auto" />
+                                            </StackPanel>
+                                        </Grid>
+
+                                    </ScrollViewer>
+                                </Border>
+                            </Grid>
+                            <Grid x:Name="OpenCaseView" Visibility="Collapsed">
+
+                                <DataGrid x:Name="CaseDataGrid" ItemsSource="{Binding Cases}"
+                           SelectionChanged="DataGrid_SelectionChanged"
+                           Margin="20"
+                           VerticalAlignment="Top" 
+                           Height="Auto"
+                           AutoGenerateColumns="False"
+                           IsReadOnly="True"
+                           CanUserAddRows="False"
+                           RowHeight="34"
+                           ColumnHeaderHeight="34"
+                           SelectionMode="Single"
+                           SelectionUnit="FullRow"
+                           HeadersVisibility="Column"       
+                           RowHeaderWidth="0"
+                           VerticalGridLinesBrush="#E0E0E0"
+                           HorizontalGridLinesBrush="#E0E0E0"
+                           BorderBrush="#D0D0D0"     
+                           BorderThickness="1" 
+                          >
+
+                                    <!-- Resources that disable highlight -->
+                                    <DataGrid.Resources>
+
+
+                                        <Style TargetType="DataGridCell">
+                                            <Setter Property="Focusable" Value="False"/>
+                                            <Setter Property="Background" Value="Transparent"/>
+                                            <Setter Property="BorderBrush" Value="Transparent"/>
+                                            <Setter Property="BorderThickness" Value="0"/>
+
+                                            <!-- This controls vertical centering -->
+                                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="DataGridCell">
+                                                        <Border Background="{TemplateBinding Background}"
+                                                     BorderBrush="{TemplateBinding BorderBrush}"
+                                                     BorderThickness="{TemplateBinding BorderThickness}"
+                                                     Padding="0">
+                                                            <ContentPresenter Margin="3,0,0,0"
+                                                     VerticalAlignment="Center"
+                                                     HorizontalAlignment="Left"
+                                                     SnapsToDevicePixels="True"/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+
+                                            <Style.Triggers>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter Property="Background" Value="#1567c0"/>
+                                                    <Setter Property="Foreground" Value="White"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+
+                                        <Style TargetType="DataGridRow">
+                                            <Style.Triggers>
+
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#1567c0"/>
+                                                    <Setter Property="Foreground" Value="White"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+
+                                        <!-- Bold Header -->
+                                        <Style TargetType="DataGridColumnHeader">
+                                            <Setter Property="FontWeight" Value="Bold"/>
+                                        </Style>
+
+                                    </DataGrid.Resources>
+
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Case Name" Binding="{Binding CaseName}" Width="*"/>
+                                        <DataGridTextColumn Header="Matter Number" Binding="{Binding MatterNumber}" Width="*"/>
+                                        <DataGridTextColumn Header="Save Location" Binding="{Binding SaveLocation}" Width="*"/>
+                                        <DataGridTextColumn Header="Created Date" Binding="{Binding CreatedDate, StringFormat=\{0:yyyy-MM-dd\}}" Width="*"/>
+                                        <DataGridTextColumn Header="Total Devices" Binding="{Binding TotalDevices}" Width="*"/>
+                                    </DataGrid.Columns>
+
+                                </DataGrid>
+
+
+                            </Grid>
+
                         </Grid>
-                        <Grid x:Name="OpenCaseView" Visibility="Collapsed">
+                    </Border>
+                </Grid>
 
-                            <DataGrid x:Name="CaseDataGrid" ItemsSource="{Binding Cases}"
-                              SelectionChanged="DataGrid_SelectionChanged"
-                              Margin="20"
-                              VerticalAlignment="Top" 
-                              Height="Auto"
-                              AutoGenerateColumns="False"
-                              IsReadOnly="True"
-                              CanUserAddRows="False"
-                              RowHeight="34"
-                              ColumnHeaderHeight="34"
-                              SelectionMode="Single"
-                              SelectionUnit="FullRow"
-                              HeadersVisibility="Column"       
-                              RowHeaderWidth="0"
-                              VerticalGridLinesBrush="#E0E0E0"
-                              HorizontalGridLinesBrush="#E0E0E0"
-                              BorderBrush="#D0D0D0"     
-                              BorderThickness="1" 
-                             >
+            </Border>
 
-                                <!-- Resources that disable highlight -->
-                                <DataGrid.Resources>
-
-
-                                    <Style TargetType="DataGridCell">
-                                        <Setter Property="Focusable" Value="False"/>
-                                        <Setter Property="Background" Value="Transparent"/>
-                                        <Setter Property="BorderBrush" Value="Transparent"/>
-                                        <Setter Property="BorderThickness" Value="0"/>
-
-                                        <!-- This controls vertical centering -->
-                                        <Setter Property="VerticalContentAlignment" Value="Center"/>
-
-                                        <Setter Property="Template">
-                                            <Setter.Value>
-                                                <ControlTemplate TargetType="DataGridCell">
-                                                    <Border Background="{TemplateBinding Background}"
-                                                        BorderBrush="{TemplateBinding BorderBrush}"
-                                                        BorderThickness="{TemplateBinding BorderThickness}"
-                                                        Padding="0">
-                                                        <ContentPresenter Margin="3,0,0,0"
-                                                        VerticalAlignment="Center"
-                                                        HorizontalAlignment="Left"
-                                                        SnapsToDevicePixels="True"/>
-                                                    </Border>
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-
-                                        <Style.Triggers>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter Property="Background" Value="#1567c0"/>
-                                                <Setter Property="Foreground" Value="White"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-
-                                    <Style TargetType="DataGridRow">
-                                        <Style.Triggers>
-
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="#1567c0"/>
-                                                <Setter Property="Foreground" Value="White"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-
-                                    <!-- Bold Header -->
-                                    <Style TargetType="DataGridColumnHeader">
-                                        <Setter Property="FontWeight" Value="Bold"/>
-                                    </Style>
-
-                                </DataGrid.Resources>
-
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Case Name" Binding="{Binding CaseName}" Width="*"/>
-                                    <DataGridTextColumn Header="Matter Number" Binding="{Binding MatterNumber}" Width="*"/>
-                                    <DataGridTextColumn Header="Save Location" Binding="{Binding SaveLocation}" Width="*"/>
-                                    <DataGridTextColumn Header="Created Date" Binding="{Binding CreatedDate, StringFormat=\{0:yyyy-MM-dd\}}" Width="*"/>
-                                    <DataGridTextColumn Header="Total Devices" Binding="{Binding TotalDevices}" Width="*"/>
-                                </DataGrid.Columns>
-
-                            </DataGrid>
-
-
-                        </Grid>
-
-                    </Grid>
-                </Border>
-            </Grid>
-
+        </Grid>
+        <Border Grid.Row="2" Background="#1567c0" Height="30">
+            <TextBlock Text="Status: Ready | No active jobs"
+       Foreground="White"
+       VerticalAlignment="Center"
+       HorizontalAlignment="Right"
+       FontSize="13" Margin="0,0,16,0"/>
         </Border>
-
     </Grid>
+   
 </Window>
