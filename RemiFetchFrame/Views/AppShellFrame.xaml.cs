@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace RemiFetchFrame.Views
 {
@@ -26,10 +14,14 @@ namespace RemiFetchFrame.Views
         }
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
-            CaseInventoryView nextWin = new CaseInventoryView(); // this must be Window
+
+        }
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            CaseManagerView nextWin = new CaseManagerView(); // this must be Window
             nextWin.Show();  // Opens the new window
 
-            this.Close();    // Close current window (optional)
+            this.Close();
         }
         //    private void BtnNext_Click(object sender, RoutedEventArgs e)
         //    {

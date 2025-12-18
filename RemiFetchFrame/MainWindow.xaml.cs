@@ -36,7 +36,7 @@ namespace RemiFetchFrame
         private async void AppSplashScreen_Loaded(object sender, RoutedEventArgs e)
         {
             await Task.Delay(2000); // simulate loading time
-            var shell = new AppShellFrame();
+            var shell = new CaseManagerView();
             shell.Show();
             Close();
         }

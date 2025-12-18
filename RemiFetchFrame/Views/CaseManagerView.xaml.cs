@@ -94,7 +94,11 @@ namespace RemiFetchFrame.Views
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ((DataGrid)sender).SelectedIndex = -1;
+            AppShellFrame nextWin = new AppShellFrame(); // this must be Window
+            nextWin.Show();  // Opens the new window
+
+            this.Close();
+
         }
 
         private void ChooseFile(object sender, RoutedEventArgs e)
@@ -117,6 +121,16 @@ namespace RemiFetchFrame.Views
                 // TODO: use filePath however you want
             }
 
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void QuiteButtonChecked(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
         //private void LoadCases()
@@ -161,4 +175,3 @@ namespace RemiFetchFrame.Views
         //}
     }
 }
-

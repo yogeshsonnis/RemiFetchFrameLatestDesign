@@ -40,41 +40,42 @@
                     <Button Style="{StaticResource SimpleShadowButton}">
                         <TextBlock Text="Remi Fetch" Foreground="#1466c0" FontSize="22"/>
                     </Button>
-                    <StackPanel Grid.Row="1" Margin="0,20,0,0">
-                        <TextBlock Text="Collections" FontSize="17" FontWeight="SemiBold" Margin="5" Foreground="#417fc2"/>
+                    <ScrollViewer Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,20,0,0">
+                        <StackPanel Margin="0,0,0,0">
+                            <TextBlock Text="Collections" FontSize="17" FontWeight="SemiBold" Margin="5" Foreground="#417fc2"/>
 
-                        <!-- MAIN BUTTON -->
-                        <Border x:Name="TargetItem" Margin="0,0,0,10">
-                            <Button  Style="{StaticResource RegistryButtonStyle}"  Content="Targeted Collections"/>
-                        </Border>
+                            <!-- MAIN BUTTON -->
+                            <Border x:Name="TargetItem" Margin="0,0,0,10">
+                                <Button  Style="{StaticResource RegistryButtonStyle}"  Content="Targeted Collections"/>
+                            </Border>
 
-                        <!-- SUBMENU POPUP -->
-                        <Popup PlacementTarget="{Binding ElementName=TargetItem}"
+                            <!-- SUBMENU POPUP -->
+                            <Popup PlacementTarget="{Binding ElementName=TargetItem}"
                            Placement="Right"
                            AllowsTransparency="True"
                            StaysOpen="True">
 
-                            <Popup.Style>
-                                <Style TargetType="Popup">
-                                    <Style.Triggers>
+                                <Popup.Style>
+                                    <Style TargetType="Popup">
+                                        <Style.Triggers>
 
-                                        <!-- Open when hovering main button -->
-                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=TargetItem}"
+                                            <!-- Open when hovering main button -->
+                                            <DataTrigger Binding="{Binding IsMouseOver, ElementName=TargetItem}"
                                  Value="True">
-                                            <Setter Property="IsOpen" Value="True"/>
-                                        </DataTrigger>
+                                                <Setter Property="IsOpen" Value="True"/>
+                                            </DataTrigger>
 
-                                        <!-- Keep open when hovering popup -->
-                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=SubMenuBorder}"
+                                            <!-- Keep open when hovering popup -->
+                                            <DataTrigger Binding="{Binding IsMouseOver, ElementName=SubMenuBorder}"
                                  Value="True">
-                                            <Setter Property="IsOpen" Value="True"/>
-                                        </DataTrigger>
+                                                <Setter Property="IsOpen" Value="True"/>
+                                            </DataTrigger>
 
-                                    </Style.Triggers>
-                                </Style>
-                            </Popup.Style>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Popup.Style>
 
-                            <Border x:Name="SubMenuBorder"
+                                <Border x:Name="SubMenuBorder"
                                 Width="250"
                                 Background="White"
                                 BorderBrush="Gray"
@@ -83,47 +84,47 @@
                                 Padding="5">
 
 
-                                <StackPanel>
-                                    <Button  Content="By Hash" Style="{StaticResource FilterButtonStyle}"/>
-                                    <Button Content="By Path"  Style="{StaticResource FilterButtonStyle}"/>
-                                    <Button Content="By File Group"  Style="{StaticResource FilterButtonStyle}"/>
-                                    <Button Content="Custom Extensions"  Style="{StaticResource FilterButtonStyle}"/>
-                                    <Button Content="Drag  Drop"  Style="{StaticResource FilterButtonStyle}"/>
-                                </StackPanel>
+                                    <StackPanel>
+                                        <Button  Content="By Hash" Style="{StaticResource FilterButtonStyle}"/>
+                                        <Button Content="By Path"  Style="{StaticResource FilterButtonStyle}"/>
+                                        <Button Content="By File Group"  Style="{StaticResource FilterButtonStyle}"/>
+                                        <Button Content="Custom Extensions"  Style="{StaticResource FilterButtonStyle}"/>
+                                        <Button Content="Drag  Drop"  Style="{StaticResource FilterButtonStyle}"/>
+                                    </StackPanel>
+                                </Border>
+                            </Popup>
+
+                            <TextBlock Text="Extractions" FontSize="17" FontWeight="SemiBold" Margin="5" Foreground="#417fc2"  />
+                            <Border x:Name="TargetExtractionsItem"  Margin="0,0,0,10">
+                                <Button Style="{StaticResource RegistryButtonStyle}" Content="Extract Data From..."/>
                             </Border>
-                        </Popup>
 
-                        <TextBlock Text="Extractions" FontSize="17" FontWeight="SemiBold" Margin="5" Foreground="#417fc2"  />
-                        <Border x:Name="TargetExtractionsItem"  Margin="0,0,0,10">
-                            <Button Style="{StaticResource RegistryButtonStyle}" Content="Extract Data From..."/>
-                        </Border>
-
-                        <Popup PlacementTarget="{Binding ElementName=TargetExtractionsItem}"
+                            <Popup PlacementTarget="{Binding ElementName=TargetExtractionsItem}"
                            Placement="Right"
                            AllowsTransparency="True"
                            StaysOpen="True">
 
-                            <Popup.Style>
-                                <Style TargetType="Popup">
-                                    <Style.Triggers>
+                                <Popup.Style>
+                                    <Style TargetType="Popup">
+                                        <Style.Triggers>
 
-                                        <!-- Open when hovering main button -->
-                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=TargetExtractionsItem}"
+                                            <!-- Open when hovering main button -->
+                                            <DataTrigger Binding="{Binding IsMouseOver, ElementName=TargetExtractionsItem}"
                                              Value="True">
-                                            <Setter Property="IsOpen" Value="True"/>
-                                        </DataTrigger>
+                                                <Setter Property="IsOpen" Value="True"/>
+                                            </DataTrigger>
 
-                                        <!-- Keep open when hovering popup -->
-                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=ExtractionsBorderItem}"
+                                            <!-- Keep open when hovering popup -->
+                                            <DataTrigger Binding="{Binding IsMouseOver, ElementName=ExtractionsBorderItem}"
                                              Value="True">
-                                            <Setter Property="IsOpen" Value="True"/>
-                                        </DataTrigger>
+                                                <Setter Property="IsOpen" Value="True"/>
+                                            </DataTrigger>
 
-                                    </Style.Triggers>
-                                </Style>
-                            </Popup.Style>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Popup.Style>
 
-                            <Border 
+                                <Border 
                                 x:Name="ExtractionsBorderItem" 
                                 Width="250"
                                 Background="White"
@@ -131,44 +132,44 @@
                                 BorderThickness="0.5"
                                 CornerRadius="7"
                                 Padding="5">
-                                <StackPanel >
-                                    <Button  Content="From E01" Style="{StaticResource FilterButtonStyle}"/>
-                                    <Button Content="From iTunes Backup"  Style="{StaticResource FilterButtonStyle}"/>
-                                    <Button Content="From VM"  Style="{StaticResource FilterButtonStyle}"/>
-                                    <Button Content="From PST"  Style="{StaticResource FilterButtonStyle}"/>
-                                </StackPanel>
-                            </Border>
-                        </Popup>
+                                    <StackPanel >
+                                        <Button  Content="From E01" Style="{StaticResource FilterButtonStyle}"/>
+                                        <Button Content="From iTunes Backup"  Style="{StaticResource FilterButtonStyle}"/>
+                                        <Button Content="From VM"  Style="{StaticResource FilterButtonStyle}"/>
+                                        <Button Content="From PST"  Style="{StaticResource FilterButtonStyle}"/>
+                                    </StackPanel>
+                                </Border>
+                            </Popup>
 
-                        <TextBlock Text="Preservations" FontSize="17" FontWeight="SemiBold" Margin="5" Foreground="#417fc2"  />
-                        <Border  x:Name="TargetPreservationsItem"  Margin="0,0,0,10">
-                            <Button  Style="{StaticResource RegistryButtonStyle}" Content="Forensic Preservation"/>
-                        </Border>
-                        <Popup PlacementTarget="{Binding ElementName=TargetPreservationsItem}"
+                            <TextBlock Text="Preservations" FontSize="17" FontWeight="SemiBold" Margin="5" Foreground="#417fc2"  />
+                            <Border  x:Name="TargetPreservationsItem"  Margin="0,0,0,10">
+                                <Button  Style="{StaticResource RegistryButtonStyle}" Content="Forensic Preservation"/>
+                            </Border>
+                            <Popup PlacementTarget="{Binding ElementName=TargetPreservationsItem}"
                             Placement="Right"
                             AllowsTransparency="True"
                             StaysOpen="True">
-                            <Popup.Style>
-                                <Style TargetType="Popup">
-                                    <Style.Triggers>
+                                <Popup.Style>
+                                    <Style TargetType="Popup">
+                                        <Style.Triggers>
 
-                                        <!-- Open when hovering main button -->
-                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=TargetPreservationsItem}"
+                                            <!-- Open when hovering main button -->
+                                            <DataTrigger Binding="{Binding IsMouseOver, ElementName=TargetPreservationsItem}"
                       Value="True">
-                                            <Setter Property="IsOpen" Value="True"/>
-                                        </DataTrigger>
+                                                <Setter Property="IsOpen" Value="True"/>
+                                            </DataTrigger>
 
-                                        <!-- Keep open when hovering popup -->
-                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=PreservationsBorderItem}"
+                                            <!-- Keep open when hovering popup -->
+                                            <DataTrigger Binding="{Binding IsMouseOver, ElementName=PreservationsBorderItem}"
                       Value="True">
-                                            <Setter Property="IsOpen" Value="True"/>
-                                        </DataTrigger>
+                                                <Setter Property="IsOpen" Value="True"/>
+                                            </DataTrigger>
 
-                                    </Style.Triggers>
-                                </Style>
-                            </Popup.Style>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Popup.Style>
 
-                            <Border 
+                                <Border 
                                  x:Name="PreservationsBorderItem" 
                                  Width="250"
                                  Background="White"
@@ -176,50 +177,50 @@
                                  BorderThickness="0.5"
                                  CornerRadius="7"
                                  Padding="5">
-                                <StackPanel >
-                                    <Button  Content="iPhone" Style="{StaticResource FilterButtonStyle}"/>
-                                    <Button Content="Android"  Style="{StaticResource FilterButtonStyle}"/>
-                                    <Button Content="Full Disk"  Style="{StaticResource FilterButtonStyle}"/>
-                                    <Button Content="Volume"  Style="{StaticResource FilterButtonStyle}"/>
-                                </StackPanel>
+                                    <StackPanel >
+                                        <Button  Content="iPhone" Style="{StaticResource FilterButtonStyle}"/>
+                                        <Button Content="Android"  Style="{StaticResource FilterButtonStyle}"/>
+                                        <Button Content="Full Disk"  Style="{StaticResource FilterButtonStyle}"/>
+                                        <Button Content="Volume"  Style="{StaticResource FilterButtonStyle}"/>
+                                    </StackPanel>
+                                </Border>
+                            </Popup>
+                            <TextBlock Text="Tools" FontSize="17" FontWeight="SemiBold"  Margin="5" Foreground="#417fc2"/>
+                            <Border  Margin="0,0,0,10">
+                                <Button  Style="{StaticResource RegistryButtonStyle}" Content="Registry Parser"/>
                             </Border>
-                        </Popup>
-                        <TextBlock Text="Tools" FontSize="17" FontWeight="SemiBold"  Margin="5" Foreground="#417fc2"/>
-                        <Border  Margin="0,0,0,10">
-                            <Button  Style="{StaticResource RegistryButtonStyle}" Content="Registry Parser"/>
-                        </Border>
-                        <Border  Margin="0,0,0,10">
-                            <Button  Style="{StaticResource RegistryButtonStyle}" Content="Boot Image"/>
-                        </Border>
-                        <Border  Margin="0,0,0,10">
-                            <Button  Style="{StaticResource RegistryButtonStyle}" Content="Event Log Organizer"/>
-                        </Border>
-                        <Border x:Name="TargetReportingItem" Margin="0,0,0,10">
-                            <Button  Style="{StaticResource RegistryButtonStyle}" Content="Reporting"/>
-                        </Border>
-                        <Popup PlacementTarget="{Binding ElementName=TargetReportingItem}"
+                            <Border  Margin="0,0,0,10">
+                                <Button  Style="{StaticResource RegistryButtonStyle}" Content="Boot Image"/>
+                            </Border>
+                            <Border  Margin="0,0,0,10">
+                                <Button  Style="{StaticResource RegistryButtonStyle}" Content="Event Log Organizer"/>
+                            </Border>
+                            <Border x:Name="TargetReportingItem" Margin="0,0,0,10">
+                                <Button  Style="{StaticResource RegistryButtonStyle}" Content="Reporting"/>
+                            </Border>
+                            <Popup PlacementTarget="{Binding ElementName=TargetReportingItem}"
                            Placement="Right"
                            AllowsTransparency="True"
                            StaysOpen="True">
-                            <Popup.Style>
-                                <Style TargetType="Popup">
-                                    <Style.Triggers>
+                                <Popup.Style>
+                                    <Style TargetType="Popup">
+                                        <Style.Triggers>
 
-                                        <!-- Open when hovering main button -->
-                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=TargetReportingItem}" Value="True">
-                                            <Setter Property="IsOpen" Value="True"/>
-                                        </DataTrigger>
+                                            <!-- Open when hovering main button -->
+                                            <DataTrigger Binding="{Binding IsMouseOver, ElementName=TargetReportingItem}" Value="True">
+                                                <Setter Property="IsOpen" Value="True"/>
+                                            </DataTrigger>
 
-                                        <!-- Keep open when hovering popup -->
-                                        <DataTrigger Binding="{Binding IsMouseOver, ElementName=ReportingBorderItem}" Value="True">
-                                            <Setter Property="IsOpen" Value="True"/>
-                                        </DataTrigger>
+                                            <!-- Keep open when hovering popup -->
+                                            <DataTrigger Binding="{Binding IsMouseOver, ElementName=ReportingBorderItem}" Value="True">
+                                                <Setter Property="IsOpen" Value="True"/>
+                                            </DataTrigger>
 
-                                    </Style.Triggers>
-                                </Style>
-                            </Popup.Style>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Popup.Style>
 
-                            <Border 
+                                <Border 
                                 x:Name="ReportingBorderItem" 
                                 Width="250"
                                 Background="White"
@@ -227,17 +228,19 @@
                                 BorderThickness="0.5"
                                 CornerRadius="7"
                                 Padding="5">
-                                <StackPanel >
-                                    <Button  Content="ECA" Style="{StaticResource FilterButtonStyle}"/>
-                                    <Button Content="Device Profile"  Style="{StaticResource FilterButtonStyle}"/>
-                                    <Button Content="Hard Drive Inventory"  Style="{StaticResource FilterButtonStyle}"/>
-                                    <Button Content="User Accounts"  Style="{StaticResource FilterButtonStyle}"/>
-                                    <Button Content="File and Folder Listing"  Style="{StaticResource FilterButtonStyle}"/>
-                                    <Button Content="Security Profile"  Style="{StaticResource FilterButtonStyle}"/>
-                                </StackPanel>
-                            </Border>
-                        </Popup>
-                    </StackPanel>
+                                    <StackPanel >
+                                        <Button  Content="ECA" Style="{StaticResource FilterButtonStyle}"/>
+                                        <Button Content="Device Profile"  Style="{StaticResource FilterButtonStyle}"/>
+                                        <Button Content="Hard Drive Inventory"  Style="{StaticResource FilterButtonStyle}"/>
+                                        <Button Content="User Accounts"  Style="{StaticResource FilterButtonStyle}"/>
+                                        <Button Content="File and Folder Listing"  Style="{StaticResource FilterButtonStyle}"/>
+                                        <Button Content="Security Profile"  Style="{StaticResource FilterButtonStyle}"/>
+                                    </StackPanel>
+                                </Border>
+                            </Popup>
+                        </StackPanel>
+
+                    </ScrollViewer>
                     <Border Grid.Row="2" Height="70" Style="{StaticResource CardStyle}">
                         <StackPanel>
 
@@ -259,41 +262,55 @@
                     </Border>
                 </Grid>
             </Border>
-            <Grid></Grid>
-            <Border Style="{StaticResource CardStyle}" Background="#fffeff" Grid.Column="1" >
 
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Text="Content area cleared - ready for new module" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="17"/>
-                    <Button Grid.Row="1" Style="{StaticResource RoundedButton}"  HorizontalAlignment="Left"  FontSize="20" FontWeight="Regular">
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                            <Path Data="M10,0 L0,10 L10,20"
-              Stroke="White"
-              StrokeThickness="2"
-              Stretch="Uniform"
-              Width="15" Height="15"
-              Margin="0,0,8,0"/>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
 
-                            <TextBlock Text="Back" FontSize="17"/>
-                        </StackPanel>
-                    </Button>
-                    <Button Grid.Row="1" Style="{StaticResource RoundedButton}" HorizontalAlignment="Right"  FontSize="20" FontWeight="Regular"  Click="NextButton_Click">
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                            <TextBlock Text="Next" FontSize="17" Margin="0,0,8,0"/>
+                </Grid.RowDefinitions>
+                <Border Style="{StaticResource CardStyle}" Background="#fffeff" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.RowSpan="2" FontStyle="Italic" Text="Content area cleared - ready for new module" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="17"/>
+                        <ContentControl Grid.Row="1" MinWidth="980" MinHeight="690" >
 
-                            <Path Data="M0,0 L10,10 L0,20"
-              Stroke="White"
-              StrokeThickness="2"
-              Stretch="Uniform"
-              Width="15" Height="15"/>
-                        </StackPanel>
-                    </Button>
 
-                </Grid>
-            </Border>
+
+                        </ContentControl>
+                    </Grid>
+
+                </Border>
+                <Border Grid.Row="1" Style="{StaticResource CardStyle}" VerticalAlignment="Top" Background="#fffeff" Grid.Column="1"  Margin="9,-6,9,9">
+                    <Grid>
+                        <Button  Style="{StaticResource RoundedButton}"  HorizontalAlignment="Left"  FontSize="20" FontWeight="Regular" Click="BackButton_Click">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Path Data="M10,0 L0,10 L10,20"
+                                    Stroke="White"
+                                    StrokeThickness="2"
+                                    Stretch="Uniform"
+                                    Width="15" Height="15"
+                                    Margin="0,0,8,0"/>
+                                <TextBlock Text="Back" FontSize="17"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Style="{StaticResource RoundedButton}" HorizontalAlignment="Right"  FontSize="20" FontWeight="Regular"  Click="NextButton_Click">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <TextBlock Text="Next" FontSize="17" Margin="0,0,8,0"/>
+
+                                <Path Data="M0,0 L10,10 L0,20"
+                                    Stroke="White"
+                                    StrokeThickness="2"
+                                    Stretch="Uniform"
+                                    Width="15" Height="15"/>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                </Border>
+            </Grid>
 
         </Grid>
 
