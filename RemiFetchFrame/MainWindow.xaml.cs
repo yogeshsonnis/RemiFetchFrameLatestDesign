@@ -18,7 +18,7 @@ namespace RemiFetchFrame
     public partial class MainWindow : Window
     {
         //public string LicenseSummary { get; set; }
-
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace RemiFetchFrame
             //LoadLicenseInfo();
             Loaded += AppSplashScreen_Loaded;
         }
-
+        
         //private void LoadLicenseInfo()
         //{
         //    var license = LicenseInfo.Load();

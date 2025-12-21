@@ -5,24 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RemiFetchFrame"
         mc:Ignorable="d"
-         Width="1400"
-  Height="900"
+         Width="500"
+  Height="600"
   WindowStartupLocation="CenterScreen"
 WindowStyle="ToolWindow"  >
 
     <Grid>
-        <Image Source="/Images/FetchSplash.png"
-           Stretch="UniformToFill"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+            <Image Source="/Images/FetchSplash.jpg" 
+           Stretch="Uniform" VerticalAlignment="Top" Height="440"/>
 
-        <StackPanel x:Name="LicenseOverlay"
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Left"
-                Margin="40,0,0,40">
-            <TextBlock Foreground="White" FontSize="14" FontWeight="Bold"
-                   Text="Data Preservation for Modern Investigations"/>
-            <TextBlock Foreground="White" FontSize="12"
-                   Text="{Binding LicenseSummary}"/>
+        <StackPanel Orientation="Vertical" Grid.Row="1">
+            <TextBlock FontSize="60" FontFamily="Segoe UI" FontWeight="Black" VerticalAlignment="Top" HorizontalAlignment="Center" >
+<Run Text="REMI" Foreground="#1F1F1F"/>
+<Run Text="&amp;" Foreground="#B3B3B3"/>
+<Run Text="FETCH" Foreground="#B7D83E"/>
+            </TextBlock>
+            <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Advanced Data Collections" FontWeight="Bold" FontSize="17" Margin="30,0,0,0"/>
+                <TextBlock Text="Cyber Forensic.ai" FontSize="17" FontWeight="SemiBold" Foreground="#909091" Margin="70,0,0,0"/>
+            </StackPanel>
         </StackPanel>
+        <!--<StackPanel --><!--x:Name="LicenseOverlay"-->
+                <!--VerticalAlignment="Bottom"
+                HorizontalAlignment="Left"
+                Margin="0,0,0,40">
+            <TextBlock Foreground="White" FontSize="11" FontWeight="Bold"
+                   Text="Data Preservation for Modern Investigations" Margin="10,0,0,0"/>
+            <TextBlock Foreground="White" FontSize="12"
+                   Text="{Binding LicenseSummary}"/>--><!--
+        </StackPanel>-->
 
      
     </Grid>

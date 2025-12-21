@@ -9,18 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\Fetchsplash.png" />
+    <None Remove="Images\FetchSplash.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\ExtractFrom\.DS_Store" />
-    <None Include="Views\ExtractFrom\E01Files\.DS_Store" />
-    <None Include="Views\ExtractFrom\FileGroups\.DS_Store" />
-    <None Include="Views\TargetedCollections\.DS_Store" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
+    <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.11" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\Fetchsplash.png">
+    <Resource Include="Images\FetchSplash.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

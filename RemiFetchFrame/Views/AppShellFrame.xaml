@@ -19,9 +19,9 @@
         </Grid.RowDefinitions>
         <DockPanel Background="#1567c0" Height="50">
             <StackPanel Orientation="Horizontal" Margin="24,0,0,0" VerticalAlignment="Center">
+                <TextBlock Text="File" Foreground="White" FontSize="16" Margin="0,0,20,0" Cursor="Hand"/>
                 <TextBlock Text="Cases" Foreground="White" FontSize="16" Margin="0,0,20,0" Cursor="Hand"/>
-                <TextBlock Text="Settings" Foreground="White" FontSize="16" Margin="0,0,20,0" Cursor="Hand"/>
-                <TextBlock Text="Quit" Foreground="White" FontSize="16" Cursor="Hand"/>
+                <TextBlock Text="Settins" Foreground="White" FontSize="16" Cursor="Hand"/>
             </StackPanel>
             <TextBlock Text="V1.0.0" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="White" Margin="0,0,20,0"/>
         </DockPanel>
@@ -39,9 +39,13 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <Button Style="{StaticResource SimpleShadowButton}">
-                        <TextBlock Text="Remi Fetch" Foreground="#1466c0" FontSize="22"/>
-                    </Button>
+
+                    <TextBlock FontSize="42" FontFamily="Segoe UI" FontWeight="Black" VerticalAlignment="Top" HorizontalAlignment="Center" >
+    <Run Text="REMI" Foreground="#1F1F1F"/>
+    <Run Text="&amp;" Foreground="#B3B3B3"/>
+    <Run Text="FETCH" Foreground="#B7D83E"/>
+                    </TextBlock>
+
                     <ScrollViewer Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,20,0,0">
                         <StackPanel Margin="0,0,0,0">
                             <TextBlock Text="Collections" FontSize="17" FontWeight="SemiBold" Margin="5" Foreground="#417fc2"/>
