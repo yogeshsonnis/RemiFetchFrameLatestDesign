@@ -1,4 +1,5 @@
 ﻿using RemiFetchFrame.Views;
+using SQLitePCL;
 using System.Configuration;
 using System.Data;
 using System.Windows;
@@ -12,6 +13,10 @@ namespace RemiFetchFrame
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            Batteries.Init();
+        }
         //protected override async void OnStartup(StartupEventArgs e)
         //{
         //    base.OnStartup(e);

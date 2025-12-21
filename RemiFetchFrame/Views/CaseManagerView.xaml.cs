@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using RemiFetchFrame.Models;
+using RemiFetchFrame.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -26,7 +27,7 @@ namespace RemiFetchFrame.Views
     {
         //private readonly AppShellFrame _parent;
         //private readonly DatabaseService _db;
-
+        DatabaseService _db;
         public ObservableCollection<CaseModel> Cases { get; set; } = new();
 
         public CaseManagerView(/*AppShellFrame parent*/)
@@ -35,8 +36,65 @@ namespace RemiFetchFrame.Views
             //_parent = parent;
             //_db = new DatabaseService();
             this.DataContext = this;
+            _db = new DatabaseService();
             LoadCases();
-            NewCaseRadioButton.IsChecked = true;
+
+        }
+     
+        private async void Add_Click(object sender, RoutedEventArgs e)
+        {
+            // Case Name validation
+            if (string.IsNullOrWhiteSpace(casenameTextbox.Text))
+            {
+                MessageBox.Show("Please enter Case Name");
+                casenameTextbox.Focus();
+                return;
+            }
+            // Matter Number validation
+            if (!int.TryParse(matterNumberTextbox.Text, out int matterNumber))
+            {
+                MessageBox.Show("Please enter a valid Matter Number");
+                matterNumberTextbox.Focus();
+                return;
+            }
+
+            // Examiner validation
+            if (string.IsNullOrWhiteSpace(examinerTextbox.Text))
+            {
+                MessageBox.Show("Please enter Examiner Name");
+                examinerTextbox.Focus();
+                return;
+            }
+            var model = new CaseModel
+            {
+                CaseName = casenameTextbox.Text,
+                MatterNumber = int.TryParse(matterNumberTextbox.Text, out int num) ? num : 0,
+                Examiner = examinerTextbox.Text,
+                SaveLocation = @"C:\Cases\Gamma",
+                CreatedDate = DateTime.Now,
+                TotalDevices = 3
+
+            };
+
+            await _db.AddCaseAsync(model);
+            MessageBox.Show("Case Added");
+
+            casenameTextbox.Text=string.Empty;
+            matterNumberTextbox.Text = string.Empty;
+            examinerTextbox.Text = string.Empty;
+        }
+
+
+
+        private async Task Load_Click()
+        {
+            var data = await _db.GetCasesAsync();
+            Cases.Clear();
+
+            foreach (var item in data)
+            {
+                Cases.Add(item);
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -51,31 +109,6 @@ namespace RemiFetchFrame.Views
         private void LoadCases()
         {
 
-            // Seed data (optional)
-            Cases.Add(new CaseModel
-            {
-                CaseName = "Case Alpha",
-                MatterNumber = 1234,
-                SaveLocation = @"C:\Cases\Alpha",
-                CreatedDate = new DateTime(2025, 10, 05),
-                TotalDevices = 4
-            });
-            Cases.Add(new CaseModel
-            {
-                CaseName = "Case Beta",
-                MatterNumber = 5678,
-                SaveLocation = @"C:\Cases\Beta",
-                CreatedDate = new DateTime(2025, 09, 20),
-                TotalDevices = 7
-            });
-            Cases.Add(new CaseModel
-            {
-                CaseName = "Case Gamma",
-                MatterNumber = 9012,
-                SaveLocation = @"C:\Cases\Gamma",
-                CreatedDate = new DateTime(2025, 08, 15),
-                TotalDevices = 3
-            });
 
 
         }
@@ -137,7 +170,7 @@ namespace RemiFetchFrame.Views
         {
             NewCaseView.Visibility = Visibility.Visible;
             OpenCaseView.Visibility = Visibility.Collapsed;
-            NewCaseRadioButton.IsChecked = true;
+
         }
 
         private void QuiteButton_Clicked(object sender, RoutedEventArgs e)
@@ -145,12 +178,14 @@ namespace RemiFetchFrame.Views
             this.Close();
         }
 
-        private void OpenCase_Clicked(object sender, RoutedEventArgs e)
+        private async void OpenCase_Clicked(object sender, RoutedEventArgs e)
         {
             NewCaseView.Visibility = Visibility.Collapsed;
             OpenCaseView.Visibility = Visibility.Visible;
-            OpenCaseRadioButton.IsChecked = true;
+            await Load_Click();
         }
+
+
 
         //private void LoadCases()
         //{

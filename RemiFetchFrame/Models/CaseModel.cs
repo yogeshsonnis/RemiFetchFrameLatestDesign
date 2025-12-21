@@ -9,6 +9,7 @@ namespace RemiFetchFrame.Models
     public class CaseModel
     {
         public string CaseName { get; set; }
+        public string Examiner { get; set; }
         public int MatterNumber { get; set; }
         public string SaveLocation { get; set; }
         public DateTime CreatedDate { get; set; }
