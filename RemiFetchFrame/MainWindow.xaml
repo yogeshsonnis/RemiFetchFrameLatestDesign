@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RemiFetchFrame"
         mc:Ignorable="d"
-         Width="500"
-  Height="600"
+         Width="600"
+  Height="750"
   WindowStartupLocation="CenterScreen"
 WindowStyle="ToolWindow"  >
 
@@ -16,17 +16,17 @@ WindowStyle="ToolWindow"  >
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
             <Image Source="/Images/FetchSplash.jpg" 
-           Stretch="Uniform" VerticalAlignment="Top" Height="440"/>
+           Stretch="Uniform" VerticalAlignment="Top" Height="540"/>
 
         <StackPanel Orientation="Vertical" Grid.Row="1">
-            <TextBlock FontSize="60" FontFamily="Segoe UI" FontWeight="Black" VerticalAlignment="Top" HorizontalAlignment="Center" >
+            <TextBlock FontSize="80" FontFamily="Segoe UI" FontWeight="Black" VerticalAlignment="Top" HorizontalAlignment="Center" >
 <Run Text="REMI" Foreground="#1F1F1F"/>
 <Run Text="&amp;" Foreground="#B3B3B3"/>
 <Run Text="FETCH" Foreground="#B7D83E"/>
             </TextBlock>
-            <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Advanced Data Collections" FontWeight="Bold" FontSize="17" Margin="30,0,0,0"/>
-                <TextBlock Text="Cyber Forensic.ai" FontSize="17" FontWeight="SemiBold" Foreground="#909091" Margin="70,0,0,0"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="Advanced Data Collections" FontWeight="Bold" FontSize="20" Margin="0,0,0,0"/>
+                <TextBlock Text="Cyber Forensic.ai" FontSize="20" FontWeight="SemiBold" Foreground="#909091" Margin="70,0,0,0"/>
             </StackPanel>
         </StackPanel>
         <!--<StackPanel --><!--x:Name="LicenseOverlay"-->

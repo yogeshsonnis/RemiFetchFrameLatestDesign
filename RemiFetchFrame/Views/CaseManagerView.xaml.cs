@@ -94,7 +94,9 @@ namespace RemiFetchFrame.Views
 
             await _db.AddCaseAsync(model);
             MessageBox.Show("Case Added");
-
+            NewCaseView.Visibility = Visibility.Collapsed;
+            OpenCaseView.Visibility = Visibility.Visible;
+            await Load_Click();
             casenameTextbox.Text=string.Empty;
             matterNumberTextbox.Text = string.Empty;
             examinerTextbox.Text = string.Empty;
