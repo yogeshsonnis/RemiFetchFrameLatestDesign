@@ -65,12 +65,18 @@ namespace RemiFetchFrame.Views
                 examinerTextbox.Focus();
                 return;
             }
+            if (string.IsNullOrWhiteSpace(SaveLocationTextBox.Text))
+            {
+                MessageBox.Show("Please enter a valid save location.");
+                SaveLocationTextBox.Focus();
+                return;
+            }
             var model = new CaseModel
             {
                 CaseName = casenameTextbox.Text,
                 MatterNumber = int.TryParse(matterNumberTextbox.Text, out int num) ? num : 0,
                 Examiner = examinerTextbox.Text,
-                SaveLocation = @"C:\Cases\Gamma",
+                SaveLocation = SaveLocationTextBox.Text, 
                 CreatedDate = DateTime.Now,
                 TotalDevices = 3
 
@@ -82,6 +88,7 @@ namespace RemiFetchFrame.Views
             casenameTextbox.Text=string.Empty;
             matterNumberTextbox.Text = string.Empty;
             examinerTextbox.Text = string.Empty;
+            SaveLocationTextBox.Text = string.Empty;
         }
 
 
@@ -134,27 +141,27 @@ namespace RemiFetchFrame.Views
 
         }
 
-        private void ChooseFile(object sender, RoutedEventArgs e)
-        {
+        //private void ChooseFile(object sender, RoutedEventArgs e)
+        //{
 
 
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Title = "Select a file";
-            dialog.Filter = "All Files (*.*)|*.*"; // optional filter
+        //    OpenFileDialog dialog = new OpenFileDialog();
+        //    dialog.Title = "Select a file";
+        //    dialog.Filter = "All Files (*.*)|*.*"; // optional filter
 
-            bool? result = dialog.ShowDialog();
+        //    bool? result = dialog.ShowDialog();
 
-            if (result == true)
-            {
-                string filePath = dialog.FileName;
+        //    if (result == true)
+        //    {
+        //        string filePath = dialog.FileName;
 
-                // show selected file path
-                MessageBox.Show("Selected File:\n" + filePath);
+        //        // show selected file path
+        //        MessageBox.Show("Selected File:\n" + filePath);
 
-                // TODO: use filePath however you want
-            }
+        //        // TODO: use filePath however you want
+        //    }
 
-        }
+        //}
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {

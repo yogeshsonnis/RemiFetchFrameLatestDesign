@@ -286,9 +286,8 @@ WindowStyle="ToolWindow"
                                                 <TextBox Style="{StaticResource RoundedPlaceholderTextBox}" Tag="Matter Number" Margin="0,0,0,12" x:Name="matterNumberTextbox"/>
                                                 <TextBox Style="{StaticResource RoundedPlaceholderTextBox}" Tag="Examiner" Margin="0,0,0,12" x:Name="examinerTextbox"/>
                                                 <TextBlock Text="Choose Save Location:" Foreground="#555" FontWeight="SemiBold" FontSize="18"/>
-                                                <Border  BorderBrush="{StaticResource TextBoxBorderBrush}" BorderThickness="2" CornerRadius="6" Margin="0,0,0,12">
-                                                    <Button Style="{StaticResource RoundedButton}" Height="34" Width="120" Margin="10,16,16,16" Padding="0" HorizontalAlignment="Left" Click="ChooseFile"  Content="Choose File"/>
-                                                </Border>
+                                                <TextBox Style="{StaticResource RoundedPlaceholderTextBox}" Tag="Enter save location (e.g. C:\Cases\Output)" Margin="0,7,0,12"  x:Name="SaveLocationTextBox"/>
+                                               
                                                 <Button Content="Create Case" Style="{StaticResource RoundedButton}" Width="Auto" Click="Add_Click"/>
                                             </StackPanel>
                                         </Grid>
