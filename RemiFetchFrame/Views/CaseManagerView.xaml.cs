@@ -33,6 +33,16 @@ namespace RemiFetchFrame.Views
         public CaseManagerView(/*AppShellFrame parent*/)
         {
             InitializeComponent();
+          //  WindowStyle = WindowStyle.SingleBorderWindow;
+          //  WindowState = WindowState.Normal;
+            ResizeMode = ResizeMode.CanMinimize; // Disable maximizing and resizing
+            double differenceX = SystemParameters.MaximizedPrimaryScreenWidth - SystemParameters.WorkArea.Width;
+            double differenceY = SystemParameters.MaximizedPrimaryScreenHeight - SystemParameters.WorkArea.Height;
+            Left = -differenceX / 2;
+            Top = 0;
+            Width = SystemParameters.MaximizedPrimaryScreenWidth;
+            Height = SystemParameters.MaximizedPrimaryScreenHeight - differenceY / 2;
+
             //_parent = parent;
             //_db = new DatabaseService();
             this.DataContext = this;
