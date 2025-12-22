@@ -275,7 +275,7 @@
                     <RowDefinition Height="Auto"/>
 
                 </Grid.RowDefinitions>
-                <Border Style="{StaticResource CardStyle}" Background="#fffeff"  Width="980">
+                <Border Style="{StaticResource CardStyle}" Background="#fffeff"  >
                     <Grid >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="100"/>
