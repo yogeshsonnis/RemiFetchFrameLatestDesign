@@ -93,7 +93,7 @@ namespace RemiFetchFrame.Views
             };
 
             await _db.AddCaseAsync(model);
-            MessageBox.Show("Case Added");
+          //  MessageBox.Show("Case Added");
             NewCaseView.Visibility = Visibility.Collapsed;
             OpenCaseView.Visibility = Visibility.Visible;
             await Load_Click();

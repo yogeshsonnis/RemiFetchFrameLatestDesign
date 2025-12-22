@@ -11,6 +11,13 @@
   <ItemGroup>
     <None Remove="Images\FetchSplash.jpg" />
     <None Remove="Images\SplashLogo.jpg" />
+    <None Remove="RemiFetchDatabase.db3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="RemiFetchDatabase.db3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

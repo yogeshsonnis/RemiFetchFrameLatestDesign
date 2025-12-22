@@ -15,9 +15,13 @@ namespace RemiFetchFrame.Services
 
         public DatabaseService()
         {
-            var dbPath = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                "RemiFetchDatabase.db3");
+            //var dbPath = Path.Combine(
+            //    Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+            //    "RemiFetchDatabase.db3");
+            string appFolder = AppDomain.CurrentDomain.BaseDirectory;
+            string dbPath = Path.Combine(appFolder, "RemiFetchDatabase.db3"); // Adjust "Assets" if needed
+
+
 
             _db = new SQLiteAsyncConnection(dbPath);
             _db.CreateTableAsync<CaseModel>().Wait();
