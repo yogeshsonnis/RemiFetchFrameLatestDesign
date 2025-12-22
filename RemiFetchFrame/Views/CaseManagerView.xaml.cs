@@ -61,12 +61,12 @@ namespace RemiFetchFrame.Views
                 return;
             }
             // Matter Number validation
-            if (!int.TryParse(matterNumberTextbox.Text, out int matterNumber))
-            {
-                MessageBox.Show("Please enter a valid Matter Number");
-                matterNumberTextbox.Focus();
-                return;
-            }
+            //if (!int.TryParse(matterNumberTextbox.Text, out int matterNumber))
+            //{
+            //    MessageBox.Show("Please enter a valid Matter Number");
+            //    matterNumberTextbox.Focus();
+            //    return;
+            //}
 
             // Examiner validation
             if (string.IsNullOrWhiteSpace(examinerTextbox.Text))
