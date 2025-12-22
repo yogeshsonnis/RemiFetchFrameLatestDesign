@@ -8,9 +8,9 @@
          Width="600"
   Height="750"
   WindowStartupLocation="CenterScreen"
-WindowStyle="ToolWindow"  >
-
+ >
     <Grid>
+    <Grid Visibility="Collapsed">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -41,6 +41,7 @@ WindowStyle="ToolWindow"  >
 
      
     </Grid>
-
-
+        <Image Source="/Images/SplashLogo.jpg" 
+ Stretch="Uniform" VerticalAlignment="Top"/>
+    </Grid>
 </Window>

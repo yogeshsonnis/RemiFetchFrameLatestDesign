@@ -35,13 +35,13 @@ namespace RemiFetchFrame.Views
             InitializeComponent();
           //  WindowStyle = WindowStyle.SingleBorderWindow;
           //  WindowState = WindowState.Normal;
-            ResizeMode = ResizeMode.CanMinimize; // Disable maximizing and resizing
+          //  ResizeMode = ResizeMode.CanMinimize; // Disable maximizing and resizing
             double differenceX = SystemParameters.MaximizedPrimaryScreenWidth - SystemParameters.WorkArea.Width;
             double differenceY = SystemParameters.MaximizedPrimaryScreenHeight - SystemParameters.WorkArea.Height;
             Left = -differenceX / 2;
             Top = 0;
-            Width = SystemParameters.MaximizedPrimaryScreenWidth;
-            Height = SystemParameters.MaximizedPrimaryScreenHeight - differenceY / 2;
+            Width = SystemParameters.MaximizedPrimaryScreenWidth > 1200 ? 1100 : 960;
+            Height =( SystemParameters.MaximizedPrimaryScreenHeight - differenceY / 2) > 1000 ? 900 : 850;
 
             //_parent = parent;
             //_db = new DatabaseService();

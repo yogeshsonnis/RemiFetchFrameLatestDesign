@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <None Remove="Images\FetchSplash.jpg" />
+    <None Remove="Images\SplashLogo.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,6 +20,9 @@
 
   <ItemGroup>
     <Resource Include="Images\FetchSplash.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SplashLogo.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

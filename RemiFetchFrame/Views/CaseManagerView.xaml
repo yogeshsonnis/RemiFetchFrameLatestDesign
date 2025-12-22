@@ -8,7 +8,6 @@
    
  
   WindowStartupLocation="CenterScreen"
-WindowStyle="ToolWindow"
      >
 
     <!--<Viewbox Stretch="Uniform" StretchDirection="Both" Margin="20">
