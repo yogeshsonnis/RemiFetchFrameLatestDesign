@@ -1,0 +1,36 @@
+﻿{
+  "Modules": [
+    {
+      "Name": "Collect by Path",
+      "View": "Remi.Fetch.CollectByPath_Wizard1"
+    },
+    {
+      "Name": "Extract from E01",
+      "View": "Remi.Fetch.ExtractFromE011"
+    },
+    {
+      "Name": "Extract from VM",
+      "View": "Remi.Fetch.ExtractFromVM_Wizard1"
+    },
+    {
+      "Name": "Extract from iTunes",
+      "View": "Remi.Fetch.ExtractFromiTunes_Wizard1"
+    },
+    {
+      "Name": "File Groups",
+      "View": "Remi.Fetch.FileGroupWizard1"
+    },
+    {
+      "Name": "User Accounts",
+      "View": "Remi.Fetch.User_Accounts_Wizard1"
+    },
+    {
+      "Name": "Volume Preservation",
+      "View": "Remi.Fetch.VolumePreservation1"
+    },
+    {
+      "Name": "Incident Response",
+      "View": "Remi.Fetch.IncidentResponse_Wizard1"
+    }
+  ]
+}
