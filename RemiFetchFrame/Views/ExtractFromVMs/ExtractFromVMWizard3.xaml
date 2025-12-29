@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:RemiFetchFrame.Views.ExtractFromVMs"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin="20" Background="#fafafa">
+    <Grid  Background="#fafafa">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -24,7 +24,7 @@
                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Border>
                 <TextBlock Text="Select VM Source" Foreground="#4b5563"
-                           FontSize="13" Margin="4,0,8,0"/>
+                           FontSize="13" Margin="4,0,8,0" VerticalAlignment="Center"/>
 
                 <Rectangle Fill="#d1d5db" Width="40" Height="1" VerticalAlignment="Center" Margin="5,0"/>
 
@@ -35,7 +35,7 @@
                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Border>
                 <TextBlock Text="Inspect Disks" Foreground="#4b5563"
-                           FontSize="13" Margin="4,0,8,0"/>
+                           FontSize="13" Margin="4,0,8,0" VerticalAlignment="Center"/>
 
                 <Rectangle Fill="#d1d5db" Width="40" Height="1" VerticalAlignment="Center" Margin="5,0"/>
 
@@ -46,7 +46,7 @@
                                HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Border>
                 <TextBlock Text="Extract &amp; Export" Foreground="#1565c0"
-                           FontWeight="SemiBold" FontSize="13" Margin="4,0,0,0"/>
+                           FontWeight="SemiBold" VerticalAlignment="Center" FontSize="13" Margin="4,0,0,0"/>
             </StackPanel>
         </Border>
 
@@ -59,10 +59,10 @@
 
                 <!-- Action Buttons -->
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <Button Content="Start Extraction" Width="140" Height="30" Margin="0,0,8,0"
+                    <Button Content="Start Extraction" Style="{StaticResource RoundedButton}" Width="140" Height="30" Margin="0,0,8,0"
                             Background="#1565c0" Foreground="White" BorderBrush="#1565c0"
                             FontSize="12" Click="OnStartExtraction"/>
-                    <Button Content="Pause" Width="100" Height="30" Margin="0,0,8,0"
+                    <Button Content="Pause" Width="100"  Style="{StaticResource RoundedButton}" Height="30" Margin="0,0,8,0"
                             Background="#1565c0" Foreground="White" BorderBrush="#1565c0"
                             FontSize="12" Click="OnPause"/>
                     <Button Content="Cancel" Width="100" Height="30"
@@ -149,11 +149,11 @@
                     <Button x:Name="BtnBack" Content="← Back"
                             Width="100" Height="32" Background="#e5e7eb"
                             Foreground="#1f2937" BorderBrush="#d1d5db"
-                            FontSize="13" Margin="0,0,8,0" Click="OnBack"/>
+                            FontSize="13" Margin="0,0,8,0" Click="OnBack" Style="{StaticResource NormalButtonStyle}"/>
                     <Button x:Name="BtnFinish" Content="Finish ✓"
                             Width="120" Height="32" Background="#1565c0"
                             Foreground="White" BorderBrush="#1565c0"
-                            FontSize="13" Click="OnFinish"/>
+                            FontSize="13" Click="OnFinish" Style="{StaticResource RoundedButton}"/>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>

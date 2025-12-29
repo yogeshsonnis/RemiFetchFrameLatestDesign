@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Border Background="White" CornerRadius="8" Margin="20"
+        <Border Background="White" CornerRadius="8" 
                 BorderBrush="#D1D5DB" BorderThickness="1"
                 SnapsToDevicePixels="True">
             <DockPanel>
@@ -21,7 +21,7 @@
                     <StackPanel Orientation="Horizontal"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
-                Margin="10,0">
+                Margin="0,0">
 
                         <!-- STEP 1 -->
                         <Grid Width="28" Height="28">
@@ -35,8 +35,8 @@
 
                         <TextBlock Text="  Select Source"
                    Foreground="#6B7280"
-                   FontSize="14"
-                   Margin="6,0"/>
+                   FontSize="14" VerticalAlignment="Center"
+                   Margin="0,0"/>
 
                         <Rectangle Width="60" Height="2"
                    Fill="#D1D5DB"
@@ -55,7 +55,7 @@
                         <TextBlock Text="  Choose Data Types"
                    Foreground="#1565C0"
                    FontWeight="SemiBold"
-                   FontSize="14"
+                   FontSize="14" VerticalAlignment="Center"
                    Margin="6,0"/>
 
                         <Rectangle Width="60" Height="2"
@@ -74,7 +74,7 @@
 
                         <TextBlock Text="  Extract &amp; Export"
                    Foreground="#6B7280"
-                   FontSize="14"
+                   FontSize="14" VerticalAlignment="Center"
                    Margin="6,0"/>
 
                     </StackPanel>
@@ -90,9 +90,9 @@
 
                     <!-- Buttons -->
                     <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,8">
-                        <Button Content="Select All" Background="#1565C0" Foreground="White"
+                        <Button Content="Select All" Style="{StaticResource RoundedButton}" Height="35" Background="#1565C0" Foreground="White"
                                 FontSize="13" Padding="12,6" Margin="0,0,8,0"/>
-                        <Button Content="Clear All" Background="#1565C0" Foreground="White"
+                        <Button Content="Clear All" Background="#1565C0" Height="35" Style="{StaticResource RoundedButton}" Foreground="White"
                                 FontSize="13" Padding="12,6"/>
                     </StackPanel>
 

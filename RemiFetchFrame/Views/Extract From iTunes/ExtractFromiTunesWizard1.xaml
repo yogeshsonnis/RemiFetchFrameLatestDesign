@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:RemiFetchFrame.Views.Extract_From_iTunes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin="20" Background="#fafafa">
+    <Grid  Background="#fafafa">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -44,9 +44,9 @@
 
             <!-- Folder Selection Controls -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
-                <Button x:Name="BtnAddFolder" Content="Add Folder..." Width="140" Height="32" Background="#1565c0" Foreground="White" BorderThickness="0" Margin="0,0,10,0" /> <!--Click="OnAddFolder"-->
-                <Button x:Name="BtnRemoveSelected" Content="Remove Selected" Width="150" Height="32" Background="#e5e7eb" Foreground="#111827" BorderThickness="0" Margin="0,0,10,0" Click="OnRemoveSelected"/>
-                <Button x:Name="BtnClearList" Content="Clear List" Width="120" Height="32" Background="#e5e7eb" Foreground="#111827" BorderThickness="0" Click="OnClearList"/>
+                <Button x:Name="BtnAddFolder" Content="Add Folder..." Style="{StaticResource RoundedButton}" Width="140" Height="32" Background="#1565c0" Foreground="White" BorderThickness="0" Margin="0,0,10,0" /> <!--Click="OnAddFolder"-->
+                <Button x:Name="BtnRemoveSelected" Content="Remove Selected" Style="{StaticResource NormalButtonStyle}" Width="150" Height="32" Background="#e5e7eb" Foreground="#111827" BorderThickness="0" Margin="0,0,10,0" Click="OnRemoveSelected"/>
+                <Button x:Name="BtnClearList" Content="Clear List" Width="120" Height="32" Style="{StaticResource NormalButtonStyle}" Background="#e5e7eb" Foreground="#111827" BorderThickness="0" Click="OnClearList"/>
             </StackPanel>
 
             <!-- Preview Table -->
@@ -78,11 +78,12 @@
                 </Grid>
             </Border>
 
-            <!-- Footer -->
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
-                <Button x:Name="BtnNext" Content="Next →" Width="120" Height="32" Background="#1565c0" Foreground="White" BorderThickness="0" /> <!--Click="OnNext"-->
-            </StackPanel>
+           
+            <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+                <Button x:Name="BtnNext" Content="Next →" Width="120" Height="32" Background="#1565c0" Foreground="White" BorderThickness="0" /> --><!--Click="OnNext"--><!--
+            </StackPanel>-->
         </StackPanel>
+        
     </Grid>
 
 </UserControl>

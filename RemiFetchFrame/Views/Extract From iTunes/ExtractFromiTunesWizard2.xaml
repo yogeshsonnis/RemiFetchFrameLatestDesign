@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:RemiFetchFrame.Views.Extract_From_iTunes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin="20" Background="#fafafa">
+    <Grid Background="#fafafa">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -14,113 +14,120 @@
 
         <!-- Wizard Header -->
         <Border Grid.Row="0" Background="#f5f5f5"
-                BorderBrush="#d1d5db" BorderThickness="0,0,0,1"
-                Padding="20,8">
+            BorderBrush="#d1d5db" BorderThickness="0,0,0,1"
+            Padding="20,8">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal" Margin="0,0,10,0">
                     <Border Background="#e5e7eb" CornerRadius="100" Width="28" Height="28">
                         <TextBlock Text="1" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   Foreground="#374151" FontWeight="SemiBold"/>
+                               Foreground="#374151" FontWeight="SemiBold"/>
                     </Border>
                     <TextBlock Text=" Select iTunes Backup "
-                               Margin="8,0,0,0" Foreground="#4b5563" FontSize="13"/>
+                           Margin="8,0,0,0" Foreground="#4b5563" FontSize="13"/>
                 </StackPanel>
+
                 <Rectangle Fill="#d1d5db" Width="40" Height="1" VerticalAlignment="Center"/>
+
                 <StackPanel Orientation="Horizontal" Margin="10,0,10,0">
                     <Border Background="#1565c0" CornerRadius="100" Width="28" Height="28">
                         <TextBlock Text="2" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   Foreground="White" FontWeight="SemiBold"/>
+                               Foreground="White" FontWeight="SemiBold"/>
                     </Border>
                     <TextBlock Text=" Collect &amp; Export "
-                               Margin="8,0,0,0" Foreground="#1565c0" FontWeight="SemiBold"
-                               FontSize="13"/>
+                           Margin="8,0,0,0" Foreground="#1565c0"
+                           FontWeight="SemiBold" FontSize="13"/>
                 </StackPanel>
+
                 <Rectangle Fill="#d1d5db" Width="40" Height="1" VerticalAlignment="Center"/>
+
                 <StackPanel Orientation="Horizontal">
                     <Border Background="#e5e7eb" CornerRadius="100" Width="28" Height="28">
                         <TextBlock Text="3" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   Foreground="#374151" FontWeight="SemiBold"/>
+                               Foreground="#374151" FontWeight="SemiBold"/>
                     </Border>
                     <TextBlock Text=" Extract &amp; Export "
-                               Margin="8,0,0,0" Foreground="#4b5563" FontSize="13"/>
+                           Margin="8,0,0,0" Foreground="#4b5563" FontSize="13"/>
                 </StackPanel>
             </StackPanel>
         </Border>
 
-        <!-- Body -->
-        <StackPanel Grid.Row="1" Margin="10" Background="White"
-                     Orientation="Vertical">
+        <!-- Body (ONLY THIS PART FIXED) -->
+        <Grid Grid.Row="1" Margin="10" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,10">
+            <!-- Buttons (SAME) -->
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,15">
                 <Button x:Name="BtnSelectAll" Content="Select All"
-                        Width="120" Height="32" Margin="0,0,10,0"
-                        Background="#1565c0" Foreground="White"
-                        BorderThickness="0" Click="OnSelectAll"/>
+                    Style="{StaticResource RoundedButton}"
+                    Width="120" Height="32" Margin="0,0,10,0"
+                    Background="#1565c0" Foreground="White"
+                    BorderThickness="0" Click="OnSelectAll"/>
+
                 <Button x:Name="BtnClearAll" Content="Clear All"
-                        Width="120" Height="32"
-                        Background="#1565c0" Foreground="White"
-                        BorderThickness="0" Click="OnClearAll"/>
+                    Width="120" Height="32"
+                    Style="{StaticResource RoundedButton}"
+                    Background="#1565c0" Foreground="White"
+                    BorderThickness="0" Click="OnClearAll"/>
             </StackPanel>
 
-            <ScrollViewer VerticalScrollBarVisibility="Auto"
-                          Background="#f9fafb" BorderBrush="#d1d5db"
-                          BorderThickness="1" Padding="10">
-                <StackPanel x:Name="DataGroupList" Orientation="Vertical">
+           
+            
+
+                <StackPanel x:Name="DataGroupList" Orientation="Vertical" Grid.Row="1" >
 
                     <CheckBox Content="Messages &amp; Chats"
-                              FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
+                          FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
                     <TextBlock Text="SMS, iMessage, WhatsApp, Telegram, and other chat databases"
-                               Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
+                           Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
 
                     <CheckBox Content="Contacts &amp; Call Logs"
-                              FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
+                          FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
                     <TextBlock Text="Address book entries, favorites, call history, FaceTime logs"
-                               Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
+                           Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
 
                     <CheckBox Content="Photos &amp; Videos"
-                              FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
+                          FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
                     <TextBlock Text="Camera roll, thumbnails, metadata, Live Photos"
-                               Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
+                           Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
 
                     <CheckBox Content="App Data &amp; Containers"
-                              FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
+                          FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
                     <TextBlock Text="Third-party app databases, caches, documents, sandboxed data"
-                               Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
+                           Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
 
                     <CheckBox Content="System &amp; Settings"
-                              FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
+                          FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
                     <TextBlock Text="Device configuration, network settings, plist files, preferences"
-                               Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
+                           Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
 
                     <CheckBox Content="Safari &amp; Web Activity"
-                              FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
+                          FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
                     <TextBlock Text="Bookmarks, history, downloads, cookies, reading list"
-                               Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
+                           Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
 
                     <CheckBox Content="Health &amp; Fitness"
-                              FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
+                          FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
                     <TextBlock Text="HealthKit data, activity logs, medical ID, Apple Watch sync"
-                               Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
+                           Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
 
                     <CheckBox Content="Wallet &amp; Apple Pay"
-                              FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
+                          FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
                     <TextBlock Text="Passes, transaction receipts, Apple Pay tokens"
-                               Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
+                           Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
 
                     <CheckBox Content="Custom &amp; Case-Specific Artifacts"
-                              FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
+                          FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
                     <TextBlock Text="Keyword matches, tagged directories, analyst bookmarks"
-                               Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
-                </StackPanel>
-            </ScrollViewer>
+                           Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
-                <Button x:Name="BtnNext" Content="Next →"
-                        Width="120" Height="32"
-                        Background="#1565c0" Foreground="White"
-                        BorderThickness="0" /> <!--Click="OnNext"-->
-            </StackPanel>
-        </StackPanel>
+                </StackPanel>
+          
+        </Grid>
     </Grid>
 
+
 </UserControl>
+ 

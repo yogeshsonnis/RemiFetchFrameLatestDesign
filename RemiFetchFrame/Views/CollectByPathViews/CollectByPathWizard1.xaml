@@ -5,8 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RemiFetchFrame.Views.CollectByPathViews"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid  Background="White">
+             >
+
+    <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -14,130 +15,188 @@
 
         <!-- Wizard Header -->
         <Border Grid.Row="0" Background="#f5f5f5"
-                BorderBrush="#d1d5db" BorderThickness="0,0,0,1"
-                Padding="20,5">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="6">
+            BorderBrush="#d1d5db" BorderThickness="0,0,0,1"
+            Padding="20,5">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <Border Background="#1565c0" CornerRadius="100" Width="28" Height="28">
-                        <TextBlock Text="1" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   Foreground="White" FontWeight="SemiBold"/>
+                        <TextBlock Text="1"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Foreground="White"
+                               FontWeight="SemiBold"/>
                     </Border>
-                    <TextBlock Text="Add Paths" Foreground="#1565c0"
-                               FontWeight="SemiBold" FontSize="13" VerticalAlignment="Center"/>
+                    <TextBlock Text="Add Paths"
+                           Foreground="#1565c0"
+                           FontWeight="SemiBold"
+                           FontSize="13"
+                           VerticalAlignment="Center"/>
                 </StackPanel>
 
-                <Rectangle Fill="#d1d5db" Width="40" Height="1" VerticalAlignment="Center" Margin="5,0"/>
+                <Rectangle Fill="#d1d5db" Width="40" Height="1" Margin="5,0"/>
 
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="6">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <Border Background="#e5e7eb" CornerRadius="100" Width="28" Height="28">
-                        <TextBlock Text="2" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   Foreground="#374151" FontWeight="SemiBold"/>
+                        <TextBlock Text="2"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Foreground="#374151"
+                               FontWeight="SemiBold"/>
                     </Border>
-                    <TextBlock Text="Collect &amp; Export" Foreground="#4b5563" FontSize="13" VerticalAlignment="Center"/>
+                    <TextBlock Text="Collect &amp; Export"
+                           Foreground="#4b5563"
+                           FontSize="13"
+                           VerticalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>
         </Border>
 
-        <!-- Body -->
-        <StackPanel Grid.Row="1" Margin="10" Background="White"  Orientation="Vertical">
-            <!-- Action Buttons -->
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,10" >
-                <Button Content="+ Add Path" Width="110" Height="30" Background="#1565c0" Foreground="White"
-                        BorderThickness="0" FontSize="12" Click="OnAddPath"/>
-                <Button Content="- Remove" Width="90" Height="30" Background="#1565c0" Foreground="White"
-                        BorderThickness="0" FontSize="12" Click="OnRemovePath"/>
-                <Button Content="Browse" Width="90" Height="30" Background="#1565c0" Foreground="White"
-                        BorderThickness="0" FontSize="12" Click="OnBrowse"/>
-            </StackPanel>
+        <!-- ✅ FIXED BODY -->
+        <ScrollViewer Grid.Row="1"
+                  VerticalScrollBarVisibility="Auto"
+                  HorizontalScrollBarVisibility="Disabled">
 
-            <!-- Paths Table -->
-            <DataGrid x:Name="PathsGrid"
+            <StackPanel Margin="10" Background="White" Orientation="Vertical">
+
+                <!-- Action Buttons -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Button Content="+ Add Path"
+                        Width="110"
+                        Height="30"
+                        Background="#1565c0"
+                        Foreground="White"
+                        BorderThickness="0"
+                        FontSize="12"
+                            Style="{StaticResource RoundedButton}"
+                        Click="OnAddPath"/>
+
+                    <Button Content="- Remove"
+                        Width="90"
+                        Height="30"
+                        Background="#1565c0"
+                        Foreground="White"
+                        Style="{StaticResource RoundedButton}"    
+                        BorderThickness="0"
+                        FontSize="12"
+                        Margin="5,0"
+                        Click="OnRemovePath"/>
+
+                    <Button Content="Browse"
+                        Width="90"
+                        Height="30"
+                        Background="#1565c0"
+                        Foreground="White"
+                        Style="{StaticResource RoundedButton}"    
+                        BorderThickness="0"
+                        FontSize="12"
+                        Click="OnBrowse"/>
+                </StackPanel>
+
+                <!-- Paths Table -->
+                <DataGrid x:Name="PathsGrid"
                       AutoGenerateColumns="False"
                       CanUserAddRows="False"
                       AlternatingRowBackground="#f9fafb"
                       Background="White"
-                      BorderBrush="#d1d5db" BorderThickness="1"
+                      BorderBrush="#d1d5db"
+                      BorderThickness="1"
                       FontSize="12"
-                      Height="160" Margin="0,0,0,15">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Path" Binding="{Binding Path}" Width="*"/>
-                </DataGrid.Columns>
-            </DataGrid>
+                      Height="140"
+                      Margin="0,0,0,15">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Path"
+                                        Binding="{Binding Path}"
+                                        Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
 
-            <!-- Validate Button -->
-            <Button x:Name="BtnValidate" Content="Validate Paths"
-                    Width="150" Height="30" Background="#1565c0" Foreground="White"
-                    BorderThickness="0" FontSize="12" HorizontalAlignment="Left"
-                    Margin="0,0,0,10" Click="OnValidate"/>
+                <!-- Validate Button -->
+                <Button x:Name="BtnValidate"
+                    Content="Validate Paths"
+                    Width="150"
+                    Height="35"
+                    Background="#1565c0"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Style="{StaticResource RoundedButton}"    
+                    FontSize="12"
+                    HorizontalAlignment="Left"
+                    Margin="0,0,0,10"
+                    Click="OnValidate"/>
 
-            <!-- Validation Table -->
-            <DataGrid x:Name="ValidationGrid"
+                <!-- Validation Table -->
+                <DataGrid x:Name="ValidationGrid"
                       AutoGenerateColumns="False"
                       CanUserAddRows="False"
                       AlternatingRowBackground="#f9fafb"
                       Background="White"
-                      BorderBrush="#d1d5db" BorderThickness="1"
+                      BorderBrush="#d1d5db"
+                      BorderThickness="1"
                       FontSize="12"
-                      Height="180" Margin="0,0,0,20">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Path" Binding="{Binding Path}" Width="2*"/>
-                    <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*"/>
-                    <DataGridTextColumn Header="Permissions" Binding="{Binding Permissions}" Width="*"/>
-                    <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="*"/>
-                    <DataGridTextColumn Header="Owner" Binding="{Binding Owner}" Width="*"/>
-                    <DataGridTextColumn Header="Last Modified" Binding="{Binding LastModified}" Width="*"/>
-                </DataGrid.Columns>
-            </DataGrid>
+                      Height="160"
+                      Margin="0,0,0,20">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Path" Binding="{Binding Path}" Width="2*"/>
+                        <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*"/>
+                        <DataGridTextColumn Header="Permissions" Binding="{Binding Permissions}" Width="*"/>
+                        <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="*"/>
+                        <DataGridTextColumn Header="Owner" Binding="{Binding Owner}" Width="*"/>
+                        <DataGridTextColumn Header="Last Modified" Binding="{Binding LastModified}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
 
-            <!-- Summary Cards -->
-            <UniformGrid Columns="3" Rows="1" Margin="0,0,0,10">
-                <!-- Metrics Summary -->
-                <Border BorderBrush="#d1d5db" BorderThickness="1" CornerRadius="6"
-                        Padding="15" Background="#f9fafb" Margin="5">
-                    <StackPanel>
-                        <TextBlock Text="Metrics Summary" FontWeight="SemiBold" FontSize="14"
-                                   Foreground="#1f2937" Margin="0,0,0,6"/>
-                        <TextBlock Text="Files Added: 1" FontSize="12" Foreground="#374151"/>
-                        <TextBlock Text="Total Data Size: 1.2 GB" FontSize="12" Foreground="#374151"/>
-                        <TextBlock Text="Duplicates Removed: 0" FontSize="12" Foreground="#374151"/>
-                    </StackPanel>
-                </Border>
+                <!-- Summary Cards -->
+                <UniformGrid Columns="3" Margin="0,0,0,10">
 
-                <!-- File Validation Summary -->
-                <Border BorderBrush="#d1d5db" BorderThickness="1" CornerRadius="6"
-                        Padding="15" Background="#f9fafb" Margin="5">
-                    <StackPanel>
-                        <TextBlock Text="File Validation Summary" FontWeight="SemiBold" FontSize="14"
-                                   Foreground="#1f2937" Margin="0,0,0,6"/>
-                        <TextBlock Text="Integrity Check: Passed" FontSize="12" Foreground="#374151"/>
-                        <TextBlock Text="Hash Verification: SHA-256 generated" FontSize="12" Foreground="#374151"/>
-                        <TextBlock Text="Unsupported Files: 0" FontSize="12" Foreground="#374151"/>
-                        <TextBlock Text="Corrupted Files: 0" FontSize="12" Foreground="#374151"/>
-                    </StackPanel>
-                </Border>
+                    <Border BorderBrush="#d1d5db"
+                        BorderThickness="1"
+                        CornerRadius="6"
+                        Padding="15"
+                        Background="#f9fafb"
+                        Margin="5">
+                        <StackPanel>
+                            <TextBlock Text="Metrics Summary" FontWeight="SemiBold"/>
+                            <TextBlock Text="Files Added: 1"/>
+                            <TextBlock Text="Total Data Size: 1.2 GB"/>
+                            <TextBlock Text="Duplicates Removed: 0"/>
+                        </StackPanel>
+                    </Border>
 
-                <!-- Permissions & Locked Files -->
-                <Border BorderBrush="#d1d5db" BorderThickness="1" CornerRadius="6"
-                        Padding="15" Background="#f9fafb" Margin="5">
-                    <StackPanel>
-                        <TextBlock Text="Permissions &amp; Locked Files" FontWeight="SemiBold" FontSize="14"
-                                   Foreground="#1f2937" Margin="0,0,0,6"/>
-                        <TextBlock Text="Accessible Files: 48" FontSize="12" Foreground="#374151"/>
-                        <TextBlock Text="Restricted Files: 3" FontSize="12" Foreground="#374151"/>
-                        <TextBlock Text="Locked Files: 2" FontSize="12" Foreground="#374151"/>
-                        <TextBlock Text="Actions Required: 2 (Run as Admin / Unlock)" FontSize="12" Foreground="#374151"/>
-                    </StackPanel>
-                </Border>
-            </UniformGrid>
+                    <Border BorderBrush="#d1d5db"
+                        BorderThickness="1"
+                        CornerRadius="6"
+                        Padding="15"
+                        Background="#f9fafb"
+                        Margin="5">
+                        <StackPanel>
+                            <TextBlock Text="File Validation Summary" FontWeight="SemiBold"/>
+                            <TextBlock Text="Integrity Check: Passed"/>
+                            <TextBlock Text="Hash Verification: SHA-256 generated"/>
+                            <TextBlock Text="Unsupported Files: 0"/>
+                            <TextBlock Text="Corrupted Files: 0"/>
+                        </StackPanel>
+                    </Border>
 
-            <!-- Footer -->
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button x:Name="BtnNext" Content="Next →"
-                        Width="120" Height="32" Background="#1565c0"
-                        Foreground="White" BorderThickness="0" FontSize="13"
-                        /> <!--Click="OnNext"-->
+                    <Border BorderBrush="#d1d5db"
+                        BorderThickness="1"
+                        CornerRadius="6"
+                        Padding="15"
+                        Background="#f9fafb"
+                        Margin="5">
+                        <StackPanel>
+                            <TextBlock Text="Permissions &amp; Locked Files" FontWeight="SemiBold"/>
+                            <TextBlock Text="Accessible Files: 48"/>
+                            <TextBlock Text="Restricted Files: 3"/>
+                            <TextBlock Text="Locked Files: 2"/>
+                            <TextBlock Text="Actions Required: 2"/>
+                        </StackPanel>
+                    </Border>
+
+                </UniformGrid>
+
             </StackPanel>
-        </StackPanel>
+        </ScrollViewer>
     </Grid>
+
 
 </UserControl>

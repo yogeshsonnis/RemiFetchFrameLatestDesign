@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RemiFetchFrame.Views"
-        xmlns:uc="clr-namespace:RemiFetchFrame.Views.CollectByPathViews"
+        xmlns:local="clr-namespace:RemiFetchFrame.Views"   
+        xmlns:uc="clr-namespace:RemiFetchFrame.Views.Group"
         mc:Ignorable="d"
         Width="1400"
         Height="900"
@@ -285,8 +285,19 @@
                         <TextBlock Grid.RowSpan="2" FontStyle="Italic" Text="Content area cleared - ready for new module" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="17"/>
                         <ContentControl Grid.Row="1"  >
 
-                            <uc:CollectByPathWizard1/>
-
+                            <!--<uc:CollectByPathWizard1/>-->
+                            <!--<uc:CollectByPathWizard2/>-->
+                            <!--<uc:ExtractFromE011/>-->
+                            <!--<uc:ExtractFromE012/>-->
+                            <!--<uc:ExtractFromE013/>-->
+                            <!--<uc:ExtractFromiTunesWizard1/>-->
+                            <!--<uc:ExtractFromiTunesWizard2/>-->
+                            <!--<uc:ExtractFromiTunesWizard3/>-->
+                            <!--<uc:ExtractFromVMWizard1/>-->
+                            <!--<uc:ExtractFromVMWizard2/>-->
+                            <!--<uc:ExtractFromVMWizard3/>-->
+                            <!--<uc:FileGroupWizard1/>-->
+                            <uc:FileGroupWizard2/>
                         </ContentControl>
                     </Grid>
 

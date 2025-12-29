@@ -296,6 +296,47 @@
 
         </Style>
 
+        <Style x:Key="SwitchToggleStyle" TargetType="ToggleButton">
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Grid>
+                            <!-- Track -->
+                            <Border x:Name="SwitchTrack"
+                            Background="#e5e7eb"
+                            BorderBrush="#9ca3af"
+                            BorderThickness="1"
+                            CornerRadius="10"/>
+
+                            <!-- Thumb -->
+                            <Ellipse x:Name="SwitchThumb"
+                             Width="16"
+                             Height="16"
+                             Fill="White"
+                             HorizontalAlignment="Left"
+                             Margin="2"/>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <!-- ON -->
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="SwitchTrack" Property="Background" Value="#1565c0"/>
+                                <Setter TargetName="SwitchTrack" Property="BorderBrush" Value="#1565c0"/>
+                                <Setter TargetName="SwitchThumb" Property="HorizontalAlignment" Value="Right"/>
+                            </Trigger>
+
+                            <!-- Disabled -->
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="SwitchTrack" Property="Opacity" Value="0.5"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
 
         <!-- Button Style -->
@@ -329,6 +370,47 @@
             </Setter>
         </Style>-->
 
+
+        <Style x:Key="NormalButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#F3F4F6"/>
+            <Setter Property="BorderBrush" Value="#D1D5DB"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Padding" Value="12,6"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="4">
+                            <ContentPresenter
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <!-- Hover -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#E5E7EB"/>
+                            </Trigger>
+
+                            <!-- Click -->
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#D1D5DB"/>
+                            </Trigger>
+
+                            <!-- Disabled -->
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.5"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
         <Style x:Key="FilterButtonStyle" TargetType="Button">
             <Setter Property="Height" Value="32"/>

@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RemiFetchFrame.Views
+namespace RemiFetchFrame.Views.CollectByPathViews
 {
     /// <summary>
     /// Interaction logic for CollectByPathWizard2.xaml

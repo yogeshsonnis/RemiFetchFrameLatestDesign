@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Border Background="White" CornerRadius="12" Margin="20"
+        <Border Background="White" CornerRadius="8"
                 BorderBrush="#D1D5DB" BorderThickness="1" 
                 Effect="{DynamicResource DropShadowEffect}">
             <DockPanel>
@@ -105,8 +105,8 @@
                                         <DatePicker Width="160"/>
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="6">
-                                        <TextBlock Text="Filter" FontSize="11" Foreground="#4B5563" VerticalAlignment="Center"/>
-                                        <ToggleButton Width="40" Height="20" Background="#D1D5DB"
+                                        <TextBlock Text="Filter" FontSize="11" Foreground="#4B5563" VerticalAlignment="Center" />
+                                        <ToggleButton Width="40" Style="{StaticResource SwitchToggleStyle}" Height="20" Background="#D1D5DB" Margin="10,0,0,0"
                                                       BorderBrush="#D1D5DB" BorderThickness="1"/>
                                     </StackPanel>
                                 </StackPanel>

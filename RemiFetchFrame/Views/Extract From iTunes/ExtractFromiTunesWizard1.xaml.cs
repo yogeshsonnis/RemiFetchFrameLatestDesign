@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -29,21 +30,27 @@ namespace RemiFetchFrame.Views.Extract_From_iTunes
             BackupList.ItemsSource = Backups;
         }
 
-        //private void OnAddFolder(object sender, RoutedEventArgs e)
-        //{
-        //    var dialog = new System.Windows.Forms.FolderBrowserDialog();
-        //    if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-        //    {
-        //        var folderPath = dialog.SelectedPath;
-        //        Backups.Add(new BackupItem
-        //        {
-        //            Name = System.IO.Path.GetFileName(folderPath),
-        //            Path = folderPath,
-        //            Size = "—",
-        //            Status = "Pending"
-        //        });
-        //    }
-        //}
+        private void OnAddFolder(object sender, RoutedEventArgs e)
+        {
+            var dialog = new OpenFileDialog
+            {
+                CheckFileExists = false,
+                FileName = "Select Folder"
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                var folderPath = System.IO.Path.GetDirectoryName(dialog.FileName);
+
+                Backups.Add(new BackupItem
+                {
+                    Name = System.IO.Path.GetFileName(folderPath),
+                    Path = folderPath,
+                    Size = "—",
+                    Status = "Pending"
+                });
+            }
+        }
 
         private void OnRemoveSelected(object sender, RoutedEventArgs e)
         {
@@ -58,7 +65,7 @@ namespace RemiFetchFrame.Views.Extract_From_iTunes
             Backups.Clear();
         }
 
-        
+
 
         //private void OnNext(object sender, RoutedEventArgs e)
         //{
