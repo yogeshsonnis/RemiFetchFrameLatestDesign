@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RemiFetchFrame.Views"
+        xmlns:uc="clr-namespace:RemiFetchFrame.Views.CollectByPathViews"
         mc:Ignorable="d"
         Width="1400"
         Height="900"
@@ -278,13 +279,13 @@
                 <Border Style="{StaticResource CardStyle}" Background="#fffeff"  >
                     <Grid >
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="0"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <TextBlock Grid.RowSpan="2" FontStyle="Italic" Text="Content area cleared - ready for new module" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="17"/>
-                        <ContentControl Grid.Row="1" Height="690" >
+                        <ContentControl Grid.Row="1"  >
 
-
+                            <uc:CollectByPathWizard1/>
 
                         </ContentControl>
                     </Grid>
