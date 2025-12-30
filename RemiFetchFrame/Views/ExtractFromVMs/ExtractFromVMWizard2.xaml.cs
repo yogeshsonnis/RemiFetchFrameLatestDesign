@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RemiFetchFrame.Views.Extract_From_E01;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,15 @@ namespace RemiFetchFrame.Views.ExtractFromVMs
         private void ClearAll_Click(object sender, RoutedEventArgs e)
         {
             // TODO: Implement logic to uncheck all boxes
+        }
+
+        private void OnNext(object sender, RoutedEventArgs e)
+        {
+            var window = Window.GetWindow(this);
+
+            var mainContent = window.FindName("MainContent") as ContentControl;
+
+            mainContent.Content = new ExtractFromVMWizard3();
         }
     }
 }

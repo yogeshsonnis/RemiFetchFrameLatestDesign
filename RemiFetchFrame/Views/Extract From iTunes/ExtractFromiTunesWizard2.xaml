@@ -10,6 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <!-- Wizard Header -->
@@ -124,7 +125,18 @@
                            Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
 
                 </StackPanel>
-          
+            <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,20,0,0">
+                <Button x:Name="BtnNext"
+         Content="Next →"
+         Width="120"
+         Style="{StaticResource RoundedButton}"    
+         Height="32"
+                        Click="OnNext"
+         Background="#1565c0"
+         Foreground="White"
+         BorderThickness="0"
+         />
+            </StackPanel>
         </Grid>
     </Grid>
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RemiFetchFrame.Views.Extract_From_E01;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,16 @@ namespace RemiFetchFrame.Views.Extract_From_iTunes
         {
             foreach (var cb in DataGroupList.Children.OfType<CheckBox>())
                 cb.IsChecked = false;
+        }
+
+        private void OnNext(object sender, RoutedEventArgs e)
+        {
+            var window = Window.GetWindow(this);
+
+            var mainContent = window.FindName("MainContent") as ContentControl;
+
+            
+            mainContent.Content = new ExtractFromiTunesWizard3();
         }
 
         //private void OnNext(object sender, RoutedEventArgs e)

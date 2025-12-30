@@ -76,7 +76,12 @@
                                         <CheckBox Content=".sql, .sqlite, .db, .mdb, .accdb, .frm, .ibd, .ndf, .mdf, .ldf"/>
                                     </StackPanel>
                                 </Expander>
+
+                                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+                                    
+                                </StackPanel>
                             </StackPanel>
+                            
                         </GroupBox>
 
                         <!-- Sources and Date Range -->
@@ -109,9 +114,21 @@
                                         <ToggleButton Width="40" Style="{StaticResource SwitchToggleStyle}" Height="20" Background="#D1D5DB" Margin="10,0,0,0"
                                                       BorderBrush="#D1D5DB" BorderThickness="1"/>
                                     </StackPanel>
+                                    
                                 </StackPanel>
+                                
                             </GroupBox>
+                            
                         </StackPanel>
+                        <Button x:Name="BtnNext"
+Content="Next →" HorizontalAlignment="Right"
+Width="120"
+Style="{StaticResource RoundedButton}"    
+Height="32"
+Background="#1565c0"
+Foreground="White"
+BorderThickness="0"
+Click="OnNext"/>
                     </StackPanel>
                 </ScrollViewer>
             </DockPanel>

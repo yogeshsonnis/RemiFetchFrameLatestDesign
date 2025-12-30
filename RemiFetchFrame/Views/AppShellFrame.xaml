@@ -92,9 +92,9 @@
 
 
                                     <StackPanel>
-                                        <Button  Content="By Hash" Style="{StaticResource FilterButtonStyle}"/>
-                                        <Button Content="By Path"  Style="{StaticResource FilterButtonStyle}"/>
-                                        <Button Content="By File Group"  Style="{StaticResource FilterButtonStyle}"/>
+                                        <Button  Content="By Hash" Style="{StaticResource FilterButtonStyle}" />
+                                        <Button Content="By Path"  Style="{StaticResource FilterButtonStyle}" Click="ByPath_Click"/>
+                                        <Button Content="By File Group"  Style="{StaticResource FilterButtonStyle}" Click="ByFileGroup_Click"/>
                                         <Button Content="Custom Extensions"  Style="{StaticResource FilterButtonStyle}"/>
                                         <Button Content="Drag  Drop"  Style="{StaticResource FilterButtonStyle}"/>
                                     </StackPanel>
@@ -140,9 +140,9 @@
                                 CornerRadius="7"
                                 Padding="5">
                                     <StackPanel >
-                                        <Button  Content="From E01" Style="{StaticResource FilterButtonStyle}"/>
-                                        <Button Content="From iTunes Backup"  Style="{StaticResource FilterButtonStyle}"/>
-                                        <Button Content="From VM"  Style="{StaticResource FilterButtonStyle}"/>
+                                        <Button  Content="From E01" Style="{StaticResource FilterButtonStyle}" Click="FromE01_Click"/>
+                                        <Button Content="From iTunes Backup"  Style="{StaticResource FilterButtonStyle}" Click="FromiTunes_Click"/>
+                                        <Button Content="From VM"  Style="{StaticResource FilterButtonStyle}" Click="FromiVMs_Click"/>
                                         <Button Content="From PST"  Style="{StaticResource FilterButtonStyle}"/>
                                     </StackPanel>
                                 </Border>
@@ -283,21 +283,9 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <TextBlock Grid.RowSpan="2" FontStyle="Italic" Text="Content area cleared - ready for new module" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="17"/>
-                        <ContentControl Grid.Row="1"  >
-
-                            <!--<uc:CollectByPathWizard1/>-->
-                            <!--<uc:CollectByPathWizard2/>-->
-                            <!--<uc:ExtractFromE011/>-->
-                            <!--<uc:ExtractFromE012/>-->
-                            <!--<uc:ExtractFromE013/>-->
-                            <!--<uc:ExtractFromiTunesWizard1/>-->
-                            <!--<uc:ExtractFromiTunesWizard2/>-->
-                            <!--<uc:ExtractFromiTunesWizard3/>-->
-                            <!--<uc:ExtractFromVMWizard1/>-->
-                            <!--<uc:ExtractFromVMWizard2/>-->
-                            <!--<uc:ExtractFromVMWizard3/>-->
-                            <!--<uc:FileGroupWizard1/>-->
-                            <uc:FileGroupWizard2/>
+                        <ContentControl Grid.Row="1" x:Name="MainContent" >
+                            
+                            
                         </ContentControl>
                     </Grid>
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using RemiFetchFrame.Views.Extract_From_E01;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -63,6 +64,16 @@ namespace RemiFetchFrame.Views.Extract_From_iTunes
         private void OnClearList(object sender, RoutedEventArgs e)
         {
             Backups.Clear();
+        }
+
+        private void OnNext(object sender, RoutedEventArgs e)
+        {
+            var window = Window.GetWindow(this);
+
+            var mainContent = window.FindName("MainContent") as ContentControl;
+
+            
+            mainContent.Content = new ExtractFromiTunesWizard2();
         }
 
 

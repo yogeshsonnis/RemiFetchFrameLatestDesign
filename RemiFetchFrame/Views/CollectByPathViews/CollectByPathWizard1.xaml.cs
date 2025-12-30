@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RemiFetchFrame.Views.Extract_From_E01;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -77,11 +78,20 @@ namespace RemiFetchFrame.Views.CollectByPathViews
             });
         }
 
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
+            var window = Window.GetWindow(this);
+
+            var mainContent = window.FindName("MainContent") as ContentControl;
+
+            mainContent.Content = new CollectByPathWizard2();
+        }
+
         //private void OnNext(object sender, RoutedEventArgs e)
         //{
-        //    var wizard2 = new CollectByPath_Wizard2();
+        //    var wizard2 = new CollectByPathWizard2();
         //    wizard2.Show();
-        //    this.Close();
+        //    //this.Close();
         //}
     }
 

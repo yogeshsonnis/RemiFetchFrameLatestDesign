@@ -14,9 +14,9 @@
         </Grid.RowDefinitions>
 
         <!-- Wizard Header -->
-        <Border Grid.Row="0" Background="#f5f5f5"
+        <Border Grid.Row="0" Background="#f5f5f5"       
             BorderBrush="#d1d5db" BorderThickness="0,0,0,1"
-            Padding="20,5">
+            Padding="20,5"> 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <Border Background="#1565c0" CornerRadius="100" Width="28" Height="28">
@@ -109,7 +109,11 @@
                                         Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
-
+                <Grid  >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
                 <!-- Validate Button -->
                 <Button x:Name="BtnValidate"
                     Content="Validate Paths"
@@ -124,6 +128,8 @@
                     Margin="0,0,0,10"
                     Click="OnValidate"/>
 
+                    <Button Content="Next →" Background="#1565C0" Grid.Column="1" Foreground="White" HorizontalAlignment="Right" Click="NextButton_Click" Style="{StaticResource RoundedButton}" Height="35" Padding="12,6" FontSize="15" Margin="0,0,20,10"/>
+                </Grid>
                 <!-- Validation Table -->
                 <DataGrid x:Name="ValidationGrid"
                       AutoGenerateColumns="False"

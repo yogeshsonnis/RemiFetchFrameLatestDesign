@@ -38,9 +38,12 @@ namespace RemiFetchFrame.Views.Extract_From_E01
 
         private void OnNext(object sender, RoutedEventArgs e)
         {
-            var wizard3 = new ExtractFromE013();
-            //wizard3.Show();
-            //this.Close();
+            var window = Window.GetWindow(this);
+
+            var mainContent = window.FindName("MainContent") as ContentControl;
+
+            
+            mainContent.Content = new ExtractFromE013();
         }
     }
 }

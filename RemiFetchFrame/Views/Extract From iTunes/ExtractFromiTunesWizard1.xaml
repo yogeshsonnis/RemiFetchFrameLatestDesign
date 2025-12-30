@@ -79,9 +79,9 @@
             </Border>
 
            
-            <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
-                <Button x:Name="BtnNext" Content="Next →" Width="120" Height="32" Background="#1565c0" Foreground="White" BorderThickness="0" /> --><!--Click="OnNext"--><!--
-            </StackPanel>-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+                <Button x:Name="BtnNext" Content="Next →" Width="120" Height="32" Background="#1565c0" Style="{StaticResource RoundedButton}" Foreground="White" BorderThickness="0" Click="OnNext"/> 
+            </StackPanel>
         </StackPanel>
         
     </Grid>

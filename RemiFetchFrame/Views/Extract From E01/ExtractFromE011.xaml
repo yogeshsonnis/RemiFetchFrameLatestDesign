@@ -82,11 +82,13 @@
                         </DataGrid.Columns>
                     </DataGrid>
 
-                    <!-- Footer --><!--
+                    <!-- Footer -->
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
-                        <Button Content="Next →" Background="#1565C0" Foreground="White" Padding="12,6" FontSize="12"/>
-                    </StackPanel>-->
+                        <Button Content="Next →" Background="#1565C0" Foreground="White"  Click="NextButton_Click" Style="{StaticResource RoundedButton}" Height="35" Padding="12,6" FontSize="15"/> 
+                    </StackPanel>
                 </StackPanel>
+
+                
             </DockPanel>
         </Border>
     </Grid>

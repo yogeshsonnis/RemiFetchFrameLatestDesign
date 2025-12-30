@@ -26,7 +26,9 @@ namespace RemiFetchFrame
             //LoadLicenseInfo();
             Loaded += AppSplashScreen_Loaded;
         }
-        
+
+        public object MainContent { get; internal set; }
+
         //private void LoadLicenseInfo()
         //{
         //    var license = LicenseInfo.Load();

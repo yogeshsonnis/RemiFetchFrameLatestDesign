@@ -83,6 +83,7 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
+
                     <!-- Metrics Summary -->
                     <Border BorderBrush="#E5E7EB" BorderThickness="1"
                             CornerRadius="6" Padding="10" Background="#F9FAFB" Margin="0,0,0,10">
@@ -116,12 +117,22 @@
                                 Padding="12,6" FontSize="12" Margin="0,0,6,0"/>
                         <Button Content="Clear List" Background="#E5E7EB" Width="80" Style="{StaticResource NormalButtonStyle}" Foreground="#111827"
                                 Padding="12,6" FontSize="12"/>
+                        <Button x:Name="BtnNext"
+    Content="Next →" Margin="50,0,0,0"
+    Width="120"
+    Style="{StaticResource RoundedButton}"    
+    Height="32"
+    Background="#1565c0"
+    Foreground="White"
+    BorderThickness="0"
+    Click="OnNext"/>
                     </StackPanel>
 
+                    
                     <!-- Table -->
                     <Border Grid.Row="2" BorderBrush="#E5E7EB" BorderThickness="1"
-                            CornerRadius="6" Background="White" Margin="0">
-                        <DataGrid AutoGenerateColumns="False" HeadersVisibility="Column"
+                            CornerRadius="6" Height="150" VerticalAlignment="Top" Background="White" Margin="0">
+                        <DataGrid AutoGenerateColumns="False"  HeadersVisibility="Column"
                                   CanUserAddRows="False" BorderBrush="#D1D5DB"
                                   Background="White" Foreground="#374151" FontSize="12" >
                             <DataGrid.Columns>
@@ -138,8 +149,12 @@
                                 </DataTemplate>
                             </DataGrid.RowDetailsTemplate>
                         </DataGrid>
+                        
+                        
                     </Border>
+                    
                 </Grid>
+                
             </DockPanel>
         </Border>
     </Grid>
