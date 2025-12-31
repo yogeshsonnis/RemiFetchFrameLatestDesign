@@ -26,13 +26,13 @@ namespace Remi.Fetch.Views.Group
             InitializeComponent();
         }
 
-        private void OnNext(object sender, RoutedEventArgs e)
-        {
-            var window = Window.GetWindow(this);
+        //private void OnNext(object sender, RoutedEventArgs e)
+        //{
+        //    var window = Window.GetWindow(this);
 
-            var mainContent = window.FindName("MainContent") as ContentControl;
+        //    var mainContent = window.FindName("MainContent") as ContentControl;
 
-            mainContent.Content = new FileGroupWizard2();
-        }
+        //    mainContent.Content = new FileGroupWizard2();
+        //}
     }
 }

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Remi.Fetch.Views.Group"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             >
     <Grid>
         <Border Background="White" CornerRadius="8"
                 BorderBrush="#D1D5DB" BorderThickness="1" 
@@ -120,7 +120,7 @@
                             </GroupBox>
                             
                         </StackPanel>
-                        <Button x:Name="BtnNext"
+                        <!--<Button x:Name="BtnNext"
 Content="Next →" HorizontalAlignment="Right"
 Width="120"
 Style="{StaticResource RoundedButton}"    
@@ -128,7 +128,7 @@ Height="32"
 Background="#1565c0"
 Foreground="White"
 BorderThickness="0"
-Click="OnNext"/>
+Click="OnNext"/>-->
                     </StackPanel>
                 </ScrollViewer>
             </DockPanel>

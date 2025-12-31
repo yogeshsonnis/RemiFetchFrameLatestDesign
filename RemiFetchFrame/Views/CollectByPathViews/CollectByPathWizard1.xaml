@@ -128,7 +128,7 @@
                     Margin="0,0,0,10"
                     Click="OnValidate"/>
 
-                    <Button Content="Next →" Background="#1565C0" Grid.Column="1" Foreground="White" HorizontalAlignment="Right" Click="NextButton_Click" Style="{StaticResource RoundedButton}" Height="35" Padding="12,6" FontSize="15" Margin="0,0,20,10"/>
+                    <!--<Button Content="Next →" Background="#1565C0" Grid.Column="1" Foreground="White" HorizontalAlignment="Right" Click="NextButton_Click" Style="{StaticResource RoundedButton}" Height="35" Padding="12,6" FontSize="15" Margin="0,0,20,10"/>-->
                 </Grid>
                 <!-- Validation Table -->
                 <DataGrid x:Name="ValidationGrid"

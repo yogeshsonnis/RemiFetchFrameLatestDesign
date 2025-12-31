@@ -117,7 +117,7 @@
                                 Padding="12,6" FontSize="12" Margin="0,0,6,0"/>
                         <Button Content="Clear List" Background="#E5E7EB" Width="80" Style="{StaticResource NormalButtonStyle}" Foreground="#111827"
                                 Padding="12,6" FontSize="12"/>
-                        <Button x:Name="BtnNext"
+                        <!--<Button x:Name="BtnNext"
     Content="Next →" Margin="50,0,0,0"
     Width="120"
     Style="{StaticResource RoundedButton}"    
@@ -125,7 +125,7 @@
     Background="#1565c0"
     Foreground="White"
     BorderThickness="0"
-    Click="OnNext"/>
+    Click="OnNext"/>-->
                     </StackPanel>
 
                     

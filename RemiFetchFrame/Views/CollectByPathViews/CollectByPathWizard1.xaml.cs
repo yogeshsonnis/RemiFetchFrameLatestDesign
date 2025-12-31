@@ -78,14 +78,14 @@ namespace Remi.Fetch.Views.CollectByPathViews
             });
         }
 
-        private void NextButton_Click(object sender, RoutedEventArgs e)
-        {
-            var window = Window.GetWindow(this);
+        //private void NextButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var window = Window.GetWindow(this);
 
-            var mainContent = window.FindName("MainContent") as ContentControl;
+        //    var mainContent = window.FindName("MainContent") as ContentControl;
 
-            mainContent.Content = new CollectByPathWizard2();
-        }
+        //    mainContent.Content = new CollectByPathWizard2();
+        //}
 
         //private void OnNext(object sender, RoutedEventArgs e)
         //{

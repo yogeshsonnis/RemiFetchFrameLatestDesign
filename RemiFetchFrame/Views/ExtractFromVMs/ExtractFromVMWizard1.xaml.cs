@@ -39,13 +39,13 @@ namespace Remi.Fetch.Views.ExtractFromVMs
             DataContext = data;
         }
 
-        private void OnNext(object sender, RoutedEventArgs e)
-        {
-            var window = Window.GetWindow(this);
+        //private void OnNext(object sender, RoutedEventArgs e)
+        //{
+        //    var window = Window.GetWindow(this);
 
-            var mainContent = window.FindName("MainContent") as ContentControl;
+        //    var mainContent = window.FindName("MainContent") as ContentControl;
 
-            mainContent.Content = new ExtractFromVMWizard2();
-        }
+        //    mainContent.Content = new ExtractFromVMWizard2();
+        //}
     }
 }

@@ -118,7 +118,7 @@
                             <CheckBox Content="Memory &amp; Volatile Data – RAM snapshots, hiberfil.sys, pagefile.sys, live process data"
                                       Foreground="#1565C0" FontWeight="Medium" Margin="0,2"/>
 
-                            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+                            <!--<StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
                                 <Button x:Name="BtnNext"
         Content="Next →"
         Width="120"
@@ -128,7 +128,7 @@
         Foreground="White"
         BorderThickness="0"
         Click="OnNext"/>
-                            </StackPanel>
+                            </StackPanel>-->
                         </StackPanel>
                         
                         

@@ -79,10 +79,45 @@ namespace Remi.Fetch.Views
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            CaseManagerView nextWin = new CaseManagerView(); // this must be Window
-            nextWin.Show();  // Opens the new window
+            //CaseManagerView nextWin = new CaseManagerView(); // this must be Window
+            //nextWin.Show();  // Opens the new window
 
-            this.Close();
+            //this.Close();
+
+            if (currentStep == 2)
+            {
+                if (currentType == "iTunes")
+                    MainContent.Content = new Remi.Fetch.Views.Extract_From_iTunes.ExtractFromiTunesWizard1();
+
+                else if (currentType == "VMs")
+                    MainContent.Content = new Remi.Fetch.Views.ExtractFromVMs.ExtractFromVMWizard1();
+
+                else if (currentType == "E01")
+                    MainContent.Content = new Remi.Fetch.Views.Extract_From_E01.ExtractFromE011(); // Check if name is Wizard1 or E011
+
+                else if (currentType == "Path")
+                    MainContent.Content = new Remi.Fetch.Views.CollectByPathViews.CollectByPathWizard1();
+
+                else if (currentType == "Group")
+                    MainContent.Content = new Remi.Fetch.Views.Group.FileGroupWizard1();
+
+                currentStep = 1; // Step update
+            }
+
+            // --- Agar hum Step 3 par hain, toh Step 2 par wapas jao ---
+            else if (currentStep == 3)
+            {
+                if (currentType == "iTunes")
+                    MainContent.Content = new Remi.Fetch.Views.Extract_From_iTunes.ExtractFromiTunesWizard2();
+
+                else if (currentType == "VMs")
+                    MainContent.Content = new Remi.Fetch.Views.ExtractFromVMs.ExtractFromVMWizard2();
+
+                else if (currentType == "E01")
+                    MainContent.Content = new Remi.Fetch.Views.Extract_From_E01.ExtractFromE012();
+
+                currentStep = 2; // Step update
+            }
         }
 
         private void FromE01_Click(object sender, RoutedEventArgs e)

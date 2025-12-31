@@ -24,14 +24,14 @@ namespace Remi.Fetch.Views.Extract_From_E01
             DataContext = data;
         }
 
-        private void NextButton_Click(object sender, RoutedEventArgs e)
-        {
-                var window = Window.GetWindow(this);
+        //private void NextButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //        var window = Window.GetWindow(this);
 
-                var mainContent = window.FindName("MainContent") as ContentControl;
+        //        var mainContent = window.FindName("MainContent") as ContentControl;
 
-                mainContent.Content = new ExtractFromE012();
-        }
+        //        mainContent.Content = new ExtractFromE012();
+        //}
 
         
     }
