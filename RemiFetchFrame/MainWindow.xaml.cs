@@ -1,4 +1,4 @@
-﻿using RemiFetchFrame.Views;
+﻿using Remi.Fetch.Views;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,7 +10,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RemiFetchFrame
+namespace Remi.Fetch
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

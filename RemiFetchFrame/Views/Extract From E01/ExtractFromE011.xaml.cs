@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace RemiFetchFrame.Views.Extract_From_E01
+namespace Remi.Fetch.Views.Extract_From_E01
 {
     /// <summary>
     /// Interaction logic for ExtractFromE011.xaml

@@ -1,5 +1,5 @@
 ﻿using Microsoft.Win32;
-using RemiFetchFrame.Views.Extract_From_E01;
+using Remi.Fetch.Views.Extract_From_E01;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RemiFetchFrame.Views.Extract_From_iTunes
+namespace Remi.Fetch.Views.Extract_From_iTunes
 {
     /// <summary>
     /// Interaction logic for ExtractFromiTunesWizard1.xaml

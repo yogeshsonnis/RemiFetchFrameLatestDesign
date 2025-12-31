@@ -1,9 +1,9 @@
-﻿using RemiFetchFrame.Views.Extract_From_E01;
-using RemiFetchFrame.Views.Extract_From_iTunes;
+﻿using Remi.Fetch.Views.Extract_From_E01;
+using Remi.Fetch.Views.Extract_From_iTunes;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace RemiFetchFrame.Views
+namespace Remi.Fetch.Views
 {
     /// <summary>
     /// Interaction logic for AppShellFrame.xaml
@@ -36,19 +36,19 @@ namespace RemiFetchFrame.Views
             if (currentStep == 1)
             {
                 if (currentType == "iTunes")
-                    MainContent.Content = new RemiFetchFrame.Views.Extract_From_iTunes.ExtractFromiTunesWizard2();
+                    MainContent.Content = new Remi.Fetch.Views.Extract_From_iTunes.ExtractFromiTunesWizard2();
 
                 else if (currentType == "VMs")
-                    MainContent.Content = new RemiFetchFrame.Views.ExtractFromVMs.ExtractFromVMWizard2();
+                    MainContent.Content = new Remi.Fetch.Views.ExtractFromVMs.ExtractFromVMWizard2();
 
                 else if (currentType == "E01")
-                    MainContent.Content = new RemiFetchFrame.Views.Extract_From_E01.ExtractFromE012();
+                    MainContent.Content = new Remi.Fetch.Views.Extract_From_E01.ExtractFromE012();
 
                 else if (currentType == "Path")
-                    MainContent.Content = new RemiFetchFrame.Views.CollectByPathViews.CollectByPathWizard2();
+                    MainContent.Content = new Remi.Fetch.Views.CollectByPathViews.CollectByPathWizard2();
 
                 else if (currentType == "Group")
-                    MainContent.Content = new RemiFetchFrame.Views.Group.FileGroupWizard2();
+                    MainContent.Content = new Remi.Fetch.Views.Group.FileGroupWizard2();
 
                 currentStep = 2; 
             }
@@ -59,17 +59,17 @@ namespace RemiFetchFrame.Views
                 
                 if (currentType == "iTunes")
                 {
-                    MainContent.Content = new RemiFetchFrame.Views.Extract_From_iTunes.ExtractFromiTunesWizard3();
+                    MainContent.Content = new Remi.Fetch.Views.Extract_From_iTunes.ExtractFromiTunesWizard3();
                     currentStep = 3;
                 }
                 else if (currentType == "VMs")
                 {
-                    MainContent.Content = new RemiFetchFrame.Views.ExtractFromVMs.ExtractFromVMWizard3();
+                    MainContent.Content = new Remi.Fetch.Views.ExtractFromVMs.ExtractFromVMWizard3();
                     currentStep = 3;
                 }
                 else if (currentType == "E01")
                 {
-                    MainContent.Content = new RemiFetchFrame.Views.Extract_From_E01.ExtractFromE013();
+                    MainContent.Content = new Remi.Fetch.Views.Extract_From_E01.ExtractFromE013();
                     currentStep = 3;
                 }
 
@@ -91,7 +91,7 @@ namespace RemiFetchFrame.Views
             currentStep = 1;
 
             MainContent.Content =
-        new RemiFetchFrame.Views.Extract_From_E01.ExtractFromE011();
+        new Remi.Fetch.Views.Extract_From_E01.ExtractFromE011();
         }
 
         private void FromiTunes_Click(object sender, RoutedEventArgs e)
@@ -100,7 +100,7 @@ namespace RemiFetchFrame.Views
             currentStep = 1;
 
             MainContent.Content =
-        new RemiFetchFrame.Views.Extract_From_iTunes.ExtractFromiTunesWizard1();
+        new Remi.Fetch.Views.Extract_From_iTunes.ExtractFromiTunesWizard1();
         }
 
         private void FromiVMs_Click(object sender, RoutedEventArgs e)
@@ -108,7 +108,7 @@ namespace RemiFetchFrame.Views
             currentType = "VMs";
             currentStep = 1;
             MainContent.Content =
-        new RemiFetchFrame.Views.ExtractFromVMs.ExtractFromVMWizard1();
+        new Remi.Fetch.Views.ExtractFromVMs.ExtractFromVMWizard1();
         }
 
         private void ByFileGroup_Click(object sender, RoutedEventArgs e)
@@ -117,7 +117,7 @@ namespace RemiFetchFrame.Views
             currentStep = 1;
 
             MainContent.Content =
-        new RemiFetchFrame.Views.Group.FileGroupWizard1();
+        new Remi.Fetch.Views.Group.FileGroupWizard1();
         }
 
         private void ByPath_Click(object sender, RoutedEventArgs e)
@@ -126,7 +126,7 @@ namespace RemiFetchFrame.Views
             currentStep = 1;
 
             MainContent.Content =
-       new RemiFetchFrame.Views.CollectByPathViews.CollectByPathWizard1();
+       new Remi.Fetch.Views.CollectByPathViews.CollectByPathWizard1();
         }
 
 

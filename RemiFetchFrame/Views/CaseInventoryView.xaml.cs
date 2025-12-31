@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace RemiFetchFrame.Views
+namespace Remi.Fetch.Views
 {
     /// <summary>
     /// Interaction logic for CaseInventoryView.xaml

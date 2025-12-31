@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RemiFetchFrame.Views.Group
+namespace Remi.Fetch.Views.Group
 {
     /// <summary>
     /// Interaction logic for FileGroupWizard2.xaml

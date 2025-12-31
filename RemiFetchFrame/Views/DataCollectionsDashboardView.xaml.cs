@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace RemiFetchFrame.Views
+namespace Remi.Fetch.Views
 {
     /// <summary>
     /// Interaction logic for DataCollectionsDashboardView.xaml

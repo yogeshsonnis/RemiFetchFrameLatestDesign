@@ -1,4 +1,4 @@
-﻿using RemiFetchFrame.Views.Extract_From_E01;
+﻿using Remi.Fetch.Views.Extract_From_E01;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,7 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.XPath;
 
-namespace RemiFetchFrame.Views.CollectByPathViews
+namespace Remi.Fetch.Views.CollectByPathViews
 {
     /// <summary>
     /// Interaction logic for CollectByPathWizard1.xaml

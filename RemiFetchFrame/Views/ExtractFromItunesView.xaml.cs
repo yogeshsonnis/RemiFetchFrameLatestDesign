@@ -16,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RemiFetchFrame.Views
+namespace Remi.Fetch.Views
 {
     /// <summary>
     /// Interaction logic for ExtractFromItunesView.xaml

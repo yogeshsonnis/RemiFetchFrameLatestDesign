@@ -13,7 +13,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace RemiFetchFrame.Views
+namespace Remi.Fetch.Views
 {
     /// <summary>
     /// Interaction logic for SplashScreen.xaml

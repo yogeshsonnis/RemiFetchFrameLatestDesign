@@ -1,4 +1,4 @@
-﻿using RemiFetchFrame.Views.Extract_From_E01;
+﻿using Remi.Fetch.Views.Extract_From_E01;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RemiFetchFrame.Views.ExtractFromVMs
+namespace Remi.Fetch.Views.ExtractFromVMs
 {
     /// <summary>
     /// Interaction logic for ExtractFromVMWizard1.xaml

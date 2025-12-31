@@ -7,7 +7,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace RemiFetchFrame.Services
+namespace Remi.Fetch.Services
 {
     public class ModuleRegistrationService
     {

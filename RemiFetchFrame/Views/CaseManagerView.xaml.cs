@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
-using RemiFetchFrame.Models;
-using RemiFetchFrame.Services;
+using Remi.Fetch.Models;
+using Remi.Fetch.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,7 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RemiFetchFrame.Views
+namespace Remi.Fetch.Views
 {
     /// <summary>
     /// Interaction logic for CaseManagerView.xaml

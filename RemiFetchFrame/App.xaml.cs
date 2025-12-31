@@ -1,4 +1,4 @@
-﻿using RemiFetchFrame.Views;
+﻿using Remi.Fetch.Views;
 using SQLitePCL;
 using System.Configuration;
 using System.Data;
@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 
-namespace RemiFetchFrame
+namespace Remi.Fetch
 {
     /// <summary>
     /// Interaction logic for App.xaml

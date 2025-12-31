@@ -1,5 +1,5 @@
-﻿using RemiFetchFrame.Services;
-using RemiFetchFrame.Views;
+﻿using Remi.Fetch.Services;
+using Remi.Fetch.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 
 
-namespace RemiFetchFrame
+namespace Remi.Fetch
 {
    public static class AppExtensions
     {

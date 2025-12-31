@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RemiFetchFrame.Views.ExtractFromVMs
+namespace Remi.Fetch.Views.ExtractFromVMs
 {
     /// <summary>
     /// Interaction logic for ExtractFromVMWizard3.xaml
