@@ -34,5 +34,6 @@ namespace Remi.Fetch.Views.Group
 
         //    mainContent.Content = new FileGroupWizard2();
         //}
+
     }
 }

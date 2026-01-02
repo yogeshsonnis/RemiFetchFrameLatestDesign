@@ -50,7 +50,7 @@
             <Border BorderBrush="#d1d5db" BorderThickness="1" CornerRadius="6" Padding="15" Background="#f9fafb" Margin="0,0,0,15">
                 <StackPanel>
                     <TextBlock Text="Collecting files and preparing export package…" Foreground="#374151" FontSize="13" Margin="0,0,0,5"/>
-                    <ProgressBar x:Name="ExportProgress" Value="65" Height="10" Foreground="#1565c0" Background="#e5e7eb" Margin="0,0,0,6"/>
+                    <ProgressBar x:Name="ExportProgress" Style="{StaticResource RoundedProgressBar}" Margin="0,0,0,6"/>
                     <StackPanel Orientation="Horizontal" >
                         <TextBlock Text="65 % Completed" FontSize="12" Foreground="#4b5563"/>
                         <TextBlock Text="ETA 00:01:32" FontSize="12" Foreground="#4b5563"/>
@@ -63,7 +63,7 @@
                 <!-- Export Summary -->
                 <Border BorderBrush="#d1d5db" BorderThickness="1" CornerRadius="6" Padding="15" Background="White" Margin="5">
                     <StackPanel>
-                        <TextBlock Text="Export Summary" FontWeight="SemiBold" FontSize="14" Foreground="#1f2937" Margin="0,0,0,8"/>
+                        <TextBlock Text="Export Summary" FontWeight="Bold" FontSize="14" Foreground="#1f2937" Margin="0,0,0,8"/>
                         <TextBlock Text="Files Collected: 235" FontSize="12" Foreground="#374151"/>
                         <TextBlock Text="Data Size: 4.3 GB" FontSize="12" Foreground="#374151"/>
                         <TextBlock Text="Format: Forensic ZIP" FontSize="12" Foreground="#374151"/>
@@ -75,19 +75,19 @@
                 <Border BorderBrush="#d1d5db" BorderThickness="1" CornerRadius="6" Padding="15" Background="White" Margin="5">
                     <StackPanel>
                         <StackPanel Orientation="Horizontal"  Margin="0,0,0,8">
-                            <TextBlock Text="Chain of Custody" FontWeight="SemiBold" FontSize="14" Foreground="#1f2937"/>
+                            <TextBlock Text="Chain of Custody" FontWeight="Bold" FontSize="14" Foreground="#1f2937"/>
                             <ToggleButton x:Name="ChainToggle" Margin="10,0,0,0" Style="{StaticResource SwitchToggleStyle}" />
                         </StackPanel>
-                        <TextBox Text="Custodian" Margin="0,0,0,6" FontSize="12" Padding="4" BorderBrush="#d1d5db"/>
-                        <TextBox Text="Agency" Margin="0,0,0,6" FontSize="12" Padding="4" BorderBrush="#d1d5db"/>
-                        <TextBox Text="Examiner" FontSize="12" Padding="4" BorderBrush="#d1d5db"/>
+                        <TextBox Text="Custodian" Style="{StaticResource RoundedPlaceholderTextBox}" Height="32" Margin="0,0,0,6" FontSize="12" Padding="4" BorderBrush="#d1d5db"/>
+                        <TextBox Text="Agency" Margin="0,0,0,6" Style="{StaticResource RoundedPlaceholderTextBox}" Height="32" FontSize="12"  Padding="4" BorderBrush="#d1d5db"/>
+                        <TextBox Text="Examiner" Style="{StaticResource RoundedPlaceholderTextBox}" Height="32" FontSize="12" Padding="4" BorderBrush="#d1d5db"/>
                     </StackPanel>
                 </Border>
 
                 <!-- Metrics -->
                 <Border BorderBrush="#d1d5db" BorderThickness="1" CornerRadius="6" Padding="15" Background="White" Margin="5">
                     <StackPanel>
-                        <TextBlock Text="Metrics" FontWeight="SemiBold" FontSize="14" Foreground="#1f2937" Margin="0,0,0,8"/>
+                        <TextBlock Text="Metrics" FontWeight="Bold" FontSize="14" Foreground="#1f2937" Margin="0,0,0,8"/>
                         <TextBlock Text="Average File Size: 56 KB" FontSize="12" Foreground="#374151"/>
                         <TextBlock Text="Processing Rate: 42 files/s" FontSize="12" Foreground="#374151"/>
                         <TextBlock Text="Errors Detected: 0" FontSize="12" Foreground="#374151"/>

@@ -23,26 +23,37 @@ namespace Remi.Fetch.Views.ExtractFromVMs
         public ExtractFromVMWizard3()
         {
             InitializeComponent();
-            LoadMetrics();
+            LoadExtractions();
         }
 
-        private void LoadMetrics()
+        private void LoadExtractions()
         {
-            var metrics = new List<object>
+            var extractions = new List<ExtractionItem>
+        {
+            new ExtractionItem
             {
-                new { Metric = "Total Backups Processed", Value = "3" },
-                new { Metric = "Total Data Types Extracted", Value = "12" },
-                new { Metric = "Successful Extractions", Value = "8" },
-                new { Metric = "Partial Extractions", Value = "3" },
-                new { Metric = "Failed / Missing", Value = "1" },
-                new { Metric = "Total Job Size", Value = "42.6 GB" },
-                new { Metric = "Total Extracted Size", Value = "31.2 GB" },
-                new { Metric = "Average Extraction Rate", Value = "6.1 MB/s" },
-                new { Metric = "Elapsed Time", Value = "00:18:52" },
-                new { Metric = "Estimated Time Remaining", Value = "00:06:20" }
-            };
+                FilePath = @"D:\VirtualMachines\CaseA\VM_001.vmdk",
+                Status = "Completed",
+                Progress = "100%",
+                Destination = @"E:\Extracted\VM_001\"
+            },
+            new ExtractionItem
+            {
+                FilePath = @"E:\Evidence\VMs\VM_002.vhdx",
+                Status = "In Progress",
+                Progress = "65%",
+                Destination = @"E:\Extracted\VM_002\"
+            },
+            new ExtractionItem
+            {
+                FilePath = @"C:\Investigations\VM_003.vhd",
+                Status = "Pending",
+                Progress = "0%",
+                Destination = @"E:\Extracted\VM_003\"
+            }
+        };
 
-            DataContext = metrics;
+            DataContext = extractions; // ✅ Matches DataGrid
         }
 
         private void OnBack(object sender, RoutedEventArgs e)
@@ -69,5 +80,12 @@ namespace Remi.Fetch.Views.ExtractFromVMs
         {
 
         }
+    }
+    public class ExtractionItem
+    {
+        public string FilePath { get; set; }
+        public string Status { get; set; }
+        public string Progress { get; set; }
+        public string Destination { get; set; }
     }
 }

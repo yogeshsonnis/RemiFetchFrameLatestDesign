@@ -28,9 +28,52 @@ namespace Remi.Fetch.Views.Extract_From_iTunes
         {
             InitializeComponent();
             Backups = new ObservableCollection<BackupItem>();
-            BackupList.ItemsSource = Backups;
+            DataContext = this;   // ✅ IMPORTANT
+
+            LoadSampleData();
         }
 
+         private void LoadSampleData()
+        {
+            Backups.Add(new BackupItem
+            {
+                Name = "iTunesBackup_001",
+                Path = "D:/iTunes/Backup1",
+                Size = "2.4 GB",
+                Status = "Imported"
+            });
+
+            Backups.Add(new BackupItem
+            {
+                Name = "iTunesBackup_002",
+                Path = "E:/Backups/iPhone",
+                Size = "3.1 GB",
+                Status = "Pending"
+            });
+            Backups.Add(new BackupItem
+            {
+                Name = "iTunesBackup_003",
+                Path = "F:/MobileBackups/iPhone12",
+                Size = "4.8 GB",
+                Status = "Validated"
+            });
+
+            Backups.Add(new BackupItem
+            {
+                Name = "iTunesBackup_004",
+                Path = "C:/Users/Public/iTunes/Backup",
+                Size = "1.9 GB",
+                Status = "Imported"
+            });
+
+            Backups.Add(new BackupItem
+            {
+                Name = "iTunesBackup_005",
+                Path = "G:/ExternalDrive/Backups/iPhone",
+                Size = "6.2 GB",
+                Status = "Pending"
+            });
+        }
         private void OnAddFolder(object sender, RoutedEventArgs e)
         {
             var dialog = new OpenFileDialog

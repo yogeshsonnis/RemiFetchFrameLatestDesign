@@ -59,15 +59,26 @@
 
                     <TextBlock Text="Imported iTunes Backups" FontWeight="SemiBold" FontSize="14" Foreground="#1f2937" Margin="0,0,0,8"/>
 
-                    <DataGrid x:Name="BackupList"
-                              Grid.Row="1"
-                              AutoGenerateColumns="False"
-                              CanUserAddRows="False"
-                              HeadersVisibility="Column"
-                              Background="White"
-                              BorderThickness="0"
-                              AlternatingRowBackground="#f9fafb"
-                              FontSize="12">
+                    <DataGrid  x:Name="BackupList"
+          ItemsSource="{Binding Backups}"
+                              VerticalAlignment="Top" 
+Height="Auto"
+AutoGenerateColumns="False"
+IsReadOnly="True"
+CanUserAddRows="False"
+RowHeight="34"
+   CellStyle="{StaticResource DataGridCellStyle}"
+           RowStyle="{StaticResource DatagridRowStyle}"
+           ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+ColumnHeaderHeight="34"
+SelectionMode="Single"
+SelectionUnit="FullRow"
+HeadersVisibility="Column"       
+RowHeaderWidth="0"
+VerticalGridLinesBrush="#E0E0E0"
+HorizontalGridLinesBrush="#E0E0E0"
+BorderBrush="#D0D0D0"     
+BorderThickness="1" >
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Backup Name" Binding="{Binding Name}" Width="*"/>
                             <DataGridTextColumn Header="Path" Binding="{Binding Path}" Width="2*"/>

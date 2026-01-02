@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Remi.Fetch.Views.Extract_From_E01"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+          >
     <Grid Background="#fafafa">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -93,63 +93,63 @@
 
                 <StackPanel x:Name="DataGroupList">
 
-                    <CheckBox Content="System &amp; OS Artifacts" FontWeight="Bold" Foreground="#1565c0"/>
+                    <CheckBox Content="System &amp; OS Artifacts" Style="{StaticResource CheckBoxStyle}" FontWeight="Bold" Foreground="#1565c0"/>
                     <TextBlock Text="Registry hives, prefetch, SRUDB, scheduled tasks, time zone, services, drivers"
                            FontSize="12" Foreground="#4b5563" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="Incident Response Logs" FontWeight="Bold" Foreground="#1565c0"/>
+                    <CheckBox Content="Incident Response Logs" Style="{StaticResource CheckBoxStyle}" FontWeight="Bold" Foreground="#1565c0"/>
                     <TextBlock Text="NTUSER.DAT, USRCLASS.DAT, AppCompatCache, AmCache.hve, SRUM, ShimCache, Security.evtx, SysEvent.evtx, AppEvent.evtx"
                            FontSize="12" Foreground="#4b5563" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="Event Logs &amp; Diagnostics" FontWeight="Bold" Foreground="#1565c0"/>
+                    <CheckBox Content="Event Logs &amp; Diagnostics" Style="{StaticResource CheckBoxStyle}" FontWeight="Bold" Foreground="#1565c0"/>
                     <TextBlock Text="Windows Event Logs (System, Security, Application), Reliability, CBS logs, WER reports"
                            FontSize="12" Foreground="#4b5563" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="Network &amp; Browser Activity" FontWeight="Bold" Foreground="#1565c0"/>
+                    <CheckBox Content="Network &amp; Browser Activity" Style="{StaticResource CheckBoxStyle}" FontWeight="Bold" Foreground="#1565c0"/>
                     <TextBlock Text="Wi-Fi profiles, DNS cache, Chrome, Edge, Firefox, Tor, proxy, cookies, downloads"
                            FontSize="12" Foreground="#4b5563" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="Email Archives &amp; Mail Clients" FontWeight="Bold" Foreground="#1565c0"/>
+                    <CheckBox Content="Email Archives &amp; Mail Clients" Style="{StaticResource CheckBoxStyle}" FontWeight="Bold" Foreground="#1565c0"/>
                     <TextBlock Text="Outlook PST/OST, Thunderbird, MBOX, cached Exchange/IMAP content"
                            FontSize="12" Foreground="#4b5563" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="Cloud &amp; Sync Data" FontWeight="Bold" Foreground="#1565c0"/>
+                    <CheckBox Content="Cloud &amp; Sync Data" FontWeight="Bold" Style="{StaticResource CheckBoxStyle}" Foreground="#1565c0"/>
                     <TextBlock Text="OneDrive, Google Drive, Dropbox, Box, sync logs, cached credentials, shortcuts"
                            FontSize="12" Foreground="#4b5563" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="Messaging &amp; Social Media" FontWeight="Bold" Foreground="#1565c0"/>
+                    <CheckBox Content="Messaging &amp; Social Media" Style="{StaticResource CheckBoxStyle}" FontWeight="Bold" Foreground="#1565c0"/>
                     <TextBlock Text="WhatsApp, Telegram, Signal, Discord, Messenger, Slack, Skype, Teams"
                            FontSize="12" Foreground="#4b5563" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="Applications &amp; Usage" FontWeight="Bold" Foreground="#1565c0"/>
+                    <CheckBox Content="Applications &amp; Usage" Style="{StaticResource CheckBoxStyle}" FontWeight="Bold" Foreground="#1565c0"/>
                     <TextBlock Text="Program installs, crash dumps, MRU lists, JumpLists, run keys, usage history"
                            FontSize="12" Foreground="#4b5563" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="Virtual Machines &amp; Containers" FontWeight="Bold" Foreground="#1565c0"/>
+                    <CheckBox Content="Virtual Machines &amp; Containers" Style="{StaticResource CheckBoxStyle}" FontWeight="Bold" Foreground="#1565c0"/>
                     <TextBlock Text="VM snapshots, VMDK/VHD, Docker layers, Hyper-V configs, guest OS logs"
                            FontSize="12" Foreground="#4b5563" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="USB &amp; Peripheral Devices" FontWeight="Bold" Foreground="#1565c0"/>
+                    <CheckBox Content="USB &amp; Peripheral Devices" Style="{StaticResource CheckBoxStyle}" FontWeight="Bold" Foreground="#1565c0"/>
                     <TextBlock Text="Mounted devices, setupapi.dev.log, volume serials, usage timestamps"
                            FontSize="12" Foreground="#4b5563" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="Printing &amp; Document History" FontWeight="Bold" Foreground="#1565c0"/>
+                    <CheckBox Content="Printing &amp; Document History" Style="{StaticResource CheckBoxStyle}" FontWeight="Bold" Foreground="#1565c0"/>
                     <TextBlock Text="Print spooler logs, recent file lists, PDF readers’ activity"
                            FontSize="12" Foreground="#4b5563" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="Security &amp; Forensics Artifacts" FontWeight="Bold" Foreground="#1565c0"/>
+                    <CheckBox Content="Security &amp; Forensics Artifacts" Style="{StaticResource CheckBoxStyle}" FontWeight="Bold" Foreground="#1565c0"/>
                     <TextBlock Text="Antivirus logs, Defender scans, BitLocker, audit policies, EFS certificates"
                            FontSize="12" Foreground="#4b5563" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="Performance &amp; Resource Monitoring" FontWeight="Bold" Foreground="#1565c0"/>
+                    <CheckBox Content="Performance &amp; Resource Monitoring" Style="{StaticResource CheckBoxStyle}" FontWeight="Bold" Foreground="#1565c0"/>
                     <TextBlock Text="SRUM data, power logs, resource tracking databases"
                            FontSize="12" Foreground="#4b5563" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="Deleted Files &amp; Recovery Artifacts" FontWeight="Bold" Foreground="#1565c0"/>
+                    <CheckBox Content="Deleted Files &amp; Recovery Artifacts" Style="{StaticResource CheckBoxStyle}" FontWeight="Bold" Foreground="#1565c0"/>
                     <TextBlock Text="$Recycle.Bin, shadow copies, carved deleted files, file remnants"
                            FontSize="12" Foreground="#4b5563" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="Custom &amp; Case-Specific Artifacts" FontWeight="Bold" Foreground="#1565c0"/>
+                    <CheckBox Content="Custom &amp; Case-Specific Artifacts" Style="{StaticResource CheckBoxStyle}" FontWeight="Bold" Foreground="#1565c0"/>
                     <TextBlock Text="Keyword search hits, tagged directories, bookmarks, forensic templates"
                            FontSize="12" Foreground="#4b5563" Margin="20,0,0,8"/>
 

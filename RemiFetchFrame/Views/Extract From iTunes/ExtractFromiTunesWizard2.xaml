@@ -79,47 +79,47 @@
 
                 <StackPanel x:Name="DataGroupList" Orientation="Vertical" Grid.Row="1" >
 
-                    <CheckBox Content="Messages &amp; Chats"
+                    <CheckBox Content="Messages &amp; Chats" Style="{StaticResource CheckBoxStyle}"
                           FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
                     <TextBlock Text="SMS, iMessage, WhatsApp, Telegram, and other chat databases"
                            Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="Contacts &amp; Call Logs"
+                <CheckBox Content="Contacts &amp; Call Logs" Style="{StaticResource CheckBoxStyle}"
                           FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
                     <TextBlock Text="Address book entries, favorites, call history, FaceTime logs"
                            Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="Photos &amp; Videos"
+                <CheckBox Content="Photos &amp; Videos" Style="{StaticResource CheckBoxStyle}"
                           FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
                     <TextBlock Text="Camera roll, thumbnails, metadata, Live Photos"
                            Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="App Data &amp; Containers"
+                <CheckBox Content="App Data &amp; Containers" Style="{StaticResource CheckBoxStyle}"
                           FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
                     <TextBlock Text="Third-party app databases, caches, documents, sandboxed data"
                            Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="System &amp; Settings"
+                <CheckBox Content="System &amp; Settings" Style="{StaticResource CheckBoxStyle}"
                           FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
                     <TextBlock Text="Device configuration, network settings, plist files, preferences"
                            Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="Safari &amp; Web Activity"
+                <CheckBox Content="Safari &amp; Web Activity" Style="{StaticResource CheckBoxStyle}"
                           FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
                     <TextBlock Text="Bookmarks, history, downloads, cookies, reading list"
                            Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="Health &amp; Fitness"
+                <CheckBox Content="Health &amp; Fitness" Style="{StaticResource CheckBoxStyle}"
                           FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
                     <TextBlock Text="HealthKit data, activity logs, medical ID, Apple Watch sync"
                            Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="Wallet &amp; Apple Pay"
+                <CheckBox Content="Wallet &amp; Apple Pay" Style="{StaticResource CheckBoxStyle}"
                           FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
                     <TextBlock Text="Passes, transaction receipts, Apple Pay tokens"
                            Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>
 
-                    <CheckBox Content="Custom &amp; Case-Specific Artifacts"
+                <CheckBox Content="Custom &amp; Case-Specific Artifacts" Style="{StaticResource CheckBoxStyle}"
                           FontWeight="Bold" Foreground="#1565c0" Margin="0,0,0,3"/>
                     <TextBlock Text="Keyword matches, tagged directories, analyst bookmarks"
                            Foreground="#4b5563" FontSize="12" Margin="20,0,0,8"/>

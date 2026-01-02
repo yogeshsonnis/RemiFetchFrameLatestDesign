@@ -131,10 +131,27 @@
                     
                     <!-- Table -->
                     <Border Grid.Row="2" BorderBrush="#E5E7EB" BorderThickness="1"
-                            CornerRadius="6" Height="150" VerticalAlignment="Top" Background="White" Margin="0">
-                        <DataGrid AutoGenerateColumns="False"  HeadersVisibility="Column"
-                                  CanUserAddRows="False" BorderBrush="#D1D5DB"
-                                  Background="White" Foreground="#374151" FontSize="12" >
+                            CornerRadius="6"  VerticalAlignment="Top" Background="White" Margin="0">
+                        <DataGrid  x:Name="VmGrid"
+              ItemsSource="{Binding}"                                        VerticalAlignment="Top" 
+Height="250"
+AutoGenerateColumns="False"
+IsReadOnly="True"
+CanUserAddRows="False"
+RowHeight="33"
+   CellStyle="{StaticResource DataGridCellStyle}"
+           RowStyle="{StaticResource DatagridRowStyle}"
+           ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+ColumnHeaderHeight="34"
+SelectionMode="Single"
+SelectionUnit="FullRow"
+HeadersVisibility="Column"       
+RowHeaderWidth="0"
+VerticalGridLinesBrush="#E0E0E0"
+HorizontalGridLinesBrush="#E0E0E0"
+BorderBrush="#D0D0D0"     
+                              Background="White"
+BorderThickness="1" >
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Filename / Source" Binding="{Binding Filename}" Width="*"/>
                                 <DataGridTextColumn Header="Source Path" Binding="{Binding SourcePath}" Width="2*"/>

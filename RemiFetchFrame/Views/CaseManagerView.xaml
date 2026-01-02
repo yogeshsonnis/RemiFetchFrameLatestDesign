@@ -115,7 +115,6 @@
             <Setter Property="Padding" Value="16,16"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
-
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="RadioButton">
@@ -159,88 +158,8 @@
             </Setter>
         </Style>
 
-        <SolidColorBrush x:Key="TextBoxBorderBrush" Color="#CCCCCC" />
-        <SolidColorBrush x:Key="TextBoxBorderFocusedBrush" Color="#1E6BD6" />
-        <SolidColorBrush x:Key="TextBoxBackground" Color="White" />
+        
 
-        <SolidColorBrush x:Key="TextBoxPlaceholderBrush" Color="#88000000"/>
-
-        <Style x:Key="RoundedPlaceholderTextBox" TargetType="TextBox">
-            <Setter Property="Height" Value="45"/>
-            <Setter Property="Padding" Value="8,5"/>
-            <Setter Property="BorderBrush" Value="{StaticResource TextBoxBorderBrush}"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="SnapsToDevicePixels" Value="True"/>
-            <Setter Property="Foreground" Value="#555"/>
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TextBox">
-                        <Grid>
-                            <!-- Base surface -->
-                            <Border x:Name="Border"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="4"/>
-
-                            <!-- Real text host -->
-                            <ScrollViewer x:Name="PART_ContentHost"
-                                  Margin="{TemplateBinding Padding}"
-                                  VerticalAlignment="Center"/>
-
-                            <!-- Placeholder layered above content -->
-                            <TextBlock x:Name="PlaceholderText"
-                                       Padding="8,5"
-                               Margin="{TemplateBinding Padding}"
-                               Text="{TemplateBinding Tag}"
-                               Foreground="Gray"
-                             
-                               IsHitTestVisible="False"
-                               VerticalAlignment="Center"
-                               TextTrimming="None"
-                               TextWrapping="NoWrap"
-                               Visibility="Collapsed"/>
-                        </Grid>
-
-                        <!-- Triggers -->
-                        <ControlTemplate.Triggers>
-                            <!-- Focus border color -->
-                            <Trigger Property="IsKeyboardFocused" Value="True">
-                                <Setter TargetName="Border" Property="BorderBrush"
-                                Value="Black"/>
-
-                            </Trigger>
-
-                            <!-- Disabled -->
-                            <Trigger Property="IsEnabled" Value="False">
-                                <Setter TargetName="Border" Property="Opacity" Value="0.6"/>
-                            </Trigger>
-
-                            <!-- Show placeholder when empty -->
-                            <MultiTrigger>
-                                <MultiTrigger.Conditions>
-                                    <Condition Property="Text" Value=""/>
-                                    <Condition Property="IsKeyboardFocused" Value="False"/>
-                                </MultiTrigger.Conditions>
-                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
-                            </MultiTrigger>
-
-                            <!-- Also show when empty AND focused (optional: comment out to hide during focus) -->
-                            <Trigger Property="Text" Value="">
-                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
-                            </Trigger>
-
-                            <!-- Hide placeholder once user types -->
-                            <Trigger Property="Text" Value="{x:Null}">
-                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
 
 
 
@@ -296,7 +215,7 @@
                             </Grid>
                             <Grid x:Name="OpenCaseView" Visibility="Collapsed">
 
-                                <DataGrid x:Name="CaseDataGrid" ItemsSource="{Binding Cases}"
+                            <DataGrid x:Name="CaseDataGrid" ItemsSource="{Binding Cases}"
                            SelectionChanged="DataGrid_SelectionChanged"
                            Margin="20"
                            VerticalAlignment="Top" 
@@ -305,6 +224,9 @@
                            IsReadOnly="True"
                            CanUserAddRows="False"
                            RowHeight="34"
+                              CellStyle="{StaticResource DataGridCellStyle}"
+                                      RowStyle="{StaticResource DatagridRowStyle}"
+                                      ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
                            ColumnHeaderHeight="34"
                            SelectionMode="Single"
                            SelectionUnit="FullRow"
@@ -315,62 +237,7 @@
                            BorderBrush="#D0D0D0"     
                            BorderThickness="1" 
                           >
-
-                                    <!-- Resources that disable highlight -->
-                                    <DataGrid.Resources>
-
-
-                                        <Style TargetType="DataGridCell">
-                                            <Setter Property="Focusable" Value="False"/>
-                                            <Setter Property="Background" Value="Transparent"/>
-                                            <Setter Property="BorderBrush" Value="Transparent"/>
-                                            <Setter Property="BorderThickness" Value="0"/>
-
-                                            <!-- This controls vertical centering -->
-                                            <Setter Property="VerticalContentAlignment" Value="Center"/>
-
-                                            <Setter Property="Template">
-                                                <Setter.Value>
-                                                    <ControlTemplate TargetType="DataGridCell">
-                                                        <Border Background="{TemplateBinding Background}"
-                                                     BorderBrush="{TemplateBinding BorderBrush}"
-                                                     BorderThickness="{TemplateBinding BorderThickness}"
-                                                     Padding="0">
-                                                            <ContentPresenter Margin="3,0,0,0"
-                                                     VerticalAlignment="Center"
-                                                     HorizontalAlignment="Left"
-                                                     SnapsToDevicePixels="True"/>
-                                                        </Border>
-                                                    </ControlTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-
-                                            <Style.Triggers>
-                                                <Trigger Property="IsSelected" Value="True">
-                                                    <Setter Property="Background" Value="#1567c0"/>
-                                                    <Setter Property="Foreground" Value="White"/>
-                                                </Trigger>
-                                            </Style.Triggers>
-                                        </Style>
-
-                                        <Style TargetType="DataGridRow">
-                                            <Style.Triggers>
-
-                                                <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter Property="Background" Value="#1567c0"/>
-                                                    <Setter Property="Foreground" Value="White"/>
-                                                </Trigger>
-                                            </Style.Triggers>
-                                        </Style>
-
-                                        <!-- Bold Header -->
-                                        <Style TargetType="DataGridColumnHeader">
-                                            <Setter Property="FontWeight" Value="Bold"/>
-                                        </Style>
-
-                                    </DataGrid.Resources>
-
-                                    <DataGrid.Columns>
+                                <DataGrid.Columns>
                                         <DataGridTextColumn Header="Case Name" Binding="{Binding CaseName}" Width="*"/>
                                         <DataGridTextColumn Header="Matter Number" Binding="{Binding MatterNumber}" Width="*"/>
                                         <DataGridTextColumn Header="Save Location" Binding="{Binding SaveLocation}" Width="*"/>

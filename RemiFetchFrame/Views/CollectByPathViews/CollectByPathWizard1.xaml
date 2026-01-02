@@ -7,202 +7,213 @@
              mc:Ignorable="d" 
              >
 
-    <Grid Background="White">
+    <Grid Background="#f7f8fc" >
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!-- Wizard Header -->
-        <Border Grid.Row="0" Background="#f5f5f5"       
-            BorderBrush="#d1d5db" BorderThickness="0,0,0,1"
-            Padding="20,5"> 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                    <Border Background="#1565c0" CornerRadius="100" Width="28" Height="28">
-                        <TextBlock Text="1"
+        <Border Grid.Row="0"
+              
+            Background="#f5f5f4"
+            BorderBrush="#d1d5db"
+                CornerRadius="10"
+            BorderThickness="0,1,0,1"
+            Padding="0,10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <Border Background="#1565c0" Width="28" Height="28" CornerRadius="14">
+                        <TextBlock Text="1" Foreground="White"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
-                               Foreground="White"
                                FontWeight="SemiBold"/>
                     </Border>
                     <TextBlock Text="Add Paths"
+                           Margin="6,0,0,0"
+                           VerticalAlignment="Center"
                            Foreground="#1565c0"
-                           FontWeight="SemiBold"
-                           FontSize="13"
-                           VerticalAlignment="Center"/>
+                           FontWeight="SemiBold"/>
                 </StackPanel>
 
-                <Rectangle Fill="#d1d5db" Width="40" Height="1" Margin="5,0"/>
+                <Rectangle Width="40" Height="1" Fill="#d1d5db" Margin="10,0"/>
 
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                    <Border Background="#e5e7eb" CornerRadius="100" Width="28" Height="28">
+                <StackPanel Orientation="Horizontal">
+                    <Border Background="#e5e7eb" Width="28" Height="28" CornerRadius="14">
                         <TextBlock Text="2"
-                               HorizontalAlignment="Center"
                                VerticalAlignment="Center"
-                               Foreground="#374151"
+                               HorizontalAlignment="Center"
                                FontWeight="SemiBold"/>
                     </Border>
                     <TextBlock Text="Collect &amp; Export"
-                           Foreground="#4b5563"
-                           FontSize="13"
+                           Margin="6,0,0,0"
                            VerticalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>
         </Border>
 
-        <!-- ✅ FIXED BODY -->
-        <ScrollViewer Grid.Row="1"
-                  VerticalScrollBarVisibility="Auto"
-                  HorizontalScrollBarVisibility="Disabled">
+        <!-- BODY -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <Border Margin="10"
+                Background="#fffeff"
+                CornerRadius="8"
+                Padding="20"
+                BorderBrush="#e5e7eb"
+                BorderThickness="1">
 
-            <StackPanel Margin="10" Background="White" Orientation="Vertical">
+                <StackPanel>
 
-                <!-- Action Buttons -->
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <Button Content="+ Add Path"
-                        Width="110"
-                        Height="30"
-                        Background="#1565c0"
-                        Foreground="White"
-                        BorderThickness="0"
-                        FontSize="12"
+                    <!-- Buttons -->
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                        <Button Content="+ Add Path" Height="35" Width="110"
                             Style="{StaticResource RoundedButton}"
-                        Click="OnAddPath"/>
+                            Click="OnAddPath"/>
+                        <Button Content="- Remove" Height="35" Width="90"
+                            Margin="6,0"
+                            Style="{StaticResource RoundedButton}"
+                            Click="OnRemovePath"/>
+                        <Button Content="Browse" Height="35" Width="90"
+                            Style="{StaticResource RoundedButton}"
+                            Click="OnBrowse"/>
+                    </StackPanel>
 
-                    <Button Content="- Remove"
-                        Width="90"
-                        Height="30"
-                        Background="#1565c0"
-                        Foreground="White"
-                        Style="{StaticResource RoundedButton}"    
-                        BorderThickness="0"
-                        FontSize="12"
-                        Margin="5,0"
-                        Click="OnRemovePath"/>
+                    <!-- PATHS GRID -->
+                    <DataGrid x:Name="PathsGrid"
+                                                        VerticalAlignment="Top" 
+Height="Auto"
+AutoGenerateColumns="False"
+IsReadOnly="True"
+CanUserAddRows="False"
+RowHeight="34"
+   CellStyle="{StaticResource DataGridCellStyle}"
+           RowStyle="{StaticResource DatagridRowStyle}"
+           ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+ColumnHeaderHeight="34"
+SelectionMode="Single"
+SelectionUnit="FullRow"
+HeadersVisibility="Column"       
+RowHeaderWidth="0"
+VerticalGridLinesBrush="#E0E0E0"
+HorizontalGridLinesBrush="#E0E0E0"
+BorderBrush="#D0D0D0"     
+BorderThickness="1" Margin="0,0,0,15">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Path"
+                                            Binding="{Binding Path}"
+                                            Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
 
-                    <Button Content="Browse"
-                        Width="90"
-                        Height="30"
-                        Background="#1565c0"
-                        Foreground="White"
-                        Style="{StaticResource RoundedButton}"    
-                        BorderThickness="0"
-                        FontSize="12"
-                        Click="OnBrowse"/>
+                    <!-- VALIDATE BUTTON -->
+                    <Button Content="Validate Paths"
+                        Width="150"
+                        Height="35"
+                        Margin="0,0,0,12"
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource RoundedButton}"
+                        Click="OnValidate"/>
+
+                    <!-- VALIDATION GRID -->
+                    <DataGrid x:Name="ValidationGrid"
+                                       VerticalAlignment="Top" 
+Height="160"
+AutoGenerateColumns="False"
+IsReadOnly="True"
+CanUserAddRows="False"
+RowHeight="34"
+   CellStyle="{StaticResource DataGridCellStyle}"
+           RowStyle="{StaticResource DatagridRowStyle}"
+           ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+ColumnHeaderHeight="34"
+SelectionMode="Single"
+SelectionUnit="FullRow"
+HeadersVisibility="Column"       
+RowHeaderWidth="0"
+VerticalGridLinesBrush="#E0E0E0"
+HorizontalGridLinesBrush="#E0E0E0"
+BorderBrush="#D0D0D0"     
+                              Background="White"
+BorderThickness="1" >
+
+                        <DataGrid.Columns >
+
+                            <DataGridTextColumn Header="Path" MinWidth="170"
+                            Binding="{Binding Path}"
+                            
+                          />
+
+                            <!-- STATUS COLUMN (Template) -->
+                            <DataGridTemplateColumn Header="Status" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Status}"
+                               Style="{StaticResource StatusTextStyle}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTextColumn Header="Permissions"
+                            Binding="{Binding Permissions}"
+                                                
+                            Width="*"/>
+
+                            <DataGridTextColumn Header="Type"
+                            Binding="{Binding Type}"
+                                                
+                            Width="*"/>
+
+                            <DataGridTextColumn Header="Owner"
+                            Binding="{Binding Owner}"
+                                                 
+                            Width="*"/>
+
+                            <DataGridTextColumn Header="Last Modified"
+                            Binding="{Binding LastModified}"
+                                               
+                            Width="*"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+
+                    <!-- SUMMARY CARDS -->
+                    <UniformGrid Columns="3">
+
+                        <Border Style="{StaticResource SummaryCard}">
+                            <StackPanel>
+                                <TextBlock Text="Metrics Summary" FontWeight="SemiBold"/>
+                                <TextBlock Text="Files Added: 1"/>
+                                <TextBlock Text="Total Data Size: 1.2 GB"/>
+                                <TextBlock Text="Duplicates Removed: 0"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Style="{StaticResource SummaryCard}">
+                            <StackPanel>
+                                <TextBlock Text="File Validation Summary" FontWeight="SemiBold"/>
+                                <TextBlock Text="Integrity Check: Passed"/>
+                                <TextBlock Text="Hash Verification: SHA-256 generated"/>
+                                <TextBlock Text="Corrupted Files: 0"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Style="{StaticResource SummaryCard}">
+                            <StackPanel>
+                                <TextBlock Text="Permissions &amp; Locked Files" FontWeight="SemiBold"/>
+                                <TextBlock Text="Accessible Files: 48"/>
+                                <TextBlock Text="Restricted Files: 3"/>
+                                <TextBlock Text="Locked Files: 2"/>
+                            </StackPanel>
+                        </Border>
+
+                    </UniformGrid>
+
                 </StackPanel>
-
-                <!-- Paths Table -->
-                <DataGrid x:Name="PathsGrid"
-                      AutoGenerateColumns="False"
-                      CanUserAddRows="False"
-                      AlternatingRowBackground="#f9fafb"
-                      Background="White"
-                      BorderBrush="#d1d5db"
-                      BorderThickness="1"
-                      FontSize="12"
-                      Height="140"
-                      Margin="0,0,0,15">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Path"
-                                        Binding="{Binding Path}"
-                                        Width="*"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-                <Grid  >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                <!-- Validate Button -->
-                <Button x:Name="BtnValidate"
-                    Content="Validate Paths"
-                    Width="150"
-                    Height="35"
-                    Background="#1565c0"
-                    Foreground="White"
-                    BorderThickness="0"
-                    Style="{StaticResource RoundedButton}"    
-                    FontSize="12"
-                    HorizontalAlignment="Left"
-                    Margin="0,0,0,10"
-                    Click="OnValidate"/>
-
-                    <!--<Button Content="Next →" Background="#1565C0" Grid.Column="1" Foreground="White" HorizontalAlignment="Right" Click="NextButton_Click" Style="{StaticResource RoundedButton}" Height="35" Padding="12,6" FontSize="15" Margin="0,0,20,10"/>-->
-                </Grid>
-                <!-- Validation Table -->
-                <DataGrid x:Name="ValidationGrid"
-                      AutoGenerateColumns="False"
-                      CanUserAddRows="False"
-                      AlternatingRowBackground="#f9fafb"
-                      Background="White"
-                      BorderBrush="#d1d5db"
-                      BorderThickness="1"
-                      FontSize="12"
-                      Height="160"
-                      Margin="0,0,0,20">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Path" Binding="{Binding Path}" Width="2*"/>
-                        <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*"/>
-                        <DataGridTextColumn Header="Permissions" Binding="{Binding Permissions}" Width="*"/>
-                        <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="*"/>
-                        <DataGridTextColumn Header="Owner" Binding="{Binding Owner}" Width="*"/>
-                        <DataGridTextColumn Header="Last Modified" Binding="{Binding LastModified}" Width="*"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-
-                <!-- Summary Cards -->
-                <UniformGrid Columns="3" Margin="0,0,0,10">
-
-                    <Border BorderBrush="#d1d5db"
-                        BorderThickness="1"
-                        CornerRadius="6"
-                        Padding="15"
-                        Background="#f9fafb"
-                        Margin="5">
-                        <StackPanel>
-                            <TextBlock Text="Metrics Summary" FontWeight="SemiBold"/>
-                            <TextBlock Text="Files Added: 1"/>
-                            <TextBlock Text="Total Data Size: 1.2 GB"/>
-                            <TextBlock Text="Duplicates Removed: 0"/>
-                        </StackPanel>
-                    </Border>
-
-                    <Border BorderBrush="#d1d5db"
-                        BorderThickness="1"
-                        CornerRadius="6"
-                        Padding="15"
-                        Background="#f9fafb"
-                        Margin="5">
-                        <StackPanel>
-                            <TextBlock Text="File Validation Summary" FontWeight="SemiBold"/>
-                            <TextBlock Text="Integrity Check: Passed"/>
-                            <TextBlock Text="Hash Verification: SHA-256 generated"/>
-                            <TextBlock Text="Unsupported Files: 0"/>
-                            <TextBlock Text="Corrupted Files: 0"/>
-                        </StackPanel>
-                    </Border>
-
-                    <Border BorderBrush="#d1d5db"
-                        BorderThickness="1"
-                        CornerRadius="6"
-                        Padding="15"
-                        Background="#f9fafb"
-                        Margin="5">
-                        <StackPanel>
-                            <TextBlock Text="Permissions &amp; Locked Files" FontWeight="SemiBold"/>
-                            <TextBlock Text="Accessible Files: 48"/>
-                            <TextBlock Text="Restricted Files: 3"/>
-                            <TextBlock Text="Locked Files: 2"/>
-                            <TextBlock Text="Actions Required: 2"/>
-                        </StackPanel>
-                    </Border>
-
-                </UniformGrid>
-
-            </StackPanel>
+            </Border>
         </ScrollViewer>
     </Grid>
+
 
 
 </UserControl>

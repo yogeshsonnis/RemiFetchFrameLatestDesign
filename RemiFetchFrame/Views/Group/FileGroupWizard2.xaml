@@ -7,21 +7,68 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Border Background="White" CornerRadius="12" 
-                BorderBrush="#D1D5DB" BorderThickness="1">
+        <Border Background="White"
+            CornerRadius="12"
+            BorderBrush="#E5E7EB"
+            BorderThickness="1"
+            Effect="{StaticResource CardShadow}">
+
             <DockPanel>
 
                 <!-- Header -->
-                <Border Background="#F9FAFB" BorderBrush="#D1D5DB" BorderThickness="0,0,0,1"
-                        DockPanel.Dock="Top" Padding="10,6">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Ellipse Width="28" Height="28" Fill="#2563EB"/>
-                        <TextBlock Text="Select File Groups" Margin="8,0"/>
-                        <Rectangle Width="60" Height="2" Fill="#D1D5DB" Margin="12,0"/>
-                        <Ellipse Width="28" Height="28" Fill="#1565C0"/>
-                        <TextBlock Text="Collect &amp; Export" Margin="8,0" Foreground="#1565C0"/>
-                    </StackPanel>
-                </Border>
+                <Border DockPanel.Dock="Top"
+        Padding="15"
+        Background="#F9FAFB"
+        BorderBrush="#D1D5DB"
+        BorderThickness="0,0,0,1"
+        CornerRadius="12">
+
+    <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+        <!-- STEP 1 -->
+        <Border Width="28"
+                Height="28"
+                CornerRadius="14"
+                Background="#E5E7EB">
+            <TextBlock Text="1"
+                       Foreground="White"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+        </Border>
+
+        <TextBlock Text="Select File Groups"
+                   Margin="10,0"
+                   VerticalAlignment="Center"
+                   Foreground="#E5E7EB"
+                   FontWeight="SemiBold"/>
+
+        <Rectangle Width="80"
+                   Height="2"
+                   Fill="#D1D5DB"
+                   Margin="15,0"/>
+
+        <!-- STEP 2 -->
+                        <Border Width="28" 
+                Height="28"
+                CornerRadius="14"
+                Background="#2563EB">
+            <TextBlock Text="2"
+                       Foreground="White"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+        </Border>
+
+        <TextBlock Text="Collect &amp; Export"
+                   Margin="10,0"
+                   VerticalAlignment="Center"
+                   Foreground="#2563EB"/>
+    </StackPanel>
+</Border>
+
 
                 <!-- Body -->
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Background="#F9FAFB">
@@ -30,10 +77,35 @@
                         <!-- Collection Results Table -->
                         <GroupBox Header="Collection Results" Margin="0,0,0,8">
                             <StackPanel>
-                                <DataGrid AutoGenerateColumns="False" HeadersVisibility="Column"
-                                          Height="300" CanUserAddRows="False">
+                                <DataGrid ItemsSource="{Binding CollectionItems}" Height="250"
+AutoGenerateColumns="False"
+IsReadOnly="True"
+CanUserAddRows="False"
+RowHeight="33"
+   CellStyle="{StaticResource DataGridCellStyle}"
+           RowStyle="{StaticResource DatagridRowStyle}"
+           ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+ColumnHeaderHeight="34"
+SelectionMode="Single"
+SelectionUnit="FullRow"
+HeadersVisibility="Column"       
+RowHeaderWidth="0"
+VerticalGridLinesBrush="#E0E0E0"
+HorizontalGridLinesBrush="#E0E0E0"
+BorderBrush="#D0D0D0"     
+                              Background="White"
+BorderThickness="1">
                                     <DataGrid.Columns>
-                                        <DataGridCheckBoxColumn Header="Select" Width="Auto"/>
+                                        <DataGridCheckBoxColumn Header="Select"
+                                Binding="{Binding IsSelected, Mode=TwoWay}"
+                                Width="60">
+                                            <DataGridCheckBoxColumn.ElementStyle>
+                                                <Style TargetType="CheckBox">
+                                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                                </Style>
+                                            </DataGridCheckBoxColumn.ElementStyle>
+                                        </DataGridCheckBoxColumn>
                                         <DataGridTextColumn Header="Filename" Binding="{Binding Filename}" Width="*"/>
                                         <DataGridTextColumn Header="Path" Binding="{Binding Path}" Width="2*"/>
                                         <DataGridTextColumn Header="Category" Binding="{Binding Category}" Width="*"/>
@@ -49,12 +121,12 @@
                             <StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,6">
                                     <Button Content="Start" Width="100" Style="{StaticResource RoundedButton}" Height="30"
-                                            Background="#2563EB" Foreground="White" FontWeight="Normal"/>
+                                   Background="#2563EB" Foreground="White" FontWeight="Normal"/>
                                 </StackPanel>
                                 <TextBlock Text="Collecting user files and preparing export package..."
-                                           Margin="0,0,0,6" Foreground="#374151"/>
+                                  Margin="0,0,0,6" Foreground="#374151"/>
                                 <ProgressBar Height="12" Value="65" Margin="0,0,0,4"
-                                             Foreground="#2563EB" Background="#E5E7EB"/>
+                                    Foreground="#2563EB" Background="#E5E7EB" Style="{StaticResource RoundedProgressBar}"/>
                                 <DockPanel>
                                     <TextBlock Text="65% Completed" DockPanel.Dock="Left" Foreground="#374151"/>
                                     <TextBlock Text="Estimated Time: 00:01:32" DockPanel.Dock="Right" Foreground="#374151"/>
@@ -66,9 +138,9 @@
                         <UniformGrid Columns="3" Rows="1">
                             <!-- Export Summary -->
                             <Border BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6"
-                                    Background="White" Margin="4" Padding="8">
+                           Background="White" Margin="4" Padding="8">
                                 <StackPanel>
-                                    <TextBlock Text="Export Summary" FontWeight="Bold" Margin="0,0,0,6"/>
+                                    <TextBlock Text="Export Summary" FontWeight="Bold" Margin="0,0,0,6" FontSize="13"/>
                                     <TextBlock Text="Total Files Collected: 235"/>
                                     <TextBlock Text="Total Data Size: 4.3 GB"/>
                                     <TextBlock Text="Export Format: Forensic ZIP"/>
@@ -78,24 +150,24 @@
 
                             <!-- Chain of Custody -->
                             <Border BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6"
-                                    Background="White" Margin="4" Padding="8">
+                           Background="White" Margin="4" Padding="8">
                                 <StackPanel>
                                     <StackPanel Orientation="Horizontal"  Margin="0,0,0,4">
-                                        <TextBlock Text="Chain of Custody" FontWeight="Bold"/>
+                                        <TextBlock Text="Chain of Custody" FontSize="13" FontWeight="Bold"/>
                                         <ToggleButton Width="40" Style="{StaticResource SwitchToggleStyle}" Height="20" Background="#D1D5DB"
-                                                      BorderBrush="#D1D5DB" BorderThickness="1" Margin="10,0,0,0"/>
+                                             BorderBrush="#D1D5DB" BorderThickness="1" Margin="10,0,0,0"/>
                                     </StackPanel>
-                                    <TextBox Margin="0,2,0,4" Height="24" Text="Custodian"/>
-                                    <TextBox Margin="0,2,0,4" Height="24" Text="Agency"/>
-                                    <TextBox Margin="0,2,0,4" Height="24" Text="Examiner"/>
+                                    <TextBox   Text="Custodian"  Style="{StaticResource RoundedPlaceholderTextBox}" Height="32" Margin="0,0,0,6" FontSize="12" Padding="4" BorderBrush="#d1d5db"/>
+                                    <TextBox Margin="0,0,0,6" FontSize="12" Padding="4" BorderBrush="#d1d5db"  Style="{StaticResource RoundedPlaceholderTextBox}" Height="32" Text="Agency"/>
+                                    <TextBox Margin="0,0,0,6" FontSize="12" Padding="4" BorderBrush="#d1d5db"  Style="{StaticResource RoundedPlaceholderTextBox}" Height="32"  Text="Examiner"/>
                                 </StackPanel>
                             </Border>
 
                             <!-- Metrics -->
                             <Border BorderBrush="#E5E7EB" BorderThickness="1" CornerRadius="6"
-                                    Background="White" Margin="4" Padding="8">
+                           Background="White" Margin="4" Padding="8">
                                 <StackPanel>
-                                    <TextBlock Text="Metrics" FontWeight="Bold" Margin="0,0,0,6"/>
+                                    <TextBlock Text="Metrics" FontWeight="Bold" Margin="0,0,0,6" FontSize="13"/>
                                     <TextBlock Text="Average File Size: 56 KB"/>
                                     <TextBlock Text="Processing Rate: 42 files/sec"/>
                                     <TextBlock Text="Errors Detected: 0"/>
@@ -108,5 +180,6 @@
             </DockPanel>
         </Border>
     </Grid>
+    
 
 </UserControl>

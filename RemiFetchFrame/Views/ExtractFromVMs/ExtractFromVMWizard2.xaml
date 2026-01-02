@@ -100,23 +100,23 @@
                     <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" 
                                   BorderBrush="#E5E7EB" BorderThickness="1" 
                                   Background="#F9FAFB" Padding="10">
-                        <StackPanel>
-                            <CheckBox Content="System &amp; OS Artifacts – Registry hives, event logs, prefetch, SRUDB, scheduled tasks, services"
-                                      Foreground="#1565C0" FontWeight="Medium" Margin="0,2"/>
-                            <CheckBox Content="Network &amp; Browser Activity – History, cache, cookies, Wi-Fi profiles, DNS logs"
-                                      Foreground="#1565C0" FontWeight="Medium" Margin="0,2"/>
+                        <StackPanel >
+                            <CheckBox Content="System &amp; OS Artifacts – Registry hives, event logs, prefetch, SRUDB, scheduled tasks, services" Style="{StaticResource CheckBoxStyle}"
+                                      Foreground="#1565C0" FontWeight="Medium" Margin="0,8"/>
+                            <CheckBox Content="Network &amp; Browser Activity – History, cache, cookies, Wi-Fi profiles, DNS logs" Style="{StaticResource CheckBoxStyle}"
+                                      Foreground="#1565C0" FontWeight="Medium" Margin="0,8"/>
                             <CheckBox Content="User Communications – Email, chat apps (Teams, Slack, Skype)"
-                                      Foreground="#1565C0" FontWeight="Medium" Margin="0,2"/>
-                            <CheckBox Content="Applications &amp; Usage – Installed apps, recent activity, crash data"
-                                      Foreground="#1565C0" FontWeight="Medium" Margin="0,2"/>
-                            <CheckBox Content="Media &amp; Files – Images, videos, EXIF data, temp files"
-                                      Foreground="#1565C0" FontWeight="Medium" Margin="0,2"/>
-                            <CheckBox Content="Financial &amp; Payment Data – Bank exports, QuickBooks, Venmo, PayPal"
-                                      Foreground="#1565C0" FontWeight="Medium" Margin="0,2"/>
-                            <CheckBox Content="Virtualization &amp; Cloud – VM traces, OneDrive, Dropbox, Google Drive"
-                                      Foreground="#1565C0" FontWeight="Medium" Margin="0,2"/>
-                            <CheckBox Content="Memory &amp; Volatile Data – RAM snapshots, hiberfil.sys, pagefile.sys, live process data"
-                                      Foreground="#1565C0" FontWeight="Medium" Margin="0,2"/>
+                                      Foreground="#1565C0" FontWeight="Medium" Margin="0,8" Style="{StaticResource CheckBoxStyle}"/>
+                            <CheckBox Content="Applications &amp; Usage – Installed apps, recent activity, crash data" Style="{StaticResource CheckBoxStyle}"
+                                      Foreground="#1565C0" FontWeight="Medium" Margin="0,8"/>
+                            <CheckBox Content="Media &amp; Files – Images, videos, EXIF data, temp files" Style="{StaticResource CheckBoxStyle}"
+                                      Foreground="#1565C0" FontWeight="Medium" Margin="0,8"/>
+                            <CheckBox Content="Financial &amp; Payment Data – Bank exports, QuickBooks, Venmo, PayPal" Style="{StaticResource CheckBoxStyle}"
+                                      Foreground="#1565C0" FontWeight="Medium" Margin="0,8"/>
+                            <CheckBox Content="Virtualization &amp; Cloud – VM traces, OneDrive, Dropbox, Google Drive" Style="{StaticResource CheckBoxStyle}"
+                                      Foreground="#1565C0" FontWeight="Medium" Margin="0,8"/>
+                            <CheckBox Content="Memory &amp; Volatile Data – RAM snapshots, hiberfil.sys, pagefile.sys, live process data" Style="{StaticResource CheckBoxStyle}"
+                                      Foreground="#1565C0" FontWeight="Medium" Margin="0,8"/>
 
                             <!--<StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
                                 <Button x:Name="BtnNext"

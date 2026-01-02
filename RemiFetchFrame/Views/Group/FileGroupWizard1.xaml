@@ -6,131 +6,187 @@
              xmlns:local="clr-namespace:Remi.Fetch.Views.Group"
              mc:Ignorable="d" 
              >
-    <Grid>
-        <Border Background="White" CornerRadius="8"
-                BorderBrush="#D1D5DB" BorderThickness="1" 
-                Effect="{DynamicResource DropShadowEffect}">
+    <Grid >
+        <Border Background="White"
+                CornerRadius="10"
+                BorderBrush="#E5E7EB"
+                BorderThickness="1"
+                Effect="{StaticResource CardShadow}">
+
             <DockPanel>
-                <!-- Header -->
-                <Border Background="#F9FAFB" BorderBrush="#D1D5DB" BorderThickness="0,0,0,1" DockPanel.Dock="Top" Padding="10,6">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Ellipse Width="28" Height="28" Fill="#2563EB"/>
-                        <TextBlock Text="Select File Groups" Foreground="#2563EB" Margin="8,0"/>
-                        <Rectangle Width="60" Height="2" Fill="#D1D5DB" Margin="12,0"/>
-                        <Ellipse Width="28" Height="28" Fill="#E5E7EB"/>
-                        <TextBlock Text="Collect &amp; Export" Margin="8,0"/>
+
+                <!-- ===================== HEADER ===================== --> 
+                <Border DockPanel.Dock="Top"
+                        Padding="16"
+                        BorderBrush="#E5E7EB"
+                        BorderThickness="0,0,0,1">
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                        <!-- Step 1 -->
+                        <Border Width="28" Height="28" CornerRadius="14" Background="#2563EB">
+                            <TextBlock Text="1"
+                                       Foreground="White"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Border>
+
+                        <TextBlock Text="Select File Groups"
+                                   Margin="10,0"
+                                   Foreground="#2563EB"
+                                   FontWeight="SemiBold"/>
+
+                        <Rectangle Width="80" Height="2" Fill="#E5E7EB" Margin="12,0"/>
+
+                        <!-- Step 2 -->
+                        <Border Width="28" Height="28" CornerRadius="14" Background="#E5E7EB">
+                            <TextBlock Text="2"
+                                       Foreground="#6B7280"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Border>
+
+                        <TextBlock Text="Collect &amp; Export"
+                                   Margin="10,0"
+                                   Foreground="#6B7280"/>
                     </StackPanel>
                 </Border>
 
-                <!-- Body -->
-                <ScrollViewer VerticalScrollBarVisibility="Auto" Background="#F9FAFB">
-                    <StackPanel Margin="20" Orientation="Vertical" >
-
-                        <!-- File Categories -->
+            
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Margin="10">
+                        <Border Style="{StaticResource CardStyleGroup}">
+                          
                         <GroupBox Header="Select File Categories" Margin="0,0,0,16">
-                            <StackPanel Margin="4,8,4,8">
-                                <Expander Header="Documents &amp; Office Files" IsExpanded="False">
-                                    <StackPanel Margin="12,4,0,4">
-                                        <CheckBox Content=".doc, .docx, .xls, .xlsx, .ppt, .pptx, .pdf, .csv, .txt, .rtf, .odt, .ods, .odp"/>
-                                    </StackPanel>
-                                </Expander>
+      <StackPanel Margin="4,8,4,8">
+          <Expander Header="Documents &amp; Office Files" IsExpanded="False" >
+              <StackPanel Margin="12,4,0,4">
+                  <CheckBox Content=".doc, .docx, .xls, .xlsx, .ppt, .pptx, .pdf, .csv, .txt, .rtf, .odt, .ods, .odp"/>
+              </StackPanel>
+          </Expander>
 
-                                <Expander Header="Mobile &amp; iTunes Backups" IsExpanded="False">
-                                    <StackPanel Margin="12,4,0,4">
-                                        <CheckBox Content=".ipa, .plist, .db, .sqlite, .bak, .tar, .gz, .zip, .json, .xml"/>
-                                    </StackPanel>
-                                </Expander>
+          <Expander Header="Mobile &amp; iTunes Backups" IsExpanded="False">
+              <StackPanel Margin="12,4,0,4">
+                  <CheckBox Content=".ipa, .plist, .db, .sqlite, .bak, .tar, .gz, .zip, .json, .xml"/>
+              </StackPanel>
+          </Expander>
 
-                                <Expander Header="User Profiles &amp; Accounts" IsExpanded="False">
-                                    <StackPanel Margin="12,4,0,4">
-                                        <CheckBox Content="AppData, Desktop, Documents, Downloads, NTUSER.DAT, SAM, SECURITY, SOFTWARE, SYSTEM"/>
-                                    </StackPanel>
-                                </Expander>
+          <Expander Header="User Profiles &amp; Accounts" IsExpanded="False">
+              <StackPanel Margin="12,4,0,4">
+                  <CheckBox Content="AppData, Desktop, Documents, Downloads, NTUSER.DAT, SAM, SECURITY, SOFTWARE, SYSTEM"/>
+              </StackPanel>
+          </Expander>
 
-                                <Expander Header="Incident Response" IsExpanded="False">
-                                    <StackPanel Margin="12,4,0,4">
-                                        <CheckBox Content="Windows Registry Targets: NTUSER.DAT, USRCLASS.DAT, SAM, SECURITY, SOFTWARE, SYSTEM"/>
-                                    </StackPanel>
-                                </Expander>
+          <Expander Header="Incident Response" IsExpanded="False">
+              <StackPanel Margin="12,4,0,4">
+                  <CheckBox Content="Windows Registry Targets: NTUSER.DAT, USRCLASS.DAT, SAM, SECURITY, SOFTWARE, SYSTEM"/>
+              </StackPanel>
+          </Expander>
 
-                                <Expander Header="Communications" IsExpanded="False">
-                                    <StackPanel Margin="12,4,0,4">
-                                        <CheckBox Content=".pst, .ost, .nst, .msg, .eml, .mbox, .msf, .dbx, .oeaccount"/>
-                                    </StackPanel>
-                                </Expander>
+          <Expander Header="Communications" IsExpanded="False">
+              <StackPanel Margin="12,4,0,4">
+                  <CheckBox Content=".pst, .ost, .nst, .msg, .eml, .mbox, .msf, .dbx, .oeaccount"/>
+              </StackPanel>
+          </Expander>
 
-                                <Expander Header="Media Files" IsExpanded="False">
-                                    <StackPanel Margin="12,4,0,4">
-                                        <CheckBox Content=".jpg, .jpeg, .png, .gif, .bmp, .tiff, .mp3, .wav, .mp4, .avi, .mov, .mkv, .flac"/>
-                                    </StackPanel>
-                                </Expander>
+          <Expander Header="Media Files" IsExpanded="False">
+              <StackPanel Margin="12,4,0,4">
+                  <CheckBox Content=".jpg, .jpeg, .png, .gif, .bmp, .tiff, .mp3, .wav, .mp4, .avi, .mov, .mkv, .flac"/>
+              </StackPanel>
+          </Expander>
 
-                                <Expander Header="Web Data &amp; Cookies" IsExpanded="False">
-                                    <StackPanel Margin="12,4,0,4">
-                                        <CheckBox Content=".sqlite, .json, .xml, .dat, .log, Cookies, Cache, History, Login Data, Bookmarks"/>
-                                    </StackPanel>
-                                </Expander>
+          <Expander Header="Web Data &amp; Cookies" IsExpanded="False">
+              <StackPanel Margin="12,4,0,4">
+                  <CheckBox Content=".sqlite, .json, .xml, .dat, .log, Cookies, Cache, History, Login Data, Bookmarks"/>
+              </StackPanel>
+          </Expander>
 
-                                <Expander Header="Databases" IsExpanded="False">
-                                    <StackPanel Margin="12,4,0,4">
-                                        <CheckBox Content=".sql, .sqlite, .db, .mdb, .accdb, .frm, .ibd, .ndf, .mdf, .ldf"/>
-                                    </StackPanel>
-                                </Expander>
+          <Expander Header="Databases" IsExpanded="False">
+              <StackPanel Margin="12,4,0,4">
+                  <CheckBox Content=".sql, .sqlite, .db, .mdb, .accdb, .frm, .ibd, .ndf, .mdf, .ldf"/>
+              </StackPanel>
+          </Expander>
 
-                                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
-                                    
+          <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+              
+          </StackPanel>
+      </StackPanel>
+      
+  </GroupBox>
+                        </Border>
+                        
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="16"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0"
+                                    Background="White"
+                                    CornerRadius="8"
+                                    BorderBrush="#E5E7EB"
+                                    BorderThickness="1"
+                                    Padding="12">
+
+                                <StackPanel>
+                                    <TextBlock Text="Select Sources to Search"
+                                               FontWeight="Bold" FontSize="13"
+                                               Margin="0,0,0,8"/>
+
+                                    <CheckBox Content="All Mounted Drives" Style="{StaticResource CheckBoxStyle}" Margin="0,0,0,8"/>
+                                    <CheckBox Content="Archives (ZIP, RAR, 7Z, TAR, ISO)" Style="{StaticResource CheckBoxStyle}" Margin="0,0,0,8"/>
+                                    <CheckBox Content="Virtual Machines" Style="{StaticResource CheckBoxStyle}" Margin="0,0,0,8"/>
+                                    <CheckBox Content="All Mounted USB Drives" Style="{StaticResource CheckBoxStyle}" Margin="0,0,0,8"/>
+                                    <CheckBox Content="Cloud Drives" Style="{StaticResource CheckBoxStyle}" Margin="0,0,0,8"/>
+                                    <CheckBox Content="Network Shares" Style="{StaticResource CheckBoxStyle}"/>
                                 </StackPanel>
-                            </StackPanel>
-                            
-                        </GroupBox>
-
-                        <!-- Sources and Date Range -->
-                        <StackPanel Orientation="Horizontal" Margin="16">
-                            <!-- Sources -->
-                            <GroupBox Header="Select Sources to Search" Width="Auto" Margin="0,0,8,0">
-                                <StackPanel Margin="8,6,8,6">
-                                    <CheckBox Content="All Mounted Drives"/>
-                                    <CheckBox Content="Archives (ZIP, RAR, 7Z, TAR, ISO)"/>
-                                    <CheckBox Content="Virtual Machines"/>
-                                    <CheckBox Content="All Mounted USB Drives"/>
-                                    <CheckBox Content="Cloud Drives"/>
-                                    <CheckBox Content="Network Shares"/>
-                                </StackPanel>
-                            </GroupBox>
+                            </Border>
 
                             <!-- Date Range -->
-                            <GroupBox Header="Date Range Filter" Width="Auto" Margin="8,0,0,0">
-                                <StackPanel Margin="8,6,8,6">
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,4">
-                                        <TextBlock Text="Start:" Width="60" VerticalAlignment="Center"/>
-                                        <DatePicker Width="160"/>
+                            <Border Grid.Column="2"
+                                    Background="White"
+                                    CornerRadius="8"
+                                    BorderBrush="#E5E7EB"
+                                    BorderThickness="1"
+                                    Padding="12">
+
+                                <StackPanel >
+                                    <TextBlock Text="Date Range Filter"
+                                               FontWeight="Bold" FontSize="13"
+                                               Margin="0,0,0,8"/>
+                                   
+                                    <StackPanel Orientation="Horizontal" Margin="0,20">
+                                        <TextBlock Text="Start:" Width="60" FontSize="14" VerticalAlignment="Center"/>
+                                       
+                                        <DatePicker Width="160" Height="30" VerticalContentAlignment="Center"/>
+                                     
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                                        <TextBlock Text="End:" Width="60" VerticalAlignment="Center"/>
-                                        <DatePicker Width="160"/>
+
+                                    <StackPanel Orientation="Horizontal" Margin="0,4">
+                                        <TextBlock Text="End:" Width="60" FontSize="14"   VerticalAlignment="Center"/>
+                                        <DatePicker Width="160" Height="30" VerticalContentAlignment="Center"/>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="6">
-                                        <TextBlock Text="Filter" FontSize="11" Foreground="#4B5563" VerticalAlignment="Center" />
-                                        <ToggleButton Width="40" Style="{StaticResource SwitchToggleStyle}" Height="20" Background="#D1D5DB" Margin="10,0,0,0"
-                                                      BorderBrush="#D1D5DB" BorderThickness="1"/>
+
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Right"
+                                                Margin="0,10,0,0">
+                                        <TextBlock Text="Filter"
+                                                   FontSize="13"
+                                                   VerticalAlignment="Center"/>
+                                        <ToggleButton Style="{StaticResource SwitchToggleStyle}"
+                                                      Margin="8,0,0,0"/>
+                                        </StackPanel>
                                     </StackPanel>
-                                    
-                                </StackPanel>
                                 
-                            </GroupBox>
-                            
-                        </StackPanel>
-                        <!--<Button x:Name="BtnNext"
-Content="Next →" HorizontalAlignment="Right"
-Width="120"
-Style="{StaticResource RoundedButton}"    
-Height="32"
-Background="#1565c0"
-Foreground="White"
-BorderThickness="0"
-Click="OnNext"/>-->
+                            </Border>
+                        </Grid>
+
                     </StackPanel>
                 </ScrollViewer>
+
             </DockPanel>
         </Border>
     </Grid>
